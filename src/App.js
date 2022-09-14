@@ -6,6 +6,8 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Hotel from "./pages/Hotel";
 import Tour from "./pages/Tour";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
    return (
@@ -13,6 +15,8 @@ function App() {
          <Navbar />
          <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/Register" element={<Register />} />
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
