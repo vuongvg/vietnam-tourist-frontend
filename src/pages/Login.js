@@ -1,22 +1,37 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import request from '../api';
 import { Link } from 'react-router-dom';
 import {
-    Button,
     FormControl,
     OutlinedInput,
     InputLabel,
     InputAdornment,
-    IconButton
+    IconButton,
+    Alert
 } from '@mui/material';
-import { Person, Visibility, VisibilityOff } from '@mui/icons-material';
+import LoadingButton from '@mui/lab/LoadingButton';
+import { Person, Visibility, VisibilityOff, Login } from '@mui/icons-material';
 
-function Login() {
+function LoginPage() {
+    const navigate = useNavigate();
+
     const [values, setValues] = useState({
+        username: '',
         password: '',
         showPassword: false,
     });
 
+    const [errors, setErrors] = useState({
+        requestErr:'',
+        usernameErr:'',
+        passwordErr:''
+    });
+
+    const [loginWait, setLoginWait] = useState(false);
+
     const handleChange = (prop) => (event) => {
+        setErrors({ requestErr:'', usernameErr:'', passwordErr:'' });
         setValues({ ...values, [prop]: event.target.value });
     };
     
@@ -31,18 +46,59 @@ function Login() {
         event.preventDefault();
     };
 
+    const handleLogin = () => {
+        setErrors({ requestErr:'', usernameErr:'', passwordErr:'' });
+        if (!values.username) {
+            setErrors({ ...errors, usernameErr:'Username is empty' });
+        } else if (!values.password) {
+            setErrors({ ...errors, passwordErr:'Password is empty' });
+        } else {
+            setLoginWait(true);
+            request.post(
+                '/auth/login', 
+                {
+                    username: values.username,
+                    password: values.password
+                }
+            )
+            .then((res) => {
+                if (res.data.status === 200) {
+                    setLoginWait(false);
+                    setErrors({ ...errors, requestErr:'' });
+                    localStorage.setItem('token', res.data.token);
+                    navigate(-1);
+                } else {
+                    setErrors({ ...errors, requestErr:res.data.message });
+                    setLoginWait(false);
+                }
+            })
+            .catch(() => {
+                console.log("request failed");
+            })
+        }
+    }
+
+    useEffect(() => {
+
+    },[])
+
   return (
     <div className='position-absolute top-0 bottom-0 end-0 start-0 bg-white'>
         <div className='position-relative h-100 '>
             <div className='position-absolute top-50 w-100 translate-middle-y'>
                 <div className='col-md-3 col-10 m-auto p-3 pb-4 rounded border'>
                     <h3 className='color-secondary text-center'>Login Form</h3>
+                    <div hidden={!errors.requestErr} className="mt-3">
+                        <Alert severity="error">{errors.requestErr}</Alert>
+                    </div>
                     <div className='my-4'>
                         <FormControl fullWidth variant="outlined">
-                            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                            <InputLabel htmlFor="outlined-adornment-password">Username</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-password"
                                 type='text'
+                                value={values.username}
+                                onChange={handleChange('username')}
                                 endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton
@@ -55,6 +111,7 @@ function Login() {
                                 label="Username"
                             />
                         </FormControl>      
+                        <div className='color-d80f65 fs-0d8 mt-1'>{errors.usernameErr}</div>
                     </div>
                     <div>
                         <FormControl fullWidth variant="outlined">
@@ -78,24 +135,27 @@ function Login() {
                                 }
                                 label="Password"
                             />
-                        </FormControl>       
+                        </FormControl>    
+                        <div className='color-d80f65 fs-0d8 mt-1'>{errors.passwordErr}</div>   
                     </div>
-                    <div className='text-end mt-2 mb-4'>
-                        <Link to="/register" style={{fontSize:'.9rem'}}>Forgot password?</Link>
+                    <div className='text-end mt-2 mb-4 fw-bold'>
+                        <Link to="/register" className='color-d80f65 fs-0d8'>Forgot password?</Link>
                     </div>
                     <div>
-                        <Button
-                            loading
+                        <LoadingButton
+                            loading={loginWait}
                             loadingPosition="start"
                             variant="contained"
-                            fullWidth="true"
+                            fullWidth
                             sx={{fontWeight:"bold"}}
+                            onClick={handleLogin}
+                            startIcon={<></>}
                         >
                             Login
-                        </Button>
+                        </LoadingButton>
                     </div>
                     <div className='text-center mt-4'>
-                        <span>Don't have an account?</span> <Link to="/register">Sign up</Link>
+                        <span>Don't have an account?</span> <Link to="/register" className='fw-bold color-d80f65'>Sign up</Link>
                     </div>
                 </div>
             </div>
@@ -104,4 +164,4 @@ function Login() {
   )
 }
 
-export default Login
+export default LoginPage
