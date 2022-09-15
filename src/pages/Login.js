@@ -11,7 +11,7 @@ import {
     Alert
 } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
-import { Person, Visibility, VisibilityOff, Login } from '@mui/icons-material';
+import { Person, Visibility, VisibilityOff } from '@mui/icons-material';
 
 function LoginPage() {
     const navigate = useNavigate();
@@ -101,9 +101,7 @@ function LoginPage() {
                                 onChange={handleChange('username')}
                                 endAdornment={
                                 <InputAdornment position="end">
-                                    <IconButton
-                                        edge="end"
-                                    >
+                                    <IconButton className='bg-white' edge="end">
                                         <Person />
                                     </IconButton>
                                 </InputAdornment>
@@ -124,10 +122,10 @@ function LoginPage() {
                                 endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton
-                                    aria-label="toggle password visibility"
-                                    onClick={handleClickShowPassword}
-                                    onMouseDown={handleMouseDownPassword}
-                                    edge="end"
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPassword}
+                                        onMouseDown={handleMouseDownPassword}
+                                        edge="end"
                                     >
                                     {values.showPassword ? <VisibilityOff /> : <Visibility />}
                                     </IconButton>

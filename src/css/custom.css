@@ -14,6 +14,9 @@ a {
 .color-d80f65 {
     color:#d80f65;
 }
+.bg-white {
+    background-color: white;
+}
 /* end color */
 
 /* font-size */
@@ -21,3 +24,13 @@ a {
     font-size:.8rem;
 }
 /* end font-size */
+
+/* mui customize */
+.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+    background: white !important;
+    padding-right: 5px !important;
+}
+.css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root>.no-hover {
+    background-color: white !important;
+}
+/* end mui customize */
