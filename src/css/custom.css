@@ -9,3 +9,15 @@ html, body {
 a {
     text-decoration: none;
 }
+
+/* color */
+.color-d80f65 {
+    color:#d80f65;
+}
+/* end color */
+
+/* font-size */
+.fs-0d8 {
+    font-size:.8rem;
+}
+/* end font-size */
