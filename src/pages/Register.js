@@ -11,7 +11,7 @@ import {
     Alert
 } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
-import { Person, Visibility, VisibilityOff, Done, WarningAmber, Email, PhoneEnabled } from '@mui/icons-material';
+import { Person, Visibility, VisibilityOff, Done, WarningAmber, Email} from '@mui/icons-material';
 
 function Register() {
   const navigate = useNavigate();
@@ -19,7 +19,6 @@ function Register() {
   const [values, setValues] = useState({
       username: '',
       email:'',
-      phone:'',
       password:'',
       confirmPassword:'',
       showPassword:false,
@@ -28,7 +27,6 @@ function Register() {
   const [errors, setErrors] = useState({
       requestErr:'',
       usernameErr:'',
-      phoneErr:'',
       email:'',
       passwordErr:'',
       confirmPasswordErr:''
@@ -37,7 +35,7 @@ function Register() {
   const [loginWait, setLoginWait] = useState(false);
 
   const handleChange = (prop) => (event) => {
-    setErrors({ requestErr:'', usernameErr:'', phoneErr:'', email:'', passwordErr:'', confirmPasswordErr:'' });
+    setErrors({ requestErr:'', usernameErr:'', email:'', passwordErr:'', confirmPasswordErr:'' });
     setValues({ ...values, [prop]: event.target.value });
   };
   
@@ -53,13 +51,11 @@ function Register() {
   };
 
   const handleLogin = () => {
-      setErrors({ requestErr:'', usernameErr:'', phoneErr:'', email:'', passwordErr:'', confirmPasswordErr:'' });
+      setErrors({ requestErr:'', usernameErr:'', email:'', passwordErr:'', confirmPasswordErr:'' });
       if (!values.username) {
           setErrors({ ...errors, usernameErr:'Username is empty' });
       } else if (!values.email) {
           setErrors({ ...errors, emailErr:'Email is empty or invalid' });
-      } else if (!values.phone) {
-        setErrors({ ...errors, phoneErr:'Phone number is empty or invalid' });
       } else if (!values.password) {
         setErrors({ ...errors, passwordErr:'Password is empty' });
       } else if (!values.confirmPassword) {
@@ -100,7 +96,7 @@ function Register() {
     <div className='position-absolute top-0 bottom-0 end-0 start-0 bg-white'>
         <div className='position-relative h-100 '>
             <div className='position-absolute top-50 w-100 translate-middle-y'>
-                <div className='col-md-3 col-10 m-auto p-3 pb-4 rounded border'>
+                <div className='col-md-4 col-10 m-auto p-3 pb-4 rounded border'>
                     <h3 className='color-secondary text-center'>Register Form</h3>
                     <div hidden={!errors.requestErr} className="mt-3">
                         <Alert severity="error">{errors.requestErr}</Alert>
@@ -135,25 +131,6 @@ function Register() {
                                 <InputAdornment position="end">
                                     <IconButton className='bg-white' edge="end">
                                       <Email />
-                                    </IconButton>
-                                </InputAdornment>
-                                }
-                                label="Username"
-                            />
-                        </FormControl>      
-                        <div className='color-d80f65 fs-0d8 mt-1'>{errors.emailErr}</div>
-                    </div>
-                    <div className='mt-4'>
-                        <FormControl fullWidth variant="outlined">
-                            <InputLabel>Phone number</InputLabel>
-                            <OutlinedInput
-                                type='text'
-                                value={values.phone}
-                                onChange={handleChange('phone')}
-                                endAdornment={
-                                <InputAdornment position="end">
-                                    <IconButton className='bg-white' edge="end">
-                                      <PhoneEnabled />
                                     </IconButton>
                                 </InputAdornment>
                                 }
