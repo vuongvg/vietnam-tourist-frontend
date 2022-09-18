@@ -5,17 +5,34 @@ html, body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
-
 a {
     text-decoration: none;
+}
+input, select {
+    border: none;
+}
+input:focus-visible, select:focus-visible {
+    outline: none;
 }
 
 /* color */
 .color-d80f65 {
     color:#d80f65;
 }
+.color-f85a59 {
+    color: #f85a59;
+}
+.color-black {
+    color: black;
+}
+.color-c4 {
+    color: #c4c4c4;
+}
 .bg-white {
     background-color: white;
+}
+.bg-f85a59 {
+    background-color:'#f85a59', 
 }
 /* end color */
 
@@ -25,6 +42,37 @@ a {
 }
 /* end font-size */
 
+.flaticon-guarantee:before {content: "\f100";}
+
+/* space */
+.gap-3 {
+    gap: 3rem;
+}
+.gap-4 {
+    gap: 4rem;
+}
+/* end space */
+
+.bg-cover {
+    background-size: cover;
+}
+.bg-center {
+    background-position: center;
+}
+.bg-norepeat {
+    background-repeat: no-repeat;
+}
+
+.menu-item {
+    color: white;
+}
+.menu-item:hover {
+    color: #f85a59;
+}
+.z-1 {
+    z-index: 1;
+}
+
 /* mui customize */
 .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
     background: white !important;
@@ -32,5 +80,9 @@ a {
 }
 .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root>.no-hover {
     background-color: white !important;
+}
+.categories-buttons > .css-ugdaoh-MuiButtonBase-root-MuiButton-root:hover {
+    background-color: #f85a59;
+    color: white;
 }
 /* end mui customize */

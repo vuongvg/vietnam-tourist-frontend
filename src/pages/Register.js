@@ -32,7 +32,7 @@ function Register() {
       confirmPasswordErr:''
   });
 
-  const [loginWait, setLoginWait] = useState(false);
+  const [registerWait, setRegisterWait] = useState(false);
 
   const handleChange = (prop) => (event) => {
     setErrors({ requestErr:'', usernameErr:'', email:'', passwordErr:'', confirmPasswordErr:'' });
@@ -61,30 +61,29 @@ function Register() {
       } else if (!values.confirmPassword) {
         setErrors({ ...errors, confirmPasswordErr:'Confirm password failed' });
       } else {
-          setLoginWait(true);
-          request.post(
-              '/auth/register', 
-              {
-                username: values.username,
-                password: values.password,
-                email: values.email,
-                phone: values.phone
-              }
-          )
-          .then((res) => {
-              if (res.data.status === 200) {
-                  setLoginWait(false);
-                  setErrors({ ...errors, requestErr:'' });
-                  localStorage.setItem('token', res.data.token);
-                  navigate(-1);
-              } else {
-                  setErrors({ ...errors, requestErr:res.data.message });
-                  setLoginWait(false);
-              }
-          })
-          .catch(() => {
-              console.log("request failed");
-          })
+        setRegisterWait(true);
+        request.post(
+            '/auth/register', 
+            {
+              username: values.username,
+              password: values.password,
+              email: values.email,
+              phone: '1234567899'
+            }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            setRegisterWait(false);
+            setErrors({ ...errors, requestErr:'' });
+            navigate('/login');
+          } else {
+            setErrors({ ...errors, requestErr:res.data.message });
+            setRegisterWait(false);
+          }
+        })
+        .catch(() => {
+            console.log("request failed");
+        })
       }
   }
 
@@ -197,7 +196,7 @@ function Register() {
                     </div>
                     <div>
                         <LoadingButton
-                            loading={loginWait}
+                            loading={registerWait}
                             loadingPosition="start"
                             variant="contained"
                             fullWidth
