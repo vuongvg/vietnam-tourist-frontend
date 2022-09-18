@@ -1,8 +1,12 @@
-import React from 'react'
+import Banner from '../component/Home/Banner';
+import OurFeatures from '../component/Home/OurFeatures';
 
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <Banner />
+      <OurFeatures />
+    </div>
   )
 }
 
