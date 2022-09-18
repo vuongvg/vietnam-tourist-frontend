@@ -16,9 +16,6 @@ input:focus-visible, select:focus-visible {
 }
 
 /* color */
-.color-d80f65 {
-    color:#d80f65;
-}
 .color-f85a59 {
     color: #f85a59;
 }
@@ -27,6 +24,9 @@ input:focus-visible, select:focus-visible {
 }
 .color-c4 {
     color: #c4c4c4;
+}
+.color-ffffffb3 {
+    color: #ffffffb3;
 }
 .bg-white {
     background-color: white;
@@ -63,6 +63,10 @@ input:focus-visible, select:focus-visible {
     background-repeat: no-repeat;
 }
 
+.opacity-0d5 {
+    opacity: 0.5;
+}
+
 .menu-item {
     color: white;
 }
@@ -71,6 +75,12 @@ input:focus-visible, select:focus-visible {
 }
 .z-1 {
     z-index: 1;
+}
+
+.slick-prev, .slick-next { 
+    color: #f85a59 !important;
+    width: 2rem !important;
+    height: 2rem !important;
 }
 
 /* mui customize */

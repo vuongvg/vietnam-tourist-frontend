@@ -3,7 +3,7 @@ import { Grade, Favorite, SupervisorAccount, SupportAgent } from '@mui/icons-mat
 function OurFeatures () {
     return (
         <div style={{backgroundColor:'#f9faff'}} className="py-5">
-            <div className="col-8 m-auto d-flex gap-4">
+            <div className="container m-auto d-flex gap-4">
                 <div className="text-center py-5 px-4 bg-white">
                     <Grade className="mb-3 color-f85a59" sx={{ fontSize: 50 }}/>
                     <h4>Best Price Guarantee</h4>

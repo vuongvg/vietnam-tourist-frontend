@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./component/layout/Navbar";
+import Footer from "./component/layout/Footer";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
@@ -23,6 +24,7 @@ function App() {
             <Route path="/hotel" element={<Hotel />} />
             <Route path="/tour" element={<Tour />} />
          </Routes>
+         <Footer />
       </div>
    );
 }
