@@ -24,37 +24,73 @@ function FAQS () {
                         <div className="col-12 col-md-6 mb-4">
                             <div className="border d-flex justify-content-between align-items-center px-4 py-3">
                                 <h4 className="mb-0">When she reached the first hills</h4>
-                                <AddCircle sx={{color:'#84b55f'}}/>
+                                {/* <AddCircle sx={{color:'#84b55f'}}/> */}
+                                <RemoveCircle sx={{color:'#84b55f'}}/>
+                            </div>
+                            <div className="p-3 border-start border-end border-bottom">
+                                <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. 
+                                    Pityful a rethoric question ran over her cheek, then she continued her way.
+                                </p>
                             </div>
                         </div>
                         <div className="col-12 col-md-6 mb-4">
                             <div className="border d-flex justify-content-between align-items-center px-4 py-3">
                                 <h4 className="mb-0">When she reached the first hills</h4>
-                                <AddCircle sx={{color:'#84b55f'}}/>
+                                {/* <AddCircle sx={{color:'#84b55f'}}/> */}
+                                <RemoveCircle sx={{color:'#84b55f'}}/>
+                            </div>
+                            <div className="p-3 border-start border-end border-bottom">
+                                <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. 
+                                    Pityful a rethoric question ran over her cheek, then she continued her way.
+                                </p>
                             </div>
                         </div>
                         <div className="col-12 col-md-6 mb-4">
                             <div className="border d-flex justify-content-between align-items-center px-4 py-3">
                                 <h4 className="mb-0">When she reached the first hills</h4>
-                                <AddCircle sx={{color:'#84b55f'}}/>
+                                {/* <AddCircle sx={{color:'#84b55f'}}/> */}
+                                <RemoveCircle sx={{color:'#84b55f'}}/>
+                            </div>
+                            <div className="p-3 border-start border-end border-bottom">
+                                <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. 
+                                    Pityful a rethoric question ran over her cheek, then she continued her way.
+                                </p>
                             </div>
                         </div>
                         <div className="col-12 col-md-6 mb-4">
                             <div className="border d-flex justify-content-between align-items-center px-4 py-3">
                                 <h4 className="mb-0">When she reached the first hills</h4>
-                                <AddCircle sx={{color:'#84b55f'}}/>
+                                {/* <AddCircle sx={{color:'#84b55f'}}/> */}
+                                <RemoveCircle sx={{color:'#84b55f'}}/>
+                            </div>
+                            <div className="p-3 border-start border-end border-bottom">
+                                <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. 
+                                    Pityful a rethoric question ran over her cheek, then she continued her way.
+                                </p>
                             </div>
                         </div>
                         <div className="col-12 col-md-6 mb-4">
                             <div className="border d-flex justify-content-between align-items-center px-4 py-3">
                                 <h4 className="mb-0">When she reached the first hills</h4>
-                                <AddCircle sx={{color:'#84b55f'}}/>
+                                {/* <AddCircle sx={{color:'#84b55f'}}/> */}
+                                <RemoveCircle sx={{color:'#84b55f'}}/>
+                            </div>
+                            <div className="p-3 border-start border-end border-bottom">
+                                <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. 
+                                    Pityful a rethoric question ran over her cheek, then she continued her way.
+                                </p>
                             </div>
                         </div>
                         <div className="col-12 col-md-6 mb-4">
                             <div className="border d-flex justify-content-between align-items-center px-4 py-3">
                                 <h4 className="mb-0">When she reached the first hills</h4>
-                                <AddCircle sx={{color:'#84b55f'}}/>
+                                {/* <AddCircle sx={{color:'#84b55f'}}/> */}
+                                <RemoveCircle sx={{color:'#84b55f'}}/>
+                            </div>
+                            <div className="p-3 border-start border-end border-bottom">
+                                <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. 
+                                    Pityful a rethoric question ran over her cheek, then she continued her way.
+                                </p>
                             </div>
                         </div>
                     </div>
