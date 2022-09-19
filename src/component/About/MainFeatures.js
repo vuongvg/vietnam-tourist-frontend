@@ -29,10 +29,9 @@ function MainFeatures () {
                     </div>
                     <div className="col-12 col-lg-6 px-4">
                         <div className="d-flex justify-content-center">
-                            <div id="item1" onClick={handleShowHide} className="cursor-pointer rounded-pill px-4 py-2 me-4">What we do</div>
-                            {/* style={{backgroundColor:'#78d5ef'}} */}
-                            <div id="item2" onClick={handleShowHide} className="cursor-pointer rounded-pill px-4 py-2 me-4">Our mission</div>
-                            <div id="item3" onClick={handleShowHide} className="cursor-pointer rounded-pill px-4 py-2">Our goal</div>
+                            <div id="item1" onClick={handleShowHide} className={"cursor-pointer rounded-pill px-4 py-2 me-4" + (showHideItems['item1'] ? '' : ' bg-78d5ef text-white')}>What we do</div>
+                            <div id="item2" onClick={handleShowHide} className={"cursor-pointer rounded-pill px-4 py-2 me-4" + (showHideItems['item2'] ? '' : ' bg-78d5ef text-white')}>Our mission</div>
+                            <div id="item3" onClick={handleShowHide} className={"cursor-pointer rounded-pill px-4 py-2 me-4" + (showHideItems['item3'] ? '' : ' bg-78d5ef text-white')}>Our goal</div>
                         </div>
                         <div className='mt-5' hidden={showHideItems['item1']}>
                             <h3>Offering Reliable Hosting</h3>
