@@ -11,8 +11,8 @@ function PopularRestaurants () {
         <Typography variant="h4" component="h1">
           Popular Restaurants
         </Typography>
-        <div className="d-flex gap-3 mt-4">
-          <div>
+        <div className="row mt-4">
+          <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
             <div className="border">
               <div className="ratio ratio-1x1">
                 <div 
@@ -42,7 +42,7 @@ function PopularRestaurants () {
               </div>
             </div>
           </div>
-          <div>
+          <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
             <div className="border">
               <div className="ratio ratio-1x1">
                 <div 
@@ -72,7 +72,7 @@ function PopularRestaurants () {
               </div>
             </div>
           </div>
-          <div>
+          <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
             <div className="border">
               <div className="ratio ratio-1x1">
                 <div 
@@ -102,7 +102,7 @@ function PopularRestaurants () {
               </div>
             </div>
           </div>
-          <div>
+          <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
             <div className="border">
               <div className="ratio ratio-1x1">
                 <div 

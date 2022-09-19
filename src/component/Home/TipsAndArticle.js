@@ -3,7 +3,7 @@ import { Message } from '@mui/icons-material';
 
 function TipsAndArticle () {
   return (
-    <div style={{backgroundColor:'#f9faff'}} className="py-5">
+    <div className="py-5">
       <div className="container">
         <Typography variant="h6" component="h1" className="opacity-0d5">
           Recent Blog
@@ -11,8 +11,8 @@ function TipsAndArticle () {
         <Typography variant="h4" component="h1">
           Tips & Articles
         </Typography>
-        <div className="d-flex gap-3 mt-4">
-          <div>
+        <div className="row mt-4">
+          <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
             <div className="border">
               <div className="ratio ratio-1x1">
                 <div 
@@ -29,7 +29,7 @@ function TipsAndArticle () {
               </div>
             </div>
           </div>
-          <div>
+          <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
             <div className="border">
               <div className="ratio ratio-1x1">
                 <div 
@@ -46,7 +46,7 @@ function TipsAndArticle () {
               </div>
             </div>
           </div>
-          <div>
+          <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
             <div className="border">
               <div className="ratio ratio-1x1">
                 <div 
@@ -63,7 +63,7 @@ function TipsAndArticle () {
               </div>
             </div>
           </div>
-          <div>
+          <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
             <div className="border">
               <div className="ratio ratio-1x1">
                 <div 

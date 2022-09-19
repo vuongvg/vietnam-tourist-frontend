@@ -32,7 +32,10 @@ input:focus-visible, select:focus-visible {
     background-color: white;
 }
 .bg-f85a59 {
-    background-color:'#f85a59', 
+    background-color: #f85a59, 
+}
+.bg-78d5ef {
+    background-color: #78d5ef;
 }
 /* end color */
 
@@ -62,11 +65,15 @@ input:focus-visible, select:focus-visible {
 .bg-norepeat {
     background-repeat: no-repeat;
 }
-
 .opacity-0d5 {
     opacity: 0.5;
 }
-
+.box-shadow-none {
+    box-shadow: none !important;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
 .menu-item {
     color: white;
 }

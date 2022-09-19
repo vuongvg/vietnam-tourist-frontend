@@ -5,6 +5,7 @@ import TopTours from '../component/Home/TopTours';
 import PopularHotels from '../component/Home/PopularHotels';
 import PopularRestaurants from '../component/Home/PopularRestaurants';
 import TipsAndArticle from '../component/Home/TipsAndArticle';
+import SubscribeNewsletter from '../component/Home/SubscribeNewsletter';
 
 function Home() {
   return (
@@ -16,6 +17,7 @@ function Home() {
       <PopularHotels />
       <PopularRestaurants />
       <TipsAndArticle />
+      <SubscribeNewsletter />
     </div>
   )
 }

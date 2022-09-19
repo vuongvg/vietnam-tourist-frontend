@@ -3,7 +3,7 @@ import { Star, StarHalf } from '@mui/icons-material';
 
 function PopularHotels () {
   return (
-    <div style={{backgroundColor:'#f9faff'}} className="py-5">
+    <div className="py-5">
       <div className="container">
         <Typography variant="h6" component="h1" className="opacity-0d5">
           Special Offers
@@ -11,8 +11,8 @@ function PopularHotels () {
         <Typography variant="h4" component="h1">
           Popular Hotels & Rooms
         </Typography>
-        <div className="d-flex gap-3 mt-4">
-          <div>
+        <div className="row row-cols-2 row-cols-md-5 mt-4 g-2">
+          <div className="col mb-3 mb-md-0">
             <div className="border">
               <div className="ratio ratio-1x1">
                 <div 
@@ -42,7 +42,7 @@ function PopularHotels () {
               </div>
             </div>
           </div>
-          <div>
+          <div className="col mb-3 mb-md-0">
             <div className="border">
               <div className="ratio ratio-1x1">
                 <div 
@@ -72,7 +72,7 @@ function PopularHotels () {
               </div>
             </div>
           </div>
-          <div>
+          <div className="col mb-3 mb-md-0">
             <div className="border">
               <div className="ratio ratio-1x1">
                 <div 
@@ -102,7 +102,7 @@ function PopularHotels () {
               </div>
             </div>
           </div>
-          <div>
+          <div className="col mb-3 mb-md-0">
             <div className="border">
               <div className="ratio ratio-1x1">
                 <div 
@@ -132,7 +132,7 @@ function PopularHotels () {
               </div>
             </div>
           </div>
-          <div>
+          <div className="col mb-3 mb-md-0">
             <div className="border">
               <div className="ratio ratio-1x1">
                 <div 
