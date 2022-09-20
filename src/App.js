@@ -9,6 +9,7 @@ import Hotel from "./pages/Hotel";
 import Tour from "./pages/Tour";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Restaurant from "./pages/Restaurants";
 
 function App() {
    return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/hotel" element={<Hotel />} />
             <Route path="/tour" element={<Tour />} />
+            <Route path="/restaurant" element={<Restaurant />}/>
          </Routes>
          <Footer />
       </div>

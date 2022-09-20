@@ -78,7 +78,8 @@ input:focus-visible, select:focus-visible {
     color: white;
 }
 .menu-item:hover {
-    color: #f85a59;
+    color: white;
+    font-weight: 600;
 }
 .z-1 {
     z-index: 1;

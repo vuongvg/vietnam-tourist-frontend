@@ -35,8 +35,8 @@ function Navbar() {
                <div className="d-flex align-items-center justify-content-end gap-3">
                   <NavLink className="menu-item" to="/">Home</NavLink>
                   <NavLink className="menu-item" to="/about">About</NavLink>
-                  <NavLink className="menu-item" to="/hotel">Hotels</NavLink>
-                  <NavLink className="menu-item" to="/hotel">Restaurant</NavLink>
+                  <NavLink className="menu-item" to="/hotel">Hotel</NavLink>
+                  <NavLink className="menu-item" to="/restaurant">Restaurant</NavLink>
                   <NavLink className="menu-item" to="/tour">Tour</NavLink>
                   <NavLink className="menu-item" to="/blog">Blog</NavLink>
                   <NavLink className="menu-item" to="/contact">Contact</NavLink>

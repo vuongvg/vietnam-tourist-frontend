@@ -8,7 +8,7 @@ function Tour() {
       <Banner />
       <div className="container">
         <div className="row" style={{ padding:'5rem 0' }}>
-          <div className="col-12 col-md-3">
+          <div className="col-12 col-md-3 mb-5">
             <Filter />
           </div>
           <div className="col-12 col-md-9">

@@ -1,8 +1,8 @@
-import Filter from "../component/Hotels/Filter";
-import HotelList from "../component/Hotels/HotelList";
-import Banner from "../component/Hotels/Banner";
+import Filter from "../component/Restaurants/Filter";
+import ResList from "../component/Restaurants/ResList";
+import Banner from "../component/Restaurants/Banner";
 
-function Hotel() {
+function Restaurant() {
   return (
     <div>
       <Banner />
@@ -12,7 +12,7 @@ function Hotel() {
             <Filter />
           </div>
           <div className="col-12 col-md-9">
-            <HotelList />
+            <ResList />
           </div>
         </div>
       </div>
@@ -20,4 +20,4 @@ function Hotel() {
   )
 }
 
-export default Hotel;
+export default Restaurant;
