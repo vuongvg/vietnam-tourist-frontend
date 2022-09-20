@@ -1,6 +1,6 @@
 import PageBanner from "../component/ShareComponents/PageBanner";
-import PostList from "../component/Blog/PostList";
 import Banner from "../images/tourbanner.jpeg";
+import PostList from "../component/Blog/PostList";
 
 function Blog() {
   return (

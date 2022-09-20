@@ -1,11 +1,12 @@
 import Filter from "../component/Restaurants/Filter";
 import ResList from "../component/Restaurants/ResList";
-import Banner from "../component/Restaurants/Banner";
+import PageBanner from "../component/ShareComponents/PageBanner";
+import Banner from "../images/tourbanner.jpeg";
 
 function Restaurant() {
   return (
     <div>
-      <Banner />
+      <PageBanner image={Banner} page='Travel Blog'/>
       <div className="container">
         <div className="row" style={{ padding:'5rem 0' }}>
           <div className="col-12 col-md-3 mb-5">

@@ -1,10 +1,11 @@
-import Banner from "../component/Contact/Banner";
+import PageBanner from "../component/ShareComponents/PageBanner";
+import Banner from "../images/tourbanner.jpeg";
 import { Button } from "@mui/material";
 
 function Contact() {
   return (
     <div>
-      <Banner />
+      <PageBanner image={Banner} page='Contact Us'/>
       <div className="col-12 col-md-8 m-auto" style={{ padding:'5rem 0' }}>
         <div className="row px-3">
           <div>

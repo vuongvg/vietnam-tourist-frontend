@@ -1,22 +1,7 @@
 import ReactPaginate from 'react-paginate';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 const items = [1, 2, 3, 4, 5, 6, 7, 8];
-
-function Items({ currentItems }) {
-    return (
-      <>
-        {currentItems &&
-          currentItems.map((item) => (
-            <div>
-              <h3>Item #{item}</h3>
-            </div>
-          ))}
-      </>
-    );
-  
-}
   
 function Pagination({ itemsPerPage }) {
     // We start with an empty list of items.
@@ -45,16 +30,16 @@ function Pagination({ itemsPerPage }) {
   
     return (
         <>
-            <Items currentItems={currentItems} />
+            {/* <Items currentItems={currentItems} /> */}
             <div className='pagination-section'>
                 <ReactPaginate
-                    breakLabel="..."
-                    nextLabel="next >"
-                    onPageChange={handlePageClick}
-                    pageRangeDisplayed={8}
-                    pageCount={pageCount}
-                    previousLabel="< previous"
-                    renderOnZeroPageCount={null}
+                  breakLabel="..."
+                  nextLabel=">"
+                  onPageChange={handlePageClick}
+                  pageRangeDisplayed={8}
+                  pageCount={pageCount}
+                  previousLabel="<"
+                  renderOnZeroPageCount={null}
                 />
             </div>
         </>

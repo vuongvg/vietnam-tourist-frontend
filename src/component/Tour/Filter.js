@@ -40,24 +40,24 @@ function Filter () {
           </Select>
         </FormControl>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <MobileDatePicker
-            label="Date from"
-            inputFormat="MM/DD/YYYY"
-            value={value}
-            onChange={handleChange}
+      <MobileDatePicker
+          label="Date from"
+          inputFormat="MM/DD/YYYY"
+          value={value}
+          onChange={handleChange}
             className="mt-4 w-100"
-            renderInput={(params) => <TextField {...params} />}
-          />
-          <MobileDatePicker
-            label="Date to"
-            inputFormat="MM/DD/YYYY"
-            value={value}
-            onChange={handleChange}
+          renderInput={(params) => <TextField {...params} />}
+      />
+      <MobileDatePicker
+          label="Date to"
+          inputFormat="MM/DD/YYYY"
+          value={value}
+          onChange={handleChange}
             className="mt-4 w-100" 
-            renderInput={(params) => <TextField {...params} />}
-          />
+          renderInput={(params) => <TextField {...params} />}
+        />
         </LocalizationProvider>
-        <div>
+      <div>
           <Button variant="contained" fontSize="large" className="w-100 text-white mt-4 py-2" sx={{backgroundColor:'#f85a59'}}>Search</Button>
         </div>
       </div>
@@ -70,7 +70,7 @@ function Filter () {
           <Star className="color-f85a59" sx={{fontSize:15}}/>
           <Star className="color-f85a59" sx={{fontSize:15}}/>
           <Star className="color-f85a59" sx={{fontSize:15}}/>
-        </div>
+      </div>
         <div className="d-flex g-2 align-items-center">
           <Checkbox/>
           <Star className="color-f85a59" sx={{fontSize:15}}/>
@@ -94,7 +94,7 @@ function Filter () {
           <StarBorder className="color-f85a59" sx={{fontSize:15}}/>
           <StarBorder className="color-f85a59" sx={{fontSize:15}}/>
           <StarBorder className="color-f85a59" sx={{fontSize:15}}/>
-        </div>
+    </div>
         <div className="d-flex g-2 align-items-center">
           <Checkbox/>
           <Star className="color-f85a59" sx={{fontSize:15}}/>

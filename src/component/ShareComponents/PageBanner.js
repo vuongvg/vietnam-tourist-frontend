@@ -14,7 +14,7 @@ function PageBanner (props) {
                     </div>
                 </div>
             </div>
-            <div className="d-md-none d-block py-5" style={{backgroundImage:`url(${props.image})`}}>
+            <div className="d-md-none d-block text-white" style={{backgroundImage:`url(${props.image})`, padding:'10rem 0'}}>
                 <div className='d-flex gap-3 justify-content-center mb-3'>
                     <Link to='/' className='text-white'>Home</Link>
                     <div>{props.page}</div>
