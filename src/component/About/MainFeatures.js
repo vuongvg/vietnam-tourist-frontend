@@ -20,18 +20,18 @@ function MainFeatures () {
 
     return (
         <div className='container' style={{padding:'5rem 0'}}>
-            <div className='col-10 m-auto'>
+            <div className='col-12 col-md-10 m-auto'>
                 <div className="row mt-4">
                     <div className="col-12 col-lg-6">
                         <div className="ratio ratio-4x3">
                             <div className="bg-cover bg-norepeat bg-center" style={{backgroundImage:`url(${AboutTeam})`}}></div>
                         </div>
                     </div>
-                    <div className="col-12 col-lg-6 px-4">
-                        <div className="d-flex justify-content-center">
-                            <div id="item1" onClick={handleShowHide} className={"cursor-pointer rounded-pill px-4 py-2 me-4" + (showHideItems['item1'] ? '' : ' bg-78d5ef text-white')}>What we do</div>
-                            <div id="item2" onClick={handleShowHide} className={"cursor-pointer rounded-pill px-4 py-2 me-4" + (showHideItems['item2'] ? '' : ' bg-78d5ef text-white')}>Our mission</div>
-                            <div id="item3" onClick={handleShowHide} className={"cursor-pointer rounded-pill px-4 py-2 me-4" + (showHideItems['item3'] ? '' : ' bg-78d5ef text-white')}>Our goal</div>
+                    <div className="col-12 col-lg-6 px-4 mt-5 mt-md-0">
+                        <div className="d-block d-md-flex justify-content-center text-center">
+                            <div id="item1" onClick={handleShowHide} className={"cursor-pointer rounded-pill px-4 py-2 me-4 mb-3 mb-md-0" + (showHideItems['item1'] ? '' : ' bg-78d5ef text-white')}>What we do</div>
+                            <div id="item2" onClick={handleShowHide} className={"cursor-pointer rounded-pill px-4 py-2 me-4 mb-3 mb-md-0" + (showHideItems['item2'] ? '' : ' bg-78d5ef text-white')}>Our mission</div>
+                            <div id="item3" onClick={handleShowHide} className={"cursor-pointer rounded-pill px-4 py-2 me-4 mb-3 mb-md-0" + (showHideItems['item3'] ? '' : ' bg-78d5ef text-white')}>Our goal</div>
                         </div>
                         <div className='mt-5' hidden={showHideItems['item1']}>
                             <h3>Offering Reliable Hosting</h3>

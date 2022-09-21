@@ -111,7 +111,6 @@ input:focus-visible, select:focus-visible {
     background-color: #f85a59 !important;
     color: white !important;
 }
-
 .a-c {
     padding-top: 0rem;
     padding-bottom: 0rem;
@@ -125,7 +124,10 @@ input:focus-visible, select:focus-visible {
     transition: height 1s ,padding-top 1.5s;
     height: 12rem;
 }
-
+.img-skeleton {
+    -webkit-transform: none !important;
+    border-radius: 0 !important;
+}
 /* mui customize */
 .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
     background: white !important;

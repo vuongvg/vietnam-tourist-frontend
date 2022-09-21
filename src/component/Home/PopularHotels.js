@@ -1,7 +1,37 @@
-import { Typography, Button } from "@mui/material";
-import { Star, StarHalf } from '@mui/icons-material';
+import { Typography } from "@mui/material";
+import { useState, useEffect } from "react";
+import request from "../../api";
+import PopularHotelsSkeleton from "../Skeleton/TopTourAndPopularHotelSkeleton";
+import PopularHotelItem from "./PopularHotelItem";
 
 function PopularHotels () {
+
+  const [loading, setLoading] = useState(false);
+    const [data, setData] = useState(false);
+
+    useEffect(() => {
+        request.get(
+          '/hotel',
+          {
+            params: { 
+              isfamous:'famous',
+              limit:5 
+            }
+          }
+        )
+        .then((res) => {
+            if (res.status === 200) {
+                setLoading(true);
+                setData(res.data);
+            } else {
+                
+            }
+        })
+        .catch(() => {
+            console.log("request failed");
+        })
+  }, []);
+
   return (
     <div className="py-5">
       <div className="container">
@@ -12,156 +42,15 @@ function PopularHotels () {
           Popular Hotels & Rooms
         </Typography>
         <div className="row row-cols-2 row-cols-md-5 mt-4 g-2">
-          <div className="col mb-3 mb-md-0">
-            <div className="border">
-              <div className="ratio ratio-1x1">
-                <div 
-                  className="bg-cover bg-norepeat bg-center" 
-                  style={{backgroundImage:'url(https://preview.colorlib.com/theme/direngine/images/xdestination-1.jpg.pagespeed.ic.cH7KihJSx6.webp)'}}
-                ></div>
-              </div>
-              <div className="p-3">
-                <div className="d-flex justify-content-between">
-                  <h5>Fleur De Lys</h5>
-                  <div>$300</div>
-                </div>
-                <div>
-                  <Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><StarHalf sx={{fontSize:15}}/>
-                </div>
-                <div className="fs-0d8 my-2">Rating</div>
-                <div>Far far away, behind the word mountains, far from the countries</div>
-                <div className="mt-3">4 days 3 nights</div>
-                <div className="border-top pt-3 mt-3 text-end">
-                  <Button
-                    size="small"
-                    sx={{backgroundColor:'#f85a59', color:'white'}}
-                  >
-                    Discover
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col mb-3 mb-md-0">
-            <div className="border">
-              <div className="ratio ratio-1x1">
-                <div 
-                  className="bg-cover bg-norepeat bg-center" 
-                  style={{backgroundImage:'url(https://preview.colorlib.com/theme/direngine/images/xdestination-1.jpg.pagespeed.ic.cH7KihJSx6.webp)'}}
-                ></div>
-              </div>
-              <div className="p-3">
-                <div className="d-flex justify-content-between">
-                  <h5>Fleur De Lys</h5>
-                  <div>$200</div>
-                </div>
-                <div>
-                  <Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><StarHalf sx={{fontSize:15}}/>
-                </div>
-                <div className="fs-0d8 my-2">Rating</div>
-                <div>Far far away, behind the word mountains, far from the countries</div>
-                <div className="mt-3">4 days 3 nights</div>
-                <div className="border-top pt-3 mt-3 text-end">
-                  <Button
-                    size="small"
-                    sx={{backgroundColor:'#f85a59', color:'white'}}
-                  >
-                    Discover
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col mb-3 mb-md-0">
-            <div className="border">
-              <div className="ratio ratio-1x1">
-                <div 
-                  className="bg-cover bg-norepeat bg-center" 
-                  style={{backgroundImage:'url(https://preview.colorlib.com/theme/direngine/images/xdestination-1.jpg.pagespeed.ic.cH7KihJSx6.webp)'}}
-                ></div>
-              </div>
-              <div className="p-3">
-                <div className="d-flex justify-content-between">
-                  <h5>Fleur De Lys</h5>
-                  <div>$200</div>
-                </div>
-                <div>
-                  <Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><StarHalf sx={{fontSize:15}}/>
-                </div>
-                <div className="fs-0d8 my-2">Rating</div>
-                <div>Far far away, behind the word mountains, far from the countries</div>
-                <div className="mt-3">4 days 3 nights</div>
-                <div className="border-top pt-3 mt-3 text-end">
-                  <Button
-                    size="small"
-                    sx={{backgroundColor:'#f85a59', color:'white'}}
-                  >
-                    Discover
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col mb-3 mb-md-0">
-            <div className="border">
-              <div className="ratio ratio-1x1">
-                <div 
-                  className="bg-cover bg-norepeat bg-center" 
-                  style={{backgroundImage:'url(https://preview.colorlib.com/theme/direngine/images/xdestination-1.jpg.pagespeed.ic.cH7KihJSx6.webp)'}}
-                ></div>
-              </div>
-              <div className="p-3">
-                <div className="d-flex justify-content-between">
-                  <h5>Fleur De Lys</h5>
-                  <div>$200</div>
-                </div>
-                <div>
-                  <Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><StarHalf sx={{fontSize:15}}/>
-                </div>
-                <div className="fs-0d8 my-2">Rating</div>
-                <div>Far far away, behind the word mountains, far from the countries</div>
-                <div className="mt-3">4 days 3 nights</div>
-                <div className="border-top pt-3 mt-3 text-end">
-                  <Button
-                    size="small"
-                    sx={{backgroundColor:'#f85a59', color:'white'}}
-                  >
-                    Discover
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col mb-3 mb-md-0">
-            <div className="border">
-              <div className="ratio ratio-1x1">
-                <div 
-                  className="bg-cover bg-norepeat bg-center" 
-                  style={{backgroundImage:'url(https://preview.colorlib.com/theme/direngine/images/xdestination-1.jpg.pagespeed.ic.cH7KihJSx6.webp)'}}
-                ></div>
-              </div>
-              <div className="p-3">
-                <div className="d-flex justify-content-between">
-                  <h5>Fleur De Lys</h5>
-                  <div>$200</div>
-                </div>
-                <div>
-                  <Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><StarHalf sx={{fontSize:15}}/>
-                </div>
-                <div className="fs-0d8 my-2">Rating</div>
-                <div>Far far away, behind the word mountains, far from the countries</div>
-                <div className="mt-3">4 days 3 nights</div>
-                <div className="border-top pt-3 mt-3 text-end">
-                  <Button
-                    size="small"
-                    sx={{backgroundColor:'#f85a59', color:'white'}}
-                  >
-                    Discover
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
+          {
+            !loading 
+              ?
+                <PopularHotelsSkeleton />
+              :
+                data.map((item, index) => {
+                  return <PopularHotelItem key={index} data={item}/>
+                })
+          }
         </div>
       </div>
     </div>

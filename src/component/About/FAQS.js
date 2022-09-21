@@ -24,9 +24,9 @@ function FAQS () {
     }
 
     return (
-        <div style={{ padding:'5rem', backgroundColor:'#f9faff' }}>
+        <div style={{ padding:'5rem 0', backgroundColor:'#f9faff' }}>
             <div className="container">
-                <div className="col-10 m-auto">
+                <div className="col-12 m-auto">
                     <Typography variant="h6" component="h1" className="opacity-0d5">
                         FAQS
                     </Typography>
