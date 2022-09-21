@@ -92,7 +92,7 @@ input:focus-visible, select:focus-visible {
 .pagination-section > ul > li {
     display: inline-block;
     margin: 0 .3rem;
-    padding: .8rem;
+    padding: 1rem;
     width:1rem;
     height:1rem;
     border: 1px solid #ddd;
@@ -105,11 +105,27 @@ input:focus-visible, select:focus-visible {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    color: black;
 }
 .pagination-section .selected {
     background-color: #f85a59 !important;
     color: white !important;
 }
+
+.a-c {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    transition: height 1s,padding-top 1.5s;
+    height: 0;
+}
+
+.a-o {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transition: height 1s ,padding-top 1.5s;
+    height: 12rem;
+}
+
 /* mui customize */
 .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
     background: white !important;

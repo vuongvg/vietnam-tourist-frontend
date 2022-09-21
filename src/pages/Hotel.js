@@ -6,7 +6,7 @@ import Banner from "../images/tourbanner.jpeg";
 function Hotel() {
   return (
     <div>
-      <PageBanner image={Banner} page='Travel Blog'/>
+      <PageBanner image={Banner} page='Hotel'/>
       <div className="container">
         <div className="row" style={{ padding:'5rem 0' }}>
           <div className="col-12 col-md-3 mb-5">

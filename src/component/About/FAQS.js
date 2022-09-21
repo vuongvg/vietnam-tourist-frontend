@@ -4,16 +4,23 @@ import { useState, useEffect } from "react";
 
 function FAQS () {
 
-    // useEffect(() => {
-    //     (function ($) {
+    const [showHide, setShowHide] = useState({
+        sh1:false,
+        sh2:false,
+        sh3:false,
+        sh4:false,
+        sh5:false,
+        sh6:false,
+    });
 
-    //     })(jQuery);
-    // },[]);
-
-    const [showHide, setShowHide] = useState(false)
-
-    const handleToggle = () => {
-        setShowHide(!showHide);
+    const handleToggle = (e) => {
+        const number = e.currentTarget.className;
+        const value = !showHide[number];
+        showHide[number] = value;
+        setShowHide({
+            [number]: value,
+            ...showHide
+        });
     }
 
     return (
@@ -27,13 +34,17 @@ function FAQS () {
                         Frequently Ask Question
                     </Typography>
                     <div className="row mt-4">
-                        <div className="col-12 col-md-6 mb-4 expandable-contain">
+                        <div className="col-12 col-md-6 mb-4">
                             <div className="border d-flex justify-content-between align-items-center px-4 py-3">
                                 <h4 className="mb-0">When she reached the first hills</h4>
-                                {/* <AddCircle sx={{color:'#84b55f'}}/> */}
-                                <RemoveCircle sx={{color:'#84b55f'}} onClick={handleToggle}/>
+                                <div className="sh1" onClick={handleToggle} hidden={showHide['sh1']}>
+                                    <AddCircle className="cursor-pointer" sx={{color:'#84b55f'}}/>
+                                </div>
+                                <div className="sh1" onClick={handleToggle} hidden={!showHide['sh1']}>
+                                    <RemoveCircle className="cursor-pointer" sx={{color:'#84b55f'}}/>
+                                </div>
                             </div>
-                            <div className="p-3 border-start border-end border-bottom expandable" hidden={ !showHide }>
+                            <div className={"px-3 border-start border-end overflow-hidden border-bottom" + ( showHide['sh1'] ? " a-o" : " a-c" ) }>
                                 <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. 
                                     Pityful a rethoric question ran over her cheek, then she continued her way.
                                 </p>
@@ -42,10 +53,14 @@ function FAQS () {
                         <div className="col-12 col-md-6 mb-4">
                             <div className="border d-flex justify-content-between align-items-center px-4 py-3">
                                 <h4 className="mb-0">When she reached the first hills</h4>
-                                {/* <AddCircle sx={{color:'#84b55f'}}/> */}
-                                <RemoveCircle sx={{color:'#84b55f'}}/>
+                                <div className="sh2" onClick={handleToggle} hidden={showHide['sh2']}>
+                                    <AddCircle className="cursor-pointer" sx={{color:'#84b55f'}}/>
+                                </div>
+                                <div className="sh2" onClick={handleToggle} hidden={!showHide['sh2']}>
+                                    <RemoveCircle className="cursor-pointer" sx={{color:'#84b55f'}}/>
+                                </div>
                             </div>
-                            <div className="p-3 border-start border-end border-bottom">
+                            <div className={"px-3 border-start border-end overflow-hidden border-bottom" + ( showHide['sh2'] ? " a-o" : " a-c" ) }>
                                 <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. 
                                     Pityful a rethoric question ran over her cheek, then she continued her way.
                                 </p>
@@ -54,10 +69,14 @@ function FAQS () {
                         <div className="col-12 col-md-6 mb-4">
                             <div className="border d-flex justify-content-between align-items-center px-4 py-3">
                                 <h4 className="mb-0">When she reached the first hills</h4>
-                                {/* <AddCircle sx={{color:'#84b55f'}}/> */}
-                                <RemoveCircle sx={{color:'#84b55f'}}/>
+                                <div className="sh3" onClick={handleToggle} hidden={showHide['sh3']}>
+                                    <AddCircle className="cursor-pointer" sx={{color:'#84b55f'}}/>
+                                </div>
+                                <div className="sh3" onClick={handleToggle} hidden={!showHide['sh3']}>
+                                    <RemoveCircle className="cursor-pointer" sx={{color:'#84b55f'}}/>
+                                </div>
                             </div>
-                            <div className="p-3 border-start border-end border-bottom">
+                            <div className={"px-3 border-start border-end overflow-hidden border-bottom" + ( showHide['sh3'] ? " a-o" : " a-c" ) }>
                                 <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. 
                                     Pityful a rethoric question ran over her cheek, then she continued her way.
                                 </p>
@@ -66,10 +85,14 @@ function FAQS () {
                         <div className="col-12 col-md-6 mb-4">
                             <div className="border d-flex justify-content-between align-items-center px-4 py-3">
                                 <h4 className="mb-0">When she reached the first hills</h4>
-                                {/* <AddCircle sx={{color:'#84b55f'}}/> */}
-                                <RemoveCircle sx={{color:'#84b55f'}}/>
+                                <div className="sh4" onClick={handleToggle} hidden={showHide['sh4']}>
+                                    <AddCircle className="cursor-pointer" sx={{color:'#84b55f'}}/>
+                                </div>
+                                <div className="sh4" onClick={handleToggle} hidden={!showHide['sh4']}>
+                                    <RemoveCircle className="cursor-pointer" sx={{color:'#84b55f'}}/>
+                                </div>
                             </div>
-                            <div className="p-3 border-start border-end border-bottom">
+                            <div className={"px-3 border-start border-end overflow-hidden border-bottom" + ( showHide['sh4'] ? " a-o" : " a-c" ) }>
                                 <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. 
                                     Pityful a rethoric question ran over her cheek, then she continued her way.
                                 </p>
@@ -78,10 +101,14 @@ function FAQS () {
                         <div className="col-12 col-md-6 mb-4">
                             <div className="border d-flex justify-content-between align-items-center px-4 py-3">
                                 <h4 className="mb-0">When she reached the first hills</h4>
-                                {/* <AddCircle sx={{color:'#84b55f'}}/> */}
-                                <RemoveCircle sx={{color:'#84b55f'}}/>
+                                <div className="sh5" onClick={handleToggle} hidden={showHide['sh5']}>
+                                    <AddCircle className="cursor-pointer" sx={{color:'#84b55f'}}/>
+                                </div>
+                                <div className="sh5" onClick={handleToggle} hidden={!showHide['sh5']}>
+                                    <RemoveCircle className="cursor-pointer" sx={{color:'#84b55f'}}/>
+                                </div>
                             </div>
-                            <div className="p-3 border-start border-end border-bottom">
+                            <div className={"px-3 border-start border-end overflow-hidden border-bottom" + ( showHide['sh5'] ? " a-o" : " a-c" ) }>
                                 <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. 
                                     Pityful a rethoric question ran over her cheek, then she continued her way.
                                 </p>
@@ -90,10 +117,14 @@ function FAQS () {
                         <div className="col-12 col-md-6 mb-4">
                             <div className="border d-flex justify-content-between align-items-center px-4 py-3">
                                 <h4 className="mb-0">When she reached the first hills</h4>
-                                {/* <AddCircle sx={{color:'#84b55f'}}/> */}
-                                <RemoveCircle sx={{color:'#84b55f'}}/>
+                                <div className="sh6" onClick={handleToggle} hidden={showHide['sh6']}>
+                                    <AddCircle className="cursor-pointer" sx={{color:'#84b55f'}}/>
+                                </div>
+                                <div className="sh6" onClick={handleToggle} hidden={!showHide['sh6']}>
+                                    <RemoveCircle className="cursor-pointer" sx={{color:'#84b55f'}}/>
+                                </div>
                             </div>
-                            <div className="p-3 border-start border-end border-bottom">
+                            <div className={"px-3 border-start border-end overflow-hidden border-bottom" + ( showHide['sh6'] ? " a-o" : " a-c" ) }>
                                 <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. 
                                     Pityful a rethoric question ran over her cheek, then she continued her way.
                                 </p>

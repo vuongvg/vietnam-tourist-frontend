@@ -1,11 +1,12 @@
-import Banner from '../component/About/Banner';
+import PageBanner from '../component/ShareComponents/PageBanner';
+import Banner from "../images/tourbanner.jpeg";
 import MainFeatures from '../component/About/MainFeatures';
 import FAQS from '../component/About/FAQS';
 
 function About() {
   return (
     <div>
-      <Banner />
+      <PageBanner image={Banner} page='About Us'/>
       <MainFeatures />
       <FAQS />
     </div>
