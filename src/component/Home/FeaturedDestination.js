@@ -87,9 +87,11 @@ function FeaturedDestination () {
             <div className="mt-4">
               <Slider {...settings}>
                 {
-                  Array(6).fill(0).map((item, index) => {
-                    return <FeaturedDestinationItem key={index}/>
-                  })
+                  data
+                    &&
+                      data.map((item, index) => {
+                        return <FeaturedDestinationItem key={index} data={item}/>
+                      })
                 }
               </Slider>
             </div>
