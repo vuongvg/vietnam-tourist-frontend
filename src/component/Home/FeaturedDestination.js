@@ -5,6 +5,8 @@ import Slider from "react-slick";
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material/';
 import FeaturedDestinationItem from "./FeaturedDestinationItem";
 import FeaturedDestinationsSkeleton from "../Skeleton/FeaturedDestinationsSkeleton";
+import request from "../../api";
+import { useState, useEffect } from "react";
 
 function FeaturedDestination () {
   const settings = {
@@ -44,6 +46,31 @@ function FeaturedDestination () {
     ]
   };
 
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    request.get(
+      '/location',
+      {
+        params: { 
+          limit:5 
+        }
+      }
+    )
+    .then((res) => {
+        if (res.status === 200) {
+            setLoading(true);
+            setData(res.data);
+        } else {
+            
+        }
+    })
+    .catch(() => {
+        console.log("request failed");
+    })
+  }, []);
+
   return (
     <div className="container my-5 px-4 px-md-0">
       <Typography variant="h6" component="h1" className="opacity-0d5">
@@ -52,16 +79,21 @@ function FeaturedDestination () {
       <Typography variant="h4" component="h1">
         Featured Destination
       </Typography>
-      {/* <FeaturedDestinationsSkeleton /> */}
-      <div className="mt-4">
-        <Slider {...settings}>
-          {
-            Array(6).fill(0).map((item, index) => {
-              return <FeaturedDestinationItem />
-            })
-          }
-        </Slider>
-      </div>
+      {
+        !loading
+          ?
+            <FeaturedDestinationsSkeleton />
+          :
+            <div className="mt-4">
+              <Slider {...settings}>
+                {
+                  Array(6).fill(0).map((item, index) => {
+                    return <FeaturedDestinationItem key={index}/>
+                  })
+                }
+              </Slider>
+            </div>
+      }
     </div>
   )
 }

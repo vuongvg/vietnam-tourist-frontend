@@ -26,7 +26,7 @@ function PopularRestaurantsSkeleton () {
         <>
             {
                 Array(5).fill(0).map((item, index) => {
-                    return PopularRestaurantsSkeletonItem
+                    return <PopularRestaurantsSkeletonItem key={index}/>
                 })
             }
         </>

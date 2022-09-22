@@ -26,7 +26,7 @@ function PopularHotelsSkeleton () {
         <>
             {
                 Array(5).fill(0).map((item, index) => {
-                    return <PopularHotelsSkeletonItem />
+                    return <PopularHotelsSkeletonItem key={index}/>
                 })
             }
         </>

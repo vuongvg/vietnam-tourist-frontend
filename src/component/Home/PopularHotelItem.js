@@ -1,24 +1,32 @@
 import { Button } from "@mui/material";
 import { Star, StarHalf } from '@mui/icons-material';
+import { displayStars } from "../../utils";
 
-function PopularHotelItem () {
+function PopularHotelItem ({data}) {
 
     return (
         <div className="col mb-3 mb-md-0">
-            <div className="border">
+            <div className="border h-100">
               <div className="ratio ratio-1x1">
                 <div 
                   className="bg-cover bg-norepeat bg-center" 
-                  style={{backgroundImage:'url(https://preview.colorlib.com/theme/direngine/images/xdestination-1.jpg.pagespeed.ic.cH7KihJSx6.webp)'}}
+                  style={{backgroundImage:`url(${data.avatar})`}}
                 ></div>
               </div>
               <div className="p-3">
                 <div className="d-flex justify-content-between">
-                  <h5>Fleur De Lys</h5>
-                  <div>$300</div>
+                  <h5>{data.hotelname}</h5>
                 </div>
                 <div>
-                  <Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><Star sx={{fontSize:15}}/><StarHalf sx={{fontSize:15}}/>
+                  {
+                    displayStars(data.evaluate).map((item, index) => {
+                      if (item === 1) {
+                        return <Star sx={{fontSize:15}}/>
+                      } else {
+                        return <StarHalf sx={{fontSize:15}}/>
+                      }
+                    })
+                  }
                 </div>
                 <div className="fs-0d8 my-2">Rating</div>
                 <div>Far far away, behind the word mountains, far from the countries</div>

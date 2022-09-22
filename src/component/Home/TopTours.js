@@ -1,14 +1,36 @@
 import { Typography } from "@mui/material";
 import TopTourItem from "./TopTourItem";
 import { useState, useEffect } from "react";
+import request from "../../api";
+import Skeleton from "../Skeleton/TopTourAndPopularHotelSkeleton";
 
 function TopTours () {
 
   const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
 
-  useEffect(() => {
-
-  }, [])
+  useEffect(() => { 
+    request.get(
+      '/tour',
+      {
+        params: { 
+          isfamous:'famous',
+          limit:5 
+        }
+      }
+    )
+    .then((res) => {
+        if (res.status === 200) {
+            setLoading(true);
+            setData(res.data);
+        } else {
+            
+        }
+    })
+    .catch(() => {
+        console.log("request failed");
+    })
+  }, []);
 
   return (
     <div style={{backgroundColor:'#f9faff'}} className="py-5">
@@ -21,9 +43,13 @@ function TopTours () {
         </Typography>
         <div className="row row-cols-2 row-cols-md-5 mt-4 g-2">
           {
-            Array(5).fill(0).map((item, index) => {
-              return <TopTourItem key={index}/>
-            })
+            !loading
+              ?
+                <Skeleton />
+              :
+                Array(5).fill(0).map((item, index) => {
+                  return <TopTourItem key={index}/>
+                })
           }
         </div>
       </div>

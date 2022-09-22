@@ -35,7 +35,7 @@ function Banner () {
                             <select style={{height:'4rem', width:'18rem'}} className="px-4">
                                 {
                                     currencies.map((item, index) => {
-                                        return <option value={item.value}>{item.label}</option>
+                                        return <option key={index} value={item.value}>{item.label}</option>
                                     })
                                 }
                             </select>
@@ -90,7 +90,7 @@ function Banner () {
                     <select style={{height:'4rem', width:'18rem'}} className="px-4 mb-3">
                         {
                             currencies.map((item, index) => {
-                                return <option value={item.value}>{item.label}</option>
+                                return <option key={index} value={item.value}>{item.label}</option>
                             })
                         }
                     </select>

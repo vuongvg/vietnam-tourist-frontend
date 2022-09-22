@@ -1,7 +1,37 @@
-import { Typography, Button } from "@mui/material";
+import { Typography} from "@mui/material";
 import { Message } from '@mui/icons-material';
+import { useState, useEffect } from "react";
+import request from "../../api";
+import Skeleton from "../Skeleton/TipsAndArticlesSkeleton";
+import TipsAndAtriclesItem from "./TipsAndArticleItem";
 
 function TipsAndArticle () {
+
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect(() => { 
+    request.get(
+      '/blog',
+      {
+        params: { 
+          limit:4
+        }
+      }
+    )
+    .then((res) => {
+        if (res.status === 200) {
+            setLoading(true);
+            setData(res.data);
+        } else {
+            
+        }
+    })
+    .catch(() => {
+        console.log("request failed");
+    })
+  }, []);
+
   return (
     <div className="py-5">
       <div className="container">
@@ -12,74 +42,15 @@ function TipsAndArticle () {
           Tips & Articles
         </Typography>
         <div className="row mt-4">
-          <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
-            <div className="border">
-              <div className="ratio ratio-1x1">
-                <div 
-                  className="bg-cover bg-norepeat bg-center" 
-                  style={{backgroundImage:'url(https://preview.colorlib.com/theme/direngine/images/xdestination-1.jpg.pagespeed.ic.cH7KihJSx6.webp)'}}
-                ></div>
-              </div>
-              <div className="p-3">
-                <h4>8 Best homestay in Philippines that you don't miss out</h4>
-                <div className="mt-3 mb-2">August 12, 2018</div>
-                <div>
-                  <Message /> 5
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
-            <div className="border">
-              <div className="ratio ratio-1x1">
-                <div 
-                  className="bg-cover bg-norepeat bg-center" 
-                  style={{backgroundImage:'url(https://preview.colorlib.com/theme/direngine/images/xdestination-1.jpg.pagespeed.ic.cH7KihJSx6.webp)'}}
-                ></div>
-              </div>
-              <div className="p-3">
-                <h4>8 Best homestay in Philippines that you don't miss out</h4>
-                <div className="mt-3 mb-2">August 12, 2018</div>
-                <div>
-                  <Message /> 5
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
-            <div className="border">
-              <div className="ratio ratio-1x1">
-                <div 
-                  className="bg-cover bg-norepeat bg-center" 
-                  style={{backgroundImage:'url(https://preview.colorlib.com/theme/direngine/images/xdestination-1.jpg.pagespeed.ic.cH7KihJSx6.webp)'}}
-                ></div>
-              </div>
-              <div className="p-3">
-                <h4>8 Best homestay in Philippines that you don't miss out</h4>
-                <div className="mt-3 mb-2">August 12, 2018</div>
-                <div>
-                  <Message /> 5
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
-            <div className="border">
-              <div className="ratio ratio-1x1">
-                <div 
-                  className="bg-cover bg-norepeat bg-center" 
-                  style={{backgroundImage:'url(https://preview.colorlib.com/theme/direngine/images/xdestination-1.jpg.pagespeed.ic.cH7KihJSx6.webp)'}}
-                ></div>
-              </div>
-              <div className="p-3">
-                <h4>8 Best homestay in Philippines that you don't miss out</h4>
-                <div className="mt-3 mb-2">August 12, 2018</div>
-                <div>
-                  <Message /> 5
-                </div>
-              </div>
-            </div>
-          </div>
+          {
+            !loading
+              ?
+                <Skeleton />
+              :
+                Array(4).fill(0).map((item,index) => {
+                  return <TipsAndAtriclesItem key={index}/>
+                })
+          }
         </div>
       </div>
     </div>

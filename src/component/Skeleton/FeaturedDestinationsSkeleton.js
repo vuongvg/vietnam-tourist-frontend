@@ -19,7 +19,7 @@ function FeaturedDestinationsSkeleton () {
     <div className="row mt-4">
       {
         Array(4).fill(0).map((item, index) => {
-          return <SkeletonItem />
+          return <SkeletonItem key={index}/>
         })
       }
     </div>

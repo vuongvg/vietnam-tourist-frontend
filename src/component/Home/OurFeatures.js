@@ -19,14 +19,14 @@ function OurFeatures () {
                             <div>A small river named Duden flows by their place and supplies.</div>
                         </div>
                     </div>
-                    <div className="text-center col-6 col-md-3 px-3">
+                    <div className="text-center col-6 col-md-3 px-3 mt-4 mt-md-0">
                         <div className='py-5 px-4 bg-white h-100'>
                             <SupervisorAccount className="mb-3 color-f85a59" sx={{ fontSize: 50 }}/>
                             <h4>Best Travel Agent</h4>
                             <div>A small river named Duden flows by their place and supplies.</div>
                         </div>
                     </div>
-                    <div className="text-center col-6 col-md-3 px-3">
+                    <div className="text-center col-6 col-md-3 px-3 mt-4 mt-md-0">
                         <div className='py-5 px-4 bg-white h-100'>
                             <SupportAgent className="mb-3 color-f85a59" sx={{ fontSize: 50 }}/>
                             <h4>Our Dedicated Support</h4>

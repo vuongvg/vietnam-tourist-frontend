@@ -7,29 +7,29 @@ import PopularHotelItem from "./PopularHotelItem";
 function PopularHotels () {
 
   const [loading, setLoading] = useState(false);
-    const [data, setData] = useState(false);
+  const [data, setData] = useState([]);
 
-    useEffect(() => {
-        request.get(
-          '/hotel',
-          {
-            params: { 
-              isfamous:'famous',
-              limit:5 
-            }
-          }
-        )
-        .then((res) => {
-            if (res.status === 200) {
-                setLoading(true);
-                setData(res.data);
-            } else {
-                
-            }
-        })
-        .catch(() => {
-            console.log("request failed");
-        })
+  useEffect(() => {
+    request.get(
+      '/hotel',
+      {
+        params: { 
+          isfamous:'famous',
+          limit:5 
+        }
+      }
+    )
+    .then((res) => {
+        if (res.status === 200) {
+          setLoading(true);
+          setData(res.data);
+        } else {
+            
+        }
+    })
+    .catch(() => {
+        console.log("request failed");
+    })
   }, []);
 
   return (
@@ -47,9 +47,12 @@ function PopularHotels () {
               ?
                 <PopularHotelsSkeleton />
               :
-                data.map((item, index) => {
-                  return <PopularHotelItem key={index} data={item}/>
-                })
+                data.length > 0
+                  &&
+                    data.map((item, index) => {
+                      console.log(item);
+                      return <PopularHotelItem key={index} data={item}/>
+                    })
           }
         </div>
       </div>
