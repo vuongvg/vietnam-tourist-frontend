@@ -16,9 +16,6 @@ input:focus-visible, select:focus-visible {
 }
 
 /* color */
-.color-d80f65 {
-    color:#d80f65;
-}
 .color-f85a59 {
     color: #f85a59;
 }
@@ -28,11 +25,17 @@ input:focus-visible, select:focus-visible {
 .color-c4 {
     color: #c4c4c4;
 }
+.color-ffffffb3 {
+    color: #ffffffb3;
+}
 .bg-white {
     background-color: white;
 }
 .bg-f85a59 {
-    background-color:'#f85a59', 
+    background-color: #f85a59, 
+}
+.bg-78d5ef {
+    background-color: #78d5ef;
 }
 /* end color */
 
@@ -62,17 +65,69 @@ input:focus-visible, select:focus-visible {
 .bg-norepeat {
     background-repeat: no-repeat;
 }
-
+.opacity-0d5 {
+    opacity: 0.5;
+}
+.box-shadow-none {
+    box-shadow: none !important;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
 .menu-item {
     color: white;
 }
 .menu-item:hover {
-    color: #f85a59;
+    color: white;
+    font-weight: 600;
 }
 .z-1 {
     z-index: 1;
 }
+.slick-prev, .slick-next { 
+    color: #f85a59 !important;
+    width: 2rem !important;
+    height: 2rem !important;
+}
+.pagination-section > ul > li {
+    display: inline-block;
+    margin: 0 .3rem;
+    padding: 1rem;
+    width:1rem;
+    height:1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    vertical-align: middle;
+    position: relative;
+}
+.pagination-section > ul > li > a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: black;
+}
+.pagination-section .selected {
+    background-color: #f85a59 !important;
+    color: white !important;
+}
+.a-c {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    transition: height 1s,padding-top 1.5s;
+    height: 0;
+}
 
+.a-o {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transition: height 1s ,padding-top 1.5s;
+    height: 12rem;
+}
+.img-skeleton {
+    -webkit-transform: none !important;
+    border-radius: 0 !important;
+}
 /* mui customize */
 .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
     background: white !important;
