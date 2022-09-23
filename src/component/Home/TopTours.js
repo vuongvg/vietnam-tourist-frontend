@@ -14,7 +14,6 @@ function TopTours () {
       '/tour',
       {
         params: { 
-          isfamous:'famous',
           limit:5 
         }
       }
@@ -47,9 +46,11 @@ function TopTours () {
               ?
                 <Skeleton />
               :
-                Array(5).fill(0).map((item, index) => {
-                  return <TopTourItem key={index}/>
-                })
+                data.length > 0
+                  &&
+                    data.map((item, index) => {
+                      return <TopTourItem key={index} data={item }/>
+                    })
           }
         </div>
       </div>
