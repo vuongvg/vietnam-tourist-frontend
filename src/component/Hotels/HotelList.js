@@ -7,7 +7,7 @@ function TourList () {
       <div className="row row-cols-1 row-cols-lg-3">
         {
           Array(9).fill(0).map((item, index) => {
-            return <TourItem />
+            return <TourItem key={item}/>
           })
         }
       </div>

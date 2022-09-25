@@ -1,5 +1,4 @@
-import { Typography, Button } from "@mui/material";
-import { Star, StarHalf } from '@mui/icons-material';
+import { Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import request from "../../api";
 import Skeleton from "../Skeleton/PopularRestaurantsSkeleton";
@@ -16,7 +15,7 @@ function PopularRestaurants () {
       {
         params: { 
           isfamous:'famous',
-          limit:5 
+          limit:4
         }
       }
     )
@@ -48,9 +47,11 @@ function PopularRestaurants () {
               ?
                 <Skeleton />
               :
-                Array(4).fill(0).map((item,index) => {
-                  return <PopularRestaurantItem key={index}/>
-                })
+                data.length > 0
+                  && 
+                    data.map((item,index) => {
+                      return <PopularRestaurantItem key={index} data={item}/>
+                    })
           }
         </div>
       </div>
