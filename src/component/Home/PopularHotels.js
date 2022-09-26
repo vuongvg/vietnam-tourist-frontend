@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import request from "../../api";
 import PopularHotelsSkeleton from "../Skeleton/TopTourAndPopularHotelSkeleton";
 import PopularHotelItem from "./PopularHotelItem";
+import { Link } from "react-router-dom";
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 function PopularHotels () {
 
@@ -54,6 +56,7 @@ function PopularHotels () {
                     })
           }
         </div>
+        <div className="text-end mt-3"><Link to="/hotel" className="text-dark">See more hotels & rooms <ArrowRightAltIcon sx={{color:'#6c6c6c'}}/></Link></div>
       </div>
     </div>
   )

@@ -1,8 +1,10 @@
 import { Typography } from "@mui/material";
 import TopTourItem from "./TopTourItem";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import request from "../../api";
 import Skeleton from "../Skeleton/TopTourAndPopularHotelSkeleton";
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 function TopTours () {
 
@@ -53,6 +55,7 @@ function TopTours () {
                     })
           }
         </div>
+        <div className="text-end mt-3"><Link to="/tour" className="text-dark">See more tours <ArrowRightAltIcon sx={{color:'#6c6c6c'}}/></Link></div>
       </div>
     </div>
   )

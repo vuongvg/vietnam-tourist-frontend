@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import request from "../../api";
 import Skeleton from "../Skeleton/PopularRestaurantsSkeleton";
 import PopularRestaurantItem from "./PopularRestaurantItem";
+import { Link } from "react-router-dom";
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 function PopularRestaurants () {
 
@@ -54,6 +56,7 @@ function PopularRestaurants () {
                     })
           }
         </div>
+        <div className="text-end mt-3"><Link to="/restaurant" className="text-dark">See more restaurants <ArrowRightAltIcon sx={{color:'#6c6c6c'}}/></Link></div>
       </div>
     </div>
   )

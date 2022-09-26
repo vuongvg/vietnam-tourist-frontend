@@ -1,20 +1,30 @@
-import { Message } from "@mui/icons-material";
+import { Message, AccessTime } from "@mui/icons-material";
+import { spliceString, transferDate } from "../../utils";
 
-function TipsAndAtriclesItem () {
+function TipsAndAtriclesItem ({data}) {
     return (
         <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
-            <div className="border">
+            <div className="border h-100">
                 <div className="ratio ratio-1x1">
                 <div 
                     className="bg-cover bg-norepeat bg-center" 
-                    style={{backgroundImage:'url(https://preview.colorlib.com/theme/direngine/images/xdestination-1.jpg.pagespeed.ic.cH7KihJSx6.webp)'}}
+                    style={{backgroundImage:`url(${data.avatar})`}}
                 ></div>
                 </div>
                 <div className="p-3">
-                <h4>8 Best homestay in Philippines that you don't miss out</h4>
-                <div className="mt-3 mb-2">August 12, 2018</div>
+                <h4>{spliceString(data.title,80)}</h4>
+                <div className="mt-3 mb-2 align-items-center d-flex fs-0d8"><AccessTime className="me-2" sx={{fontSize:20}}/> {transferDate(data.updatedAt)}</div>
                 <div>
-                    <Message /> 5
+                    {
+                        data.comment
+                            ?
+                                <>
+                                    <Message /> {data.comment}
+                                </>
+                            :
+                                ''
+                    }
+                    
                 </div>
                 </div>
             </div>

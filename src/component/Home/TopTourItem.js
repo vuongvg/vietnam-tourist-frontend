@@ -1,5 +1,4 @@
 import { Button } from "@mui/material";
-import { Star, StarHalf } from '@mui/icons-material';
 import { spliceString } from "../../utils";
 
 function TopTourItem ({data}) {
@@ -15,19 +14,17 @@ function TopTourItem ({data}) {
               <div className="p-3">
                 <div className="d-flex justify-content-between">
                   <h5>{data.title}</h5>
-                  <div>{data.price}</div>
                 </div>
-                <div className="fs-0d8 my-2">Rating</div>
+                <div className="color-f85a59 fw-bold mb-3 mt-2">{data.price} VNĐ</div>
                 <div>{spliceString(data.description,80)}</div>
-                <div className="mt-3">4 days 3 nights</div>
-                <div className="border-top pt-3 mt-3 text-end">
+                {/* <div className="border-top pt-3 mt-3 text-end">
                   <Button
                     size="small"
                     sx={{backgroundColor:'#f85a59', color:'white'}}
                   >
                     Discover
                   </Button>
-                </div>
+                </div> */}
               </div>
             </div>
         </div>
