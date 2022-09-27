@@ -3,7 +3,7 @@ import TopTourItem from "./TopTourItem";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import request from "../../api";
-import Skeleton from "../Skeleton/TopTourAndPopularHotelSkeleton";
+import Skeleton from "../Skeleton/HotelSkeleton";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 function TopTours () {
@@ -46,7 +46,7 @@ function TopTours () {
           {
             !loading
               ?
-                <Skeleton />
+                <Skeleton number={5}/>
               :
                 data.length > 0
                   &&

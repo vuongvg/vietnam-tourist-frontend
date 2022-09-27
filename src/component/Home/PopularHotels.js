@@ -1,8 +1,8 @@
 import { Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import request from "../../api";
-import PopularHotelsSkeleton from "../Skeleton/TopTourAndPopularHotelSkeleton";
-import PopularHotelItem from "./PopularHotelItem";
+import Skeleton from "../Skeleton/HotelSkeleton";
+import PopularHotelItem from "../ShareComponents/HotelItem";
 import { Link } from "react-router-dom";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
@@ -47,7 +47,7 @@ function PopularHotels () {
           {
             !loading 
               ?
-                <PopularHotelsSkeleton />
+                <Skeleton number={5}/>
               :
                 data.length > 0
                   &&

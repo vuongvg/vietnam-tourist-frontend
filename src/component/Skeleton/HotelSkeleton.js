@@ -1,8 +1,8 @@
 import { Skeleton } from "@mui/material";
 
-function PopularHotelsSkeletonItem () {
+function SkeletonItem () {
     return (
-        <div className="col mb-3 mb-md-0">
+        <div className="col mb-4">
             <div className="border">
                 <Skeleton className="ratio ratio-4x3 img-skeleton"/>
                 <div className="p-3">
@@ -21,16 +21,16 @@ function PopularHotelsSkeletonItem () {
     )
 }
 
-function PopularHotelsSkeleton () {
+function SkeletonGroup ({number}) {
     return (
         <>
             {
-                Array(5).fill(0).map((item, index) => {
-                    return <PopularHotelsSkeletonItem key={index}/>
+                Array(number).fill(0).map((item, index) => {
+                    return <SkeletonItem key={index}/>
                 })
             }
         </>
     )
 }
 
-export default PopularHotelsSkeleton;
+export default SkeletonGroup;

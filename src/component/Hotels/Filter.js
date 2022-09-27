@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import dayjs from "dayjs";
-import { MobileDatePicker, LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { useSearchParams } from "react-router-dom";
 import { InputLabel, MenuItem, FormControl, Select, TextField, Button, Checkbox, Box, Slider } from '@mui/material';
 import { Star, StarBorder } from '@mui/icons-material';
 import { displayPrice } from "../../utils";
@@ -9,28 +7,30 @@ import { displayPrice } from "../../utils";
 function Filter () {
 
   const [starRating, setStarRating] = useState(5);
-
   const [checked, setChecked] = useState([true, false, false, false, false]);
-
   const [valueSlider, setValueSlider] = useState([350000, 1000000]);
+  const [city, setCity] = useState('');
+  const [,setSearchParams] = useSearchParams();
 
   const handleChangeSlider = (event, newValue) => {
     setValueSlider(newValue);
   };
-
-  const [city, setCity] = useState('');
 
   const handleChangeSelect = (event) => {
     setCity(event.target.value);
   };
 
   const handleSearch = () => {
-
+    setSearchParams({
+      city: city,
+      rating: starRating,
+      lowest: valueSlider[0],
+      highest: valueSlider[1]
+    });
   }
 
   const handleCheckBox = (value,position,e) => {
     const a = e.currentTarget.checked;
-    console.log(a, position);
     const updateChecked = checked.map((item, index) => 
       index === position ? !item : false
     );
@@ -116,7 +116,7 @@ function Filter () {
           </Box>
         </div>
         <div>
-          <Button variant="contained" fontSize="large" className="w-100 text-white mt-4 py-2" sx={{backgroundColor:'#f85a59'}}>Search</Button>
+          <Button variant="contained" fontSize="large" className="w-100 text-white mt-4 py-2" sx={{backgroundColor:'#f85a59'}} onClick={handleSearch}>Search</Button>
         </div>
       </div>
     </>
