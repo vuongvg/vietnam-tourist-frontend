@@ -60,7 +60,6 @@ function TourList () {
             &&
               <Pagination page={currentPage ? (currentPage*1-1) : 1} itemsPerPage={3} listItems={data} setCurrentItems={setCurrentItems}/>
         }
-        
       </div>
     </div>
   )

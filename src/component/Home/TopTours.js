@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import TopTourItem from "./TopTourItem";
+import TopTourItem from "../ShareComponents/TourItem";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import request from "../../api";

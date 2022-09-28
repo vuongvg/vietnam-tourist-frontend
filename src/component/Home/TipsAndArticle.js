@@ -1,5 +1,4 @@
 import { Typography} from "@mui/material";
-import { Message } from '@mui/icons-material';
 import { useState, useEffect } from "react";
 import request from "../../api";
 import Skeleton from "../Skeleton/TipsAndArticlesSkeleton";
@@ -47,7 +46,7 @@ function TipsAndArticle () {
           {
             !loading
               ?
-                <Skeleton />
+                <Skeleton number={4}/>
               :
                 data 
                   &&
