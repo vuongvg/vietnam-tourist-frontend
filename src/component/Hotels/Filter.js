@@ -23,7 +23,7 @@ function Filter () {
   const handleSearch = () => {
     setSearchParams({
       city: city,
-      rating: starRating,
+      evaluate: starRating,
       lowest: valueSlider[0],
       highest: valueSlider[1]
     });

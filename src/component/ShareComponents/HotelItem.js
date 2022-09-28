@@ -21,9 +21,9 @@ function HotelItem ({data}) {
                   {
                     displayStars(data.evaluate).map((item, index) => {
                       if (item === 1) {
-                        return <Star sx={{fontSize:15}}/>
+                        return <Star sx={{fontSize:15}} key={index}/>
                       } else {
-                        return <StarHalf sx={{fontSize:15}}/>
+                        return <StarHalf sx={{fontSize:15}} key={index}/>
                       }
                     })
                   }

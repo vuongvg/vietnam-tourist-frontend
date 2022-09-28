@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { spliceString } from "../../utils";
 
-function PopularRestaurantItem ({data}) {
+function RestaurantItem ({data}) {
     return (
         <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
             <div className="border">
@@ -30,4 +30,4 @@ function PopularRestaurantItem ({data}) {
     )
 }
 
-export default PopularRestaurantItem;
+export default RestaurantItem;

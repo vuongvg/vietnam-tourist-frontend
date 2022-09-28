@@ -14,14 +14,11 @@ function TourList () {
   const [currentPage, setCurrentpage] = useState(1);
   const page = searchParams.get('page');
 
-  console.log(page)
-
   useEffect(() => {
     request.get(
       '/hotel',
       {
         params: { 
-          isfamous:'famous'
         }
       }
     )
@@ -39,9 +36,8 @@ function TourList () {
   }, []);
 
   useEffect(() => {
-    console.log(page)
-    setCurrentpage(page);
-  }, [page])
+    setCurrentpage(page ? page : 1);
+  }, [page]);
 
   return (
     <div>
@@ -58,16 +54,11 @@ function TourList () {
                 })
         }
       </div>
-      <div className="row row-cols-1 row-cols-lg-3">
-        {
-          
-        }
-      </div>
       <div className="text-center col-12 mt-4">
         {
           data.length > 0
             &&
-              <Pagination page={currentPage ? (currentPage - 1) : 1} itemsPerPage={3} listItems={data} setCurrentItems={setCurrentItems}/>
+              <Pagination page={currentPage ? (currentPage*1-1) : 1} itemsPerPage={3} listItems={data} setCurrentItems={setCurrentItems}/>
         }
         
       </div>

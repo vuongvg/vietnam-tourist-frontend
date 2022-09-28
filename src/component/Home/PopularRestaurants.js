@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import request from "../../api";
 import Skeleton from "../Skeleton/PopularRestaurantsSkeleton";
-import PopularRestaurantItem from "./PopularRestaurantItem";
+import RestaurantItem from "../ShareComponents/ResItem";
 import { Link } from "react-router-dom";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
@@ -52,7 +52,7 @@ function PopularRestaurants () {
                 data.length > 0
                   && 
                     data.map((item,index) => {
-                      return <PopularRestaurantItem key={index} data={item}/>
+                      return <RestaurantItem key={index} data={item}/>
                     })
           }
         </div>

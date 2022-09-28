@@ -3,7 +3,7 @@ import { Message } from '@mui/icons-material';
 import { useState, useEffect } from "react";
 import request from "../../api";
 import Skeleton from "../Skeleton/TipsAndArticlesSkeleton";
-import TipsAndAtriclesItem from "./TipsAndArticleItem";
+import TipsAndAtriclesItem from "../ShareComponents/BlogItem";
 import { Link } from "react-router-dom";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 

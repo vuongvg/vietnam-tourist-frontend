@@ -14,9 +14,9 @@ function Filter () {
 
   const [valueSlider, setValueSlider] = useState([350000, 1000000]);
 
-  const handleChangeSlider = (event, newValue) => {
-    setValueSlider(newValue);
-  };
+  // const handleChangeSlider = (event, newValue) => {
+  //   setValueSlider(newValue);
+  // };
 
   const [city, setCity] = useState('');
 
@@ -24,9 +24,9 @@ function Filter () {
     setCity(event.target.value);
   };
 
-  const handleSearch = () => {
+  // const handleSearch = () => {
 
-  }
+  // }
 
   const handleCheckBox = (value,position,e) => {
     const a = e.currentTarget.checked;
@@ -100,7 +100,7 @@ function Filter () {
           <StarBorder className="color-f85a59" sx={{fontSize:15}}/>
           <StarBorder className="color-f85a59" sx={{fontSize:15}}/>
         </div>
-        <h5 className="mt-4">COST/NIGHT</h5>
+        {/* <h5 className="mt-4">COST/NIGHT</h5>
         <div className="px-2">
           <Box sx={{ width:'100%' }}>
             <Slider
@@ -114,7 +114,7 @@ function Filter () {
               max={5000000}
             />
           </Box>
-        </div>
+        </div> */}
         <div>
           <Button variant="contained" fontSize="large" className="w-100 text-white mt-4 py-2" sx={{backgroundColor:'#f85a59'}}>Search</Button>
         </div>
