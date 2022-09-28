@@ -1,9 +1,10 @@
 import { Typography} from "@mui/material";
-import { Message } from '@mui/icons-material';
 import { useState, useEffect } from "react";
 import request from "../../api";
 import Skeleton from "../Skeleton/TipsAndArticlesSkeleton";
-import TipsAndAtriclesItem from "./TipsAndArticleItem";
+import TipsAndAtriclesItem from "../ShareComponents/BlogItem";
+import { Link } from "react-router-dom";
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 function TipsAndArticle () {
 
@@ -45,13 +46,16 @@ function TipsAndArticle () {
           {
             !loading
               ?
-                <Skeleton />
+                <Skeleton number={4}/>
               :
-                Array(4).fill(0).map((item,index) => {
-                  return <TipsAndAtriclesItem key={index}/>
-                })
+                data 
+                  &&
+                    data.map((item,index) => {
+                      return <TipsAndAtriclesItem key={index} data={item}/>
+                    })
           }
         </div>
+        <div className="text-end mt-3"><Link to="/blog" className="text-dark">read more posts<ArrowRightAltIcon sx={{color:'#6c6c6c'}}/></Link></div>
       </div>
     </div>
   )

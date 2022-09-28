@@ -1,46 +1,49 @@
 import ReactPaginate from 'react-paginate';
 import { useState, useEffect } from 'react';
-
-const items = [1, 2, 3, 4, 5, 6, 7, 8];
+import { useSearchParams } from "react-router-dom";
   
-function Pagination({ itemsPerPage }) {
-    // We start with an empty list of items.
-    const [currentItems, setCurrentItems] = useState(null);
+function Pagination({ page, itemsPerPage, listItems, setCurrentItems }) {
     const [pageCount, setPageCount] = useState(0);
-    // Here we use item offsets; we could also use page offsets
-    // following the API or data you're working with.
     const [itemOffset, setItemOffset] = useState(0);
+    const [searchParams, setSearchParams] = useSearchParams();
   
     useEffect(() => {
-      // Fetch items from another resources.
       const endOffset = itemOffset + itemsPerPage;
-      console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-      setCurrentItems(items.slice(itemOffset, endOffset));
-      setPageCount(Math.ceil(items.length / itemsPerPage));
-    }, [itemOffset, itemsPerPage]);
-  
-    // Invoke when user click to request another page.
-    const handlePageClick = (event) => {
-      const newOffset = (event.selected * itemsPerPage) % items.length;
-      console.log(
-        `User requested page number ${event.selected}, which is offset ${newOffset}`
-      );
+      setCurrentItems(listItems.slice(itemOffset, endOffset));
+      setPageCount(Math.ceil(listItems.length / itemsPerPage));
+    }, [itemOffset]);
+
+    useEffect(() => {
+      const newOffset = (page * itemsPerPage) % listItems.length;
       setItemOffset(newOffset);
+    }, [page]);
+  
+    const handlePageClick = (event) => {
+      const newOffset = (event.selected * itemsPerPage) % listItems.length;
+      const queryParams = {};
+      setItemOffset(newOffset);
+      for (const entry of searchParams.entries()) {
+        queryParams[entry[0]] = entry[1];
+      }
+      setSearchParams({
+        ...queryParams,
+        page: event.selected * 1 + 1
+      });
     };
   
     return (
         <>
-            {/* <Items currentItems={currentItems} /> */}
             <div className='pagination-section'>
-                <ReactPaginate
-                  breakLabel="..."
-                  nextLabel=">"
-                  onPageChange={handlePageClick}
-                  pageRangeDisplayed={8}
-                  pageCount={pageCount}
-                  previousLabel="<"
-                  renderOnZeroPageCount={null}
-                />
+              <ReactPaginate
+                forcePage={page}
+                breakLabel="..."
+                nextLabel=">"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={8}
+                pageCount={pageCount}
+                previousLabel="<"
+                renderOnZeroPageCount={null}
+              />
             </div>
         </>
     );

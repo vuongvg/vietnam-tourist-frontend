@@ -21,11 +21,11 @@ function SkeletonItem () {
     )
 }
 
-function TipsAndArticlesSkeleton () {
+function TipsAndArticlesSkeleton ({number}) {
     return (
         <>
             {
-                Array(4).fill(0).map((item, index) => {
+                Array(number).fill(0).map((item, index) => {
                     return <SkeletonItem key={index}/>
                 })
             }

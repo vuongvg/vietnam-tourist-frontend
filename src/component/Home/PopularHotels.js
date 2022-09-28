@@ -1,8 +1,10 @@
 import { Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import request from "../../api";
-import PopularHotelsSkeleton from "../Skeleton/TopTourAndPopularHotelSkeleton";
-import PopularHotelItem from "./PopularHotelItem";
+import Skeleton from "../Skeleton/HotelSkeleton";
+import PopularHotelItem from "../ShareComponents/HotelItem";
+import { Link } from "react-router-dom";
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 function PopularHotels () {
 
@@ -45,16 +47,16 @@ function PopularHotels () {
           {
             !loading 
               ?
-                <PopularHotelsSkeleton />
+                <Skeleton number={5}/>
               :
                 data.length > 0
                   &&
                     data.map((item, index) => {
-                      console.log(item);
                       return <PopularHotelItem key={index} data={item}/>
                     })
           }
         </div>
+        <div className="text-end mt-3"><Link to="/hotel" className="text-dark">See more hotels & rooms <ArrowRightAltIcon sx={{color:'#6c6c6c'}}/></Link></div>
       </div>
     </div>
   )

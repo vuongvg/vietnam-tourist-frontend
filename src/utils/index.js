@@ -19,7 +19,7 @@ export const transferDate = (str) => {
 }
 
 export const spliceString = (str,num) => {
-    str=str.trim()
+    str=str.trim();
     const isLonger = str.length > num;
     if (isLonger) {
         let result = str.slice(0,num);
@@ -34,4 +34,16 @@ export const spliceString = (str,num) => {
     } else {
         return str;
     }
+}
+
+export const displayPrice = (number) => {
+    let a = [...String(number)].reverse().join(""), b = '';
+    for (let i = 0; i < a.length; i++) {
+        b += a[i];
+        if ((i + 1) % 3 === 0 && (i + 1) !== a.length) {
+            b += '.';
+        }
+    }
+
+    return [...b].reverse().join("") + " VNĐ";
 }

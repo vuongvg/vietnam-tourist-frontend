@@ -1,9 +1,10 @@
-import { Typography, Button } from "@mui/material";
-import { Star, StarHalf } from '@mui/icons-material';
+import { Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import request from "../../api";
 import Skeleton from "../Skeleton/PopularRestaurantsSkeleton";
-import PopularRestaurantItem from "./PopularRestaurantItem";
+import RestaurantItem from "../ShareComponents/ResItem";
+import { Link } from "react-router-dom";
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 function PopularRestaurants () {
 
@@ -16,7 +17,7 @@ function PopularRestaurants () {
       {
         params: { 
           isfamous:'famous',
-          limit:5 
+          limit:4
         }
       }
     )
@@ -48,11 +49,14 @@ function PopularRestaurants () {
               ?
                 <Skeleton />
               :
-                Array(4).fill(0).map((item,index) => {
-                  return <PopularRestaurantItem key={index}/>
-                })
+                data.length > 0
+                  && 
+                    data.map((item,index) => {
+                      return <RestaurantItem key={index} data={item}/>
+                    })
           }
         </div>
+        <div className="text-end mt-3"><Link to="/restaurant" className="text-dark">See more restaurants <ArrowRightAltIcon sx={{color:'#6c6c6c'}}/></Link></div>
       </div>
     </div>
   )
