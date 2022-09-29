@@ -8,6 +8,9 @@ import Hotel from "./pages/Hotel";
 import Tour from "./pages/Tour";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Admin from "./pages/Admin";
+import { UserList } from "./component/Admin/users";
+import StoreAdmin from "./pages/Admin";
 
 function App() {
    return (
@@ -22,6 +25,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/hotel" element={<Hotel />} />
             <Route path="/tour" element={<Tour />} />
+            <Route path="/admin/*" element={<StoreAdmin />} />
          </Routes>
       </div>
    );

@@ -18,6 +18,7 @@ function Navbar() {
                <NavLink className="menu-item" to="/tour">Tour</NavLink>
                <NavLink className="menu-item" to="/blog">Blog</NavLink>
                <NavLink className="menu-item" to="/contact">Contact</NavLink>
+               <NavLink className="menu-item" to="/admin">admin</NavLink>
             </div>
          </div>
       </div>

@@ -4,4 +4,4 @@ const axiosConfig = axios.create({
     baseURL: process.env.REACT_APP_DATABASE_HOST
 });
 
-export default axiosConfig;
+export default axiosConfig; 
