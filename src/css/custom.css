@@ -126,7 +126,7 @@ input:focus-visible, select:focus-visible {
 }
 .img-skeleton {
     -webkit-transform: none !important;
-    border-radius: 0 !important;
+    border-radius: 5 !important;
 }
 /* mui customize */
 .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
