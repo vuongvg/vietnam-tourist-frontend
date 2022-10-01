@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import request from "../../api";
-import Skeleton from "../Skeleton/PopularRestaurantsSkeleton";
+import Skeleton from "../Skeleton/RestaurantsSkeleton";
 import RestaurantItem from "../ShareComponents/ResItem";
 import { Link } from "react-router-dom";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';

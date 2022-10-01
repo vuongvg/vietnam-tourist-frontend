@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "./component/layout/Navbar";
 import Footer from "./component/layout/Footer";
 import About from "./pages/About";
@@ -10,8 +12,7 @@ import Tour from "./pages/Tour";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Restaurant from "./pages/Restaurants";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import DetailBlog from "./pages/DetailBlog";
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
             <Route path="/hotel" element={<Hotel />} />
             <Route path="/tour" element={<Tour />} />
             <Route path="/restaurant" element={<Restaurant />}/>
+            <Route path="/detail/blog/:id" element={<DetailBlog />}/>
          </Routes>
          <Footer />
       </div>

@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import dayjs from "dayjs";
-import { MobileDatePicker, LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { InputLabel, MenuItem, FormControl, Select, TextField, Button, Checkbox, Box, Slider } from '@mui/material';
+import { InputLabel, MenuItem, FormControl, Select, Button, Checkbox, Box, Slider } from '@mui/material';
 import { Star, StarBorder } from '@mui/icons-material';
 import { displayPrice } from "../../utils";
 
