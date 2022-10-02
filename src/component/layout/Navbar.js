@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
+import { AccountCircle, Logout } from '@mui/icons-material';
+import { getToken } from "../../utils";
 
 function Navbar() {
    const [backGroundColor, setBackGroundColor] = useState('');
+   const [currentUser, setCurrentUser] = useState(null);
    const [scrollY, setScrollY] = useState();
 
    function logit() {
@@ -25,6 +28,18 @@ function Navbar() {
       };
    }, []);
 
+   useEffect(() => {
+      if (getToken) {
+         setCurrentUser(true);
+      } else {
+         setCurrentUser(null);
+      }
+   }, [currentUser]);
+
+   const handleLogout = () => {
+      localStorage.removeItem('token');
+   }
+
    return (
       <>
          <div className="d-none d-sm-block position-fixed vw-100 z-1" style={{backgroundColor:`${backGroundColor}`, transition:'1s'}}>
@@ -40,6 +55,15 @@ function Navbar() {
                   <NavLink className="menu-item" to="/tour">Tour</NavLink>
                   <NavLink className="menu-item" to="/blog">Blog</NavLink>
                   <NavLink className="menu-item" to="/contact">Contact</NavLink>
+                  <NavLink className="menu-item" to="/login">
+                     {
+                        currentUser
+                           ? 
+                              <Logout onClick={handleLogout}/>
+                           :
+                              <AccountCircle/>
+                     }
+                  </NavLink>
                </div>
             </div>
          </div>
