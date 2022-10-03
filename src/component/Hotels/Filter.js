@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { InputLabel, MenuItem, FormControl, Select, TextField, Button, Checkbox, Box, Slider } from '@mui/material';
 import { Star, StarBorder } from '@mui/icons-material';
 import { displayPrice } from "../../utils";
+import request from "../../api";
 
 function Filter () {
 
@@ -37,6 +38,26 @@ function Filter () {
     setChecked(updateChecked);
     setStarRating(value);
   }
+
+  useEffect(() => {
+    request.get(
+      '/hotel',
+      {
+        params: { 
+          range:["price",350000, 1000000],
+        }
+      }
+    )
+    .then((res) => {
+      if (res.status === 200) {
+      } else {
+          
+      }
+    })
+    .catch(() => {
+        console.log("request failed");
+    })
+  }, []);
 
   return (
     <>
