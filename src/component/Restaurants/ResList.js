@@ -9,8 +9,8 @@ function TourList () {
 
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-  const [currentItems, setCurrentItems] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [pageCount, setPageCount] = useState(0);
   const [currentPage, setCurrentpage] = useState(1);
   const page = searchParams.get('page');
 
@@ -19,6 +19,8 @@ function TourList () {
       '/restaurant',
       {
         params: { 
+          limit: 9,
+          page: currentPage
         }
       }
     )
@@ -26,6 +28,7 @@ function TourList () {
         if (res.status === 200) {
           setLoading(true);
           setData(res.data);
+          setPageCount(res.headers['x-total-page']);
         } else {
             
         }
@@ -39,10 +42,6 @@ function TourList () {
     setCurrentpage(page ? page : 1);
   }, [page]);
 
-  useEffect(() => {
-    console.log(currentItems);
-  }, [currentItems]);
-
   return (
     <div>
       <div className="row row-cols-1 row-cols-lg-3">
@@ -51,9 +50,9 @@ function TourList () {
             ?
               <Skeleton number={6}/>
             :
-              currentItems?.length > 0
+              data?.length > 0
                 &&
-                currentItems.map((item, index) => {
+                data.map((item, index) => {
                   return <ResItem key={index} data={item}/>
                 })
         }
@@ -62,7 +61,7 @@ function TourList () {
         {
           data.length > 0
             &&
-              <Pagination page={currentPage ? (currentPage*1-1) : 1} itemsPerPage={3} listItems={data} setCurrentItems={setCurrentItems}/>
+              <Pagination pageCount={pageCount} page={currentPage ? (currentPage*1-1) : 1} itemsPerPage={9}/>
         }
         
       </div>

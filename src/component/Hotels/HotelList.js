@@ -12,6 +12,7 @@ function TourList () {
   const [currentItems, setCurrentItems] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentpage] = useState(1);
+  const [pageCount, setPageCount] = useState(0);
   const page = searchParams.get('page');
 
   useEffect(() => {
@@ -19,21 +20,24 @@ function TourList () {
       '/hotel',
       {
         params: { 
+          limit: 9,
+          page: currentPage
         }
       }
     )
     .then((res) => {
-        if (res.status === 200) {
-          setLoading(true);
-          setData(res.data);
-        } else {
-            
-        }
+      if (res.status === 200) {
+        setLoading(true);
+        setData(res.data);
+        setPageCount(res.headers['x-total-page']);
+      } else {
+          
+      }
     })
     .catch(() => {
         console.log("request failed");
     })
-  }, []);
+  }, [currentPage]);
 
   useEffect(() => {
     setCurrentpage(page ? page : 1);
@@ -41,15 +45,15 @@ function TourList () {
 
   return (
     <div>
-      <div className="row row-cols-1 row-cols-lg-3">
+      <div id="listData" className="row row-cols-1 row-cols-lg-3">
         {
           !loading
             ?
               <Skeleton number={6}/>
             :
-              currentItems?.length > 0
+              data?.length > 0
                 &&
-                currentItems.map((item, index) => {
+                data.map((item, index) => {
                   return <HotelItem key={index} data={item}/>
                 })
         }
@@ -58,7 +62,7 @@ function TourList () {
         {
           data.length > 0
             &&
-              <Pagination page={currentPage ? (currentPage*1-1) : 1} itemsPerPage={3} listItems={data} setCurrentItems={setCurrentItems}/>
+              <Pagination pageCount={pageCount} page={currentPage ? (currentPage*1-1) : 1} itemsPerPage={9}/>
         }
       </div>
     </div>
