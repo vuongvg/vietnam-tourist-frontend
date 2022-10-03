@@ -47,3 +47,8 @@ export const displayPrice = (number) => {
 
     return [...b].reverse().join("") + " VNĐ";
 }
+
+export const getToken = () => {
+    const token = localStorage.getItem('token');
+    return token;
+}

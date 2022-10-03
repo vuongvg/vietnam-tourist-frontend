@@ -18,13 +18,19 @@ function App() {
 
    const { pathname } = useLocation();
 
+   console.log(pathname);
+
    useEffect(() => {
       window.scrollTo(0, 0);
    }, [pathname]);
 
    return (
       <div className="App">
-         <Navbar />
+         {
+            (pathname !== "/login" && pathname !== "/register")
+               &&
+                  <Navbar />
+         }
          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
