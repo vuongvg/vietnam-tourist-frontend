@@ -13,7 +13,7 @@ import {
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Person, Visibility, VisibilityOff } from '@mui/icons-material';
 import Background from '../images/loginbackground.jpg';
-import { getToken } from '../utils';
+import { getToken } from "../utils";
 
 function LoginPage() {
     const navigate = useNavigate();
@@ -81,7 +81,7 @@ function LoginPage() {
     }
 
     useEffect(() => {
-        if (getToken) {
+        if (getToken()) {
             navigate('/');
         }
     },[])

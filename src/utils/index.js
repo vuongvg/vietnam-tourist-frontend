@@ -50,5 +50,10 @@ export const displayPrice = (number) => {
 
 export const getToken = () => {
     const token = localStorage.getItem('token');
-    return token;
+    
+    if (!token) {
+        return false;
+    } else {
+        return token;
+    }
 }
