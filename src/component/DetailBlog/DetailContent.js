@@ -1,28 +1,31 @@
 import { useState, useEffect } from "react";
 import request from "../../api";
 import Skeleton from "../Skeleton/DetailBlogSkeleton";
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import { convertDateForm } from "../../utils";
+import CommentBox from "../../component/DetailBlog/CommentBox";
 
-function DetailContent () {
+function DetailContent ({idPost}) {
 
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    request.get(
-      '/blog/63310ae8c894be068fe83640'
-    )
-    .then((res) => {
-      console.log(res);
-        if (res.status === 200) {
-          setLoading(true);
-          setContent(res.data._doc);
+    setLoading(false);
+      request.get(
+        `/blog/${idPost}`
+      )
+      .then((res) => {
+          if (res.status === 200) {
+            setLoading(true);
+            setContent(res.data);
         } else {
             
         }
-    })
-    .catch(() => {
-        console.log("request failed");
-    })
+      })
+      .catch(() => {
+          console.log("request failed");
+      })
   }, [])
 
   return (
@@ -37,9 +40,17 @@ function DetailContent () {
               <>
                 <div className="ratio  ratio-21x9 bg-center bg-cover bg-norepeat mb-4" style={{backgroundImage:`url(${content.avatar})`}}></div>
                 <h2>{content.title}</h2>
-                <div className="product-content" dangerouslySetInnerHTML={{__html: content.content}}></div>
+                <div className="d-flex align-items-center mb-3 mt-3 text-secondary">
+                  <AccessTimeIcon fontSize="small"/>
+                  <div className="ms-2">{convertDateForm(content.updatedAt)}</div>
+                </div>
+                <div>{content.description}</div>
+                <div className="product-content mt-3" dangerouslySetInnerHTML={{__html: content.content}}></div>
               </>
       }
+      <div className="mt-3">
+        <CommentBox />
+      </div>
     </div>
   )
 }

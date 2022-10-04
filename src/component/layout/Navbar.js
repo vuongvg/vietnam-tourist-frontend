@@ -1,24 +1,37 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import { AccountCircle, Logout } from '@mui/icons-material';
 import { getToken } from "../../utils";
 
 function Navbar() {
+   const { pathname } = useLocation();
+   const urlPath = pathname.split("/");
    const [backGroundColor, setBackGroundColor] = useState('');
    const [currentUser, setCurrentUser] = useState(null);
    const [scrollY, setScrollY] = useState();
+
+   function setBackground() {
+      if (urlPath[1] && urlPath[1] === "detail") {
+         setBackGroundColor('#222831');
+      } else {
+         setBackGroundColor('transparent');
+      }
+   }
 
    function logit() {
       if (window.pageYOffset > 100) {
          setBackGroundColor('#222831');
       } else {
-         setBackGroundColor('transparent');
+         setBackground();
       }
       setScrollY(window.pageYOffset);
    }
 
    useEffect(() => {
+      setBackground();
+      
       function watchScroll() {
         window.addEventListener("scroll", logit);
       }
@@ -26,7 +39,7 @@ function Navbar() {
       return () => {
         window.removeEventListener("scroll", logit);
       };
-   }, []);
+   }, [pathname]);
 
    useEffect(() => {
       if (getToken) {

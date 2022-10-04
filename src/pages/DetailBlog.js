@@ -1,14 +1,18 @@
-import Skeleton from "../component/Skeleton/DetailBlogSkeleton";
 import SideBar from "../component/DetailBlog/SideBar";
 import DetailContent from "../component/DetailBlog/DetailContent";
+import { useLocation } from "react-router-dom";
 
 function DetailBlog () {
+
+    const { pathname } = useLocation();
+    const urlPath = pathname.split("/");
+
     return (
-        <div className="container mb-5" style={{paddingTop:'8rem'}}>
+        <div className="container mb-5" style={{paddingTop:'10rem'}}>
             <div className="row">
-                <SideBar />
+                <SideBar idExclude={urlPath[3]}/>
                 <div className="col-9">
-                    <DetailContent />
+                    <DetailContent idPost={urlPath[3]}/>
                 </div>
             </div>
         </div>

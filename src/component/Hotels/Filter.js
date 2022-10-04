@@ -40,23 +40,23 @@ function Filter () {
   }
 
   useEffect(() => {
-    request.get(
-      '/hotel',
-      {
-        params: { 
-          range:["price",350000, 1000000],
-        }
-      }
-    )
-    .then((res) => {
-      if (res.status === 200) {
-      } else {
+    // request.get(
+    //   '/hotel',
+    //   {
+    //     params: { 
+    //       range:["price",350000, 1000000],
+    //     }
+    //   }
+    // )
+    // .then((res) => {
+    //   if (res.status === 200) {
+    //   } else {
           
-      }
-    })
-    .catch(() => {
-        console.log("request failed");
-    })
+    //   }
+    // })
+    // .catch(() => {
+    //     console.log("request failed");
+    // })
   }, []);
 
   return (
