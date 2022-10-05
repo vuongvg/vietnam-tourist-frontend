@@ -5,7 +5,7 @@ import HotelItem from '../ShareComponents/HotelItem';
 import request from "../../api";
 import Skeleton from "../Skeleton/HotelSkeleton";
 
-function TourList () {
+function HotelList () {
 
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
@@ -13,23 +13,43 @@ function TourList () {
   const [currentPage, setCurrentpage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
   const page = searchParams.get('page');
-  // const range = searchParams.get('range').split("-");
-  // const filter =  searchParams.get('filter').split("-");
+  let range = searchParams.get('range');
+  let filter =  searchParams.get('filter');
 
   useEffect(() => {
+    if (range) range = range.split("-");
+    if (filter) filter = filter.split("-");
+    setLoading(false);
+
     request.get(
       '/hotel',
       {
         params: { 
+          ...(
+            range && range[1] &&range[2]
+              ? 
+                {range:JSON.stringify(["evaluate",range[1],range[2]])} 
+              : 
+                {}
+          ),
+          ...(
+            filter && filter[1] !== ''
+              ? 
+                {filter:JSON.stringify({"city":filter[1].replace("+"," ")})} 
+              : 
+                {}
+          ),
           limit: 9,
-          page: currentPage
+          page: page ? page : 1
         }
       }
     )
     .then((res) => {
       if (res.status === 200) {
         setLoading(true);
-        setData(res.data);
+        if (res.data !== data) {
+          setData(res.data);
+        }
         setPageCount(res.headers['x-total-page']);
       } else {
           
@@ -38,13 +58,11 @@ function TourList () {
     .catch(() => {
         console.log("request failed");
     })
-  }, [currentPage]);
+  }, [page,range]);
 
-  useEffect(() => {
-    // console.log(range);
-    // console.log(filter);
-    setCurrentpage(page ? page : 1);
-  }, [page]);
+  // useEffect(() => {
+  //   setCurrentpage(page ? page : 1);
+  // }, [page]);
 
   return (
     <div>
@@ -72,4 +90,4 @@ function TourList () {
   )
 }
 
-export default TourList;
+export default HotelList;

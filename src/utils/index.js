@@ -59,6 +59,7 @@ export const getToken = () => {
 }
 
 export const provincesList = [
+    {value:"",label:"All"},
     {value:"Ha Noi",label:"Hanoi"},
     {value:"Ho Chi Minh",label:"Ho Chi Minh"},
     {value:"An Giang",label:"An Giang"},
@@ -124,6 +125,7 @@ export const provincesList = [
 ];
 
 export const citiesList = [
+    {value:"",label:"All"},
     {value:"Ha Noi",label:"Hanoi"},
     {value:"Ho Chi Minh",label:"Ho Chi Minh"},
     {value:"Chau Doc",label:"Chau Doc"},

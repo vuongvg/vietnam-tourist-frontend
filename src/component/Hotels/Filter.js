@@ -18,8 +18,8 @@ function Filter () {
     const high = starRating === 5 ? starRating : starRating + 0.5;
 
     setSearchParams({ 
-      range:`evaluate-${low}-${high}`,
-      filter:`city-${city}`,
+      ...(low && high ? {range:`evaluate-${low}-${high}`} : {}),
+      ...(city ? {filter:`city-${city}`} : {}),
     });
   }
 
