@@ -1,5 +1,5 @@
 import { Message, AccessTime } from "@mui/icons-material";
-import { spliceString, transferDate } from "../../utils";
+import { spliceString, convertDateForm } from "../../utils";
 
 function TipsAndAtriclesItem ({data}) {
     return (
@@ -13,7 +13,7 @@ function TipsAndAtriclesItem ({data}) {
                 </div>
                 <div className="p-3">
                 <h4>{spliceString(data.title,80)}</h4>
-                <div className="mt-3 mb-2 align-items-center d-flex fs-0d8"><AccessTime className="me-2" sx={{fontSize:20}}/> {transferDate(data.updatedAt)}</div>
+                <div className="mt-3 mb-2 align-items-center d-flex fs-0d8"><AccessTime className="me-2" sx={{fontSize:20}}/> {convertDateForm(data.updatedAt)}</div>
                 <div>
                     {
                         data.comment
