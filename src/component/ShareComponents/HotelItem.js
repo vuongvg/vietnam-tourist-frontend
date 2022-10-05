@@ -30,7 +30,6 @@ function HotelItem ({data}) {
                 </div>
                 <div className="fs-0d8 my-2">Rating</div>
                 <div>Far far away, behind the word mountains, far from the countries</div>
-                <div className="mt-3">4 days 3 nights</div>
                 <div className="border-top pt-3 mt-3 text-end">
                   <Button
                     size="small"

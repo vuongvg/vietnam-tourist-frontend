@@ -9,11 +9,12 @@ function TourList () {
 
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-  const [currentItems, setCurrentItems] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentpage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
   const page = searchParams.get('page');
+  // const range = searchParams.get('range').split("-");
+  // const filter =  searchParams.get('filter').split("-");
 
   useEffect(() => {
     request.get(
@@ -40,6 +41,8 @@ function TourList () {
   }, [currentPage]);
 
   useEffect(() => {
+    // console.log(range);
+    // console.log(filter);
     setCurrentpage(page ? page : 1);
   }, [page]);
 
