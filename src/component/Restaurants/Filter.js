@@ -14,7 +14,6 @@ function Filter () {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleSearch = () => {
-    console.log(starRating);
     let low = 0, 
         high = 0;
 

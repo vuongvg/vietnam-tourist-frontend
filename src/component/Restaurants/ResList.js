@@ -86,7 +86,7 @@ function TourList () {
       </div>
       <div className="text-center col-12 mt-4">
         {
-          data.length > 0
+          data?.length > 0
             &&
               <Pagination pageCount={pageCount} page={currentPage ? (currentPage*1-1) : 1} itemsPerPage={9}/>
         }
