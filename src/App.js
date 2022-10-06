@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./component/layout/Navbar";
+import Footer from "./component/layout/Footer";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
@@ -11,8 +12,18 @@ import Register from "./pages/Register";
 import Admin from "./pages/Admin";
 import { UserList } from "./component/Admin/users";
 import StoreAdmin from "./pages/Admin";
+import Restaurant from "./pages/Restaurants";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function App() {
+
+   const { pathname } = useLocation();
+
+   useEffect(() => {
+      window.scrollTo(0, 0);
+   }, [pathname]);
+
    return (
       <div className="App">
          <Navbar />
@@ -26,7 +37,9 @@ function App() {
             <Route path="/hotel" element={<Hotel />} />
             <Route path="/tour" element={<Tour />} />
             <Route path="/admin/*" element={<StoreAdmin />} />
+            <Route path="/restaurant" element={<Restaurant />}/>
          </Routes>
+         <Footer />
       </div>
    );
 }

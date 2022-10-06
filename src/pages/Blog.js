@@ -1,8 +1,15 @@
-import React from 'react'
+import PageBanner from "../component/ShareComponents/PageBanner";
+import Banner from "../images/tourbanner.jpeg";
+import PostList from "../component/Blog/PostList";
 
 function Blog() {
   return (
-    <div>Blog</div>
+    <div>
+      <PageBanner image={Banner} page='Travel Blog'/>
+      <div className="container">
+        <PostList />
+      </div>
+    </div>
   )
 }
 

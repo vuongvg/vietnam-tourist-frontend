@@ -17,40 +17,38 @@ import {
    CreateButton,
    ExportButton,
    Button,
+   FunctionField,
 } from "react-admin";
+import { spliceString } from "../../common";
 
 const ListActions = () => (
    <TopToolbar>
-      {/* <FilterButton /> */}
       <CreateButton />
       <ExportButton />
-      {/* Add your custom actions */}
       <Button
          onClick={() => {
             alert("Your custom action");
          }}
          label="Show calendar"
       >
-         {/* <IconEvent/> */}
       </Button>
    </TopToolbar>
 );
 
-export const HotelsList = (props) => {
+export const HotelsList = () => {
    return (
       <>
          <List actions={<ListActions />}>
-            {/* <List> */}
-            <Datagrid rowClick="edit">
+            <Datagrid rowClick="edit" >
                <ImageField source="avatar" title="title" />
                <TextField source="id" />
                <TextField source="hotelname" />
+               <FunctionField label="Description" render={record => spliceString(record.description,50)}/>
+               
                <EmailField source="email" />
                <TextField source="phone" />
                <TextField source="city" />
-               <TextField source="fullLocation" />
-               <TextField source="description" />
-               {/* <TextInput {...props} parse={(v) => (v === "" ? null : v)} /> */}
+               <FunctionField label="Location" render={record => spliceString(record.fullLocation,50)}/>
                <EditButton />
             </Datagrid>
          </List>
@@ -66,14 +64,14 @@ export const HotelEdit = () => (
    <Edit title={<HotelTitle />}>
       <SimpleForm>
          <TextInput fullWidth disabled source="id" />
+         <ImageField source="avatar" title="title" />
          <TextInput fullWidth source="avatar" title="title" />
          <TextInput fullWidth source="hotelname" />
          <TextInput fullWidth source="email" />
          <TextInput fullWidth source="phone" />
          <TextInput fullWidth source="city" />
          <TextInput fullWidth source="fullLocation" />
-         <TextInput fullWidth source="description" />
-         <TextInput fullWidth multiline source="description" />
+         <TextInput  fullWidth source="description" multiline />
       </SimpleForm>
    </Edit>
 );
@@ -81,11 +79,11 @@ export const HotelEdit = () => (
 export const HotelCreate = () => (
    <Create title="Create a Post">
       <SimpleForm>
-         <TextInput source="title" />
-         <TextInput source="teaser" options={{ multiline: true }} />
-         <TextInput multiline source="body" />
-         <TextInput label="Publication date" source="published_at" />
-         <TextInput source="average_note" />
+         <TextInput fullWidth source="title" />
+         <TextInput fullWidth source="teaser" options={{ multiline: true }} />
+         <TextInput fullWidth multiline source="body" />
+         <TextInput fullWidth label="Publication date" source="published_at" />
+         <TextInput fullWidth source="average_note" />
       </SimpleForm>
    </Create>
 );
