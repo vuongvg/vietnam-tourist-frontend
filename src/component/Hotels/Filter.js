@@ -7,15 +7,20 @@ import { citiesList } from "../../utils";
 
 function Filter () {
 
-  const [starRating, setStarRating] = useState(5);
-  const [checked, setChecked] = useState([true, false, false, false, false]);
+  const [starRating, setStarRating] = useState(0);
+  const [checked, setChecked] = useState([false, false, false, false, false]);
   const [city, setCity] = useState('');
   const [alertError, setAlertError] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleSearch = () => {
-    const low = starRating - 0.5;
-    const high = starRating === 5 ? starRating : starRating + 0.5;
+    let low = 0, 
+        high = 0;
+
+    if (starRating > 0) {
+      low = starRating - 0.5;
+      high = starRating === 5 ? starRating : starRating + 0.5;
+    }
 
     setSearchParams({ 
       ...(low && high ? {range:`evaluate-${low}-${high}`} : {}),
@@ -24,20 +29,26 @@ function Filter () {
   }
 
   const handleCheckBox = (value,position,e) => {
-    const updateChecked = checked.map((item, index) => 
-      index === position ? !item : false
-    );
+    let updateChecked;
+
+    if (e.target.checked) {
+      updateChecked = checked.map((item, index) => 
+        index === position ? !item : false
+      );
+      setStarRating(value);
+    } else {
+      updateChecked = checked.map((item, index) => 
+        index = false
+      );
+      setStarRating(0);
+    }
+    
     setChecked(updateChecked);
-    setStarRating(value);
   }
 
   const handleSelectChange = (selectedOption) => {
     setCity(selectedOption.value);
   }
-
-  useEffect(() => {
-    
-  }, []);
 
   return (
     <>

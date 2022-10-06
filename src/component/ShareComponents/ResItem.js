@@ -3,7 +3,7 @@ import { spliceString } from "../../utils";
 
 function RestaurantItem ({data}) {
     return (
-        <div className="col-12 col-sm-6 mb-4 mb-md-0 col-md-3">
+        <div className="col-12 col-sm-6 mb-4 col-md-3">
             <div className="border">
               <div className="ratio ratio-1x1">
                 <div 

@@ -4,23 +4,44 @@ import ResItem from '../ShareComponents/ResItem';
 import Pagination from '../ShareComponents/Pagination';
 import request from "../../api";
 import Skeleton from "../Skeleton/HotelSkeleton";
+import NoDataMatchedImg from "../../images/NoDataMatched.png";
 
 function TourList () {
 
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [pageCount, setPageCount] = useState(0);
   const [currentPage, setCurrentpage] = useState(1);
+  const [pageCount, setPageCount] = useState(0);
   const page = searchParams.get('page');
+  let range = searchParams.get('range');
+  let filter =  searchParams.get('filter');
 
   useEffect(() => {
+    if (range) range = range.split("-");
+    if (filter) filter = filter.split("-");
+    setLoading(false);
+
     request.get(
       '/restaurant',
       {
         params: { 
+          ...(
+            range && range[1] &&range[2]
+              ? 
+                {range:JSON.stringify(["evaluate",range[1],range[2]])} 
+              : 
+                {}
+          ),
+          ...(
+            filter && filter[1] !== ''
+              ? 
+                {filter:JSON.stringify({"city":filter[1].replace("+"," ")})} 
+              : 
+                {}
+          ),
           limit: 9,
-          page: currentPage
+          page: page ? page : 1
         }
       }
     )
@@ -34,9 +55,9 @@ function TourList () {
         }
     })
     .catch(() => {
-        console.log("request failed");
+      console.log("request failed");
     })
-  }, []);
+  }, [page,range,filter]);
 
   useEffect(() => {
     setCurrentpage(page ? page : 1);
@@ -51,10 +72,16 @@ function TourList () {
               <Skeleton number={6}/>
             :
               data?.length > 0
-                &&
-                data.map((item, index) => {
-                  return <ResItem key={index} data={item}/>
-                })
+                ?
+                  data.map((item, index) => {
+                    return <ResItem key={index} data={item}/>
+                  })
+                :
+                  <div className='text-center w-100'>
+                    <img className='w-50 m-auto mb-4' src={NoDataMatchedImg} />
+                    <h3 className='color-6a'>Không tìm thấy địa điểm</h3>
+                    <h3 className='color-6a'>phù hợp với yêu cầu</h3>
+                  </div>
         }
       </div>
       <div className="text-center col-12 mt-4">
@@ -63,7 +90,6 @@ function TourList () {
             &&
               <Pagination pageCount={pageCount} page={currentPage ? (currentPage*1-1) : 1} itemsPerPage={9}/>
         }
-        
       </div>
     </div>
   )

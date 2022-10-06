@@ -4,6 +4,7 @@ import Pagination from '../ShareComponents/Pagination';
 import HotelItem from '../ShareComponents/HotelItem';
 import request from "../../api";
 import Skeleton from "../Skeleton/HotelSkeleton";
+import NoDataMatchedImg from "../../images/NoDataMatched.png";
 
 function HotelList () {
 
@@ -47,9 +48,7 @@ function HotelList () {
     .then((res) => {
       if (res.status === 200) {
         setLoading(true);
-        if (res.data !== data) {
-          setData(res.data);
-        }
+        setData(res.data);
         setPageCount(res.headers['x-total-page']);
       } else {
           
@@ -58,11 +57,11 @@ function HotelList () {
     .catch(() => {
         console.log("request failed");
     })
-  }, [page,range]);
+  }, [page,range,filter]);
 
-  // useEffect(() => {
-  //   setCurrentpage(page ? page : 1);
-  // }, [page]);
+  useEffect(() => {
+    setCurrentpage(page ? page : 1);
+  }, [page]);
 
   return (
     <div>
@@ -73,10 +72,16 @@ function HotelList () {
               <Skeleton number={6}/>
             :
               data?.length > 0
-                &&
-                data.map((item, index) => {
-                  return <HotelItem key={index} data={item}/>
-                })
+                ?
+                  data.map((item, index) => {
+                    return <HotelItem key={index} data={item}/>
+                  })
+                :
+                  <div className='text-center w-100'>
+                    <img className='w-50 m-auto mb-4' src={NoDataMatchedImg} />
+                    <h3 className='color-6a'>Không tìm thấy địa điểm</h3>
+                    <h3 className='color-6a'>phù hợp với yêu cầu</h3>
+                  </div>
         }
       </div>
       <div className="text-center col-12 mt-4">
