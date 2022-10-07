@@ -43,7 +43,7 @@ function PostList () {
 
     return (
         <div className="my-5" >
-            <div className="row row-cols-1 row-cols-lg-4">
+            <div id="listData" className="row row-cols-1 row-cols-lg-4">
             {
                 !loading
                     ?

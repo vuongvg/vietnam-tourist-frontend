@@ -12,18 +12,10 @@ function RestaurantItem ({data}) {
                 ></div>
               </div>
               <div className="p-3">
-                <div className="d-flex justify-content-between">
-                  <h5>{data.restaurantname}</h5>
+                <div className="d-flex justify-content-between mb-3">
+                  <div className="fw-bold">{data.restaurantname}</div>
                 </div>
-                <div>{spliceString(data.description,80)}</div>
-                <div className="border-top pt-3 mt-3 text-end">
-                  <Button
-                    size="small"
-                    sx={{backgroundColor:'#f85a59', color:'white'}}
-                  >
-                    Discover
-                  </Button>
-                </div>
+                <div className="fs-0d9">{spliceString(data.description,80)}</div>
               </div>
             </div>
         </div>

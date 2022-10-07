@@ -10,7 +10,6 @@ function Filter () {
   const [starRating, setStarRating] = useState(0);
   const [checked, setChecked] = useState([false, false, false, false, false]);
   const [city, setCity] = useState('');
-  const [alertError, setAlertError] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleSearch = () => {
@@ -53,13 +52,12 @@ function Filter () {
   return (
     <>
       <div className="border p-3 bg-light">
-        <h5>FIND CITY</h5>
+        <div className="fw-bold mb-3">Find City</div>
         <Select
           options={citiesList}
           onChange={handleSelectChange}
         />
-        <div>{alertError}</div>
-        <h5 className="mt-4">STAR RATING</h5>
+        <div className="mt-4 mb-3 fw-bold">Price Range</div>
         <div className="d-flex g-2 align-items-center">
           <Checkbox checked={checked[0]} onChange={e => handleCheckBox(5,0,e)}/>
           <Star className="color-f85a59" sx={{fontSize:15}}/>

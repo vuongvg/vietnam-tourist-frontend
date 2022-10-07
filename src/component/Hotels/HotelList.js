@@ -13,9 +13,10 @@ function HotelList () {
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentpage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
-  const page = searchParams.get('page');
+  let page = searchParams.get('page');
+  page = page ? page : 1;
   let range = searchParams.get('range');
-  let filter =  searchParams.get('filter');
+  let filter = searchParams.get('filter');
 
   useEffect(() => {
     if (range) range = range.split("-");
@@ -41,7 +42,7 @@ function HotelList () {
                 {}
           ),
           limit: 9,
-          page: page ? page : 1
+          page: page
         }
       }
     )
@@ -58,10 +59,6 @@ function HotelList () {
         console.log("request failed");
     })
   }, [page,range,filter]);
-
-  useEffect(() => {
-    setCurrentpage(page ? page : 1);
-  }, [page]);
 
   return (
     <div>
@@ -86,9 +83,9 @@ function HotelList () {
       </div>
       <div className="text-center col-12 mt-4">
         {
-          data.length > 0
+          data?.length > 0
             &&
-              <Pagination pageCount={pageCount} page={currentPage ? (currentPage*1-1) : 1} itemsPerPage={9}/>
+              <Pagination pageCount={pageCount} page={page ? (page*1-1) : 1} itemsPerPage={9}/>
         }
       </div>
     </div>

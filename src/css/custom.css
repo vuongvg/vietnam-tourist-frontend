@@ -49,6 +49,9 @@ textarea:focus-visible {
 .fs-0d8 {
     font-size:.8rem;
 }
+.fs-0d9 {
+    font-size:.9rem;
+}
 /* end font-size */
 
 .flaticon-guarantee:before {content: "\f100";}

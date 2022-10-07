@@ -58,6 +58,15 @@ export const getToken = () => {
     }
 }
 
+export const compareTwoValues = (numberOne, numberTwo) => {
+    let pairNumber;
+    if (numberOne > numberTwo) {
+        return pairNumber = [numberTwo, numberOne];
+    } else {
+        return pairNumber = [numberOne, numberTwo];
+    }
+}
+
 export const provincesList = [
     {value:"",label:"All"},
     {value:"Ha Noi",label:"Hanoi"},

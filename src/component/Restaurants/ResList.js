@@ -11,9 +11,9 @@ function TourList () {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [currentPage, setCurrentpage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
-  const page = searchParams.get('page');
+  let page = searchParams.get('page');
+  page = page ? page : 1;
   let range = searchParams.get('range');
   let filter =  searchParams.get('filter');
 
@@ -41,7 +41,7 @@ function TourList () {
                 {}
           ),
           limit: 9,
-          page: page ? page : 1
+          page: page
         }
       }
     )
@@ -59,13 +59,9 @@ function TourList () {
     })
   }, [page,range,filter]);
 
-  useEffect(() => {
-    setCurrentpage(page ? page : 1);
-  }, [page]);
-
   return (
     <div>
-      <div className="row row-cols-1 row-cols-lg-3">
+      <div id="listData"  className="row row-cols-1 row-cols-lg-3">
         {
           !loading
             ?
@@ -88,7 +84,7 @@ function TourList () {
         {
           data?.length > 0
             &&
-              <Pagination pageCount={pageCount} page={currentPage ? (currentPage*1-1) : 1} itemsPerPage={9}/>
+              <Pagination pageCount={pageCount} page={page ? (page*1-1) : 1} itemsPerPage={9}/>
         }
       </div>
     </div>
