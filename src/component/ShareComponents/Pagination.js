@@ -5,7 +5,7 @@ function Pagination({ pageCount, page, itemPerPage }) {
     const [searchParams, setSearchParams] = useSearchParams();
   
     const handlePageClick = (event) => {
-      var scrollDiv = document.getElementById("listData").offsetTop - 100;
+      var scrollDiv = document.getElementById("listData").offsetTop - 120;
       window.scrollTo({top:scrollDiv, behavior:"smooth"});
       const queryParams = {};
       for (const entry of searchParams.entries()) {

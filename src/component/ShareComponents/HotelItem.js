@@ -15,30 +15,23 @@ function HotelItem ({data}) {
               </div>
               <div className="p-3">
                 <div className="d-flex justify-content-between">
-                  <h5>{data.hotelname}</h5>
+                  <div className="fw-bold">{data.hotelname}</div>
                 </div>
-                <div>
-                  {
-                    displayStars(data.evaluate).map((item, index) => {
-                      if (item === 1) {
-                        return <Star sx={{fontSize:15}} key={index}/>
-                      } else {
-                        return <StarHalf sx={{fontSize:15}} key={index}/>
-                      }
-                    })
-                  }
+                <div className="d-flex justify-content-between">
+                  <div>
+                    {
+                      displayStars(data.evaluate).map((item, index) => {
+                        if (item === 1) {
+                          return <Star sx={{fontSize:15}} key={index}/>
+                        } else {
+                          return <StarHalf sx={{fontSize:15}} key={index}/>
+                        }
+                      })
+                    }
+                  </div>
+                  <div className="fs-0d8 mb-3">Rating</div>
                 </div>
-                <div className="fs-0d8 my-2">Rating</div>
-                <div>Far far away, behind the word mountains, far from the countries</div>
-                <div className="mt-3">4 days 3 nights</div>
-                <div className="border-top pt-3 mt-3 text-end">
-                  <Button
-                    size="small"
-                    sx={{backgroundColor:'#f85a59', color:'white'}}
-                  >
-                    Discover
-                  </Button>
-                </div>
+                <div className="fs-0d9">Far far away, behind the word mountains, far from the countries</div>
               </div>
             </div>
         </div>

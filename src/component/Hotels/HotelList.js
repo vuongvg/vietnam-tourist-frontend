@@ -4,24 +4,45 @@ import Pagination from '../ShareComponents/Pagination';
 import HotelItem from '../ShareComponents/HotelItem';
 import request from "../../api";
 import Skeleton from "../Skeleton/HotelSkeleton";
+import NoDataMatchedImg from "../../images/NoDataMatched.png";
 
-function TourList () {
+function HotelList () {
 
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-  const [currentItems, setCurrentItems] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentpage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
-  const page = searchParams.get('page');
+  let page = searchParams.get('page');
+  page = page ? page : 1;
+  let range = searchParams.get('range');
+  let filter = searchParams.get('filter');
 
   useEffect(() => {
+    if (range) range = range.split("-");
+    if (filter) filter = filter.split("-");
+    setLoading(false);
+
     request.get(
       '/hotel',
       {
         params: { 
+          ...(
+            range && range[1] &&range[2]
+              ? 
+                {range:JSON.stringify(["evaluate",range[1],range[2]])} 
+              : 
+                {}
+          ),
+          ...(
+            filter && filter[1] !== ''
+              ? 
+                {filter:JSON.stringify({"city":filter[1].replace("+"," ")})} 
+              : 
+                {}
+          ),
           limit: 9,
-          page: currentPage
+          page: page
         }
       }
     )
@@ -37,11 +58,7 @@ function TourList () {
     .catch(() => {
         console.log("request failed");
     })
-  }, [currentPage]);
-
-  useEffect(() => {
-    setCurrentpage(page ? page : 1);
-  }, [page]);
+  }, [page,range,filter]);
 
   return (
     <div>
@@ -52,21 +69,27 @@ function TourList () {
               <Skeleton number={6}/>
             :
               data?.length > 0
-                &&
-                data.map((item, index) => {
-                  return <HotelItem key={index} data={item}/>
-                })
+                ?
+                  data.map((item, index) => {
+                    return <HotelItem key={index} data={item}/>
+                  })
+                :
+                  <div className='text-center w-100'>
+                    <img className='w-50 m-auto mb-4' src={NoDataMatchedImg} />
+                    <h3 className='color-6a'>Không tìm thấy địa điểm</h3>
+                    <h3 className='color-6a'>phù hợp với yêu cầu</h3>
+                  </div>
         }
       </div>
       <div className="text-center col-12 mt-4">
         {
-          data.length > 0
+          data?.length > 0
             &&
-              <Pagination pageCount={pageCount} page={currentPage ? (currentPage*1-1) : 1} itemsPerPage={9}/>
+              <Pagination pageCount={pageCount} page={page ? (page*1-1) : 1} itemsPerPage={9}/>
         }
       </div>
     </div>
   )
 }
 
-export default TourList;
+export default HotelList;
