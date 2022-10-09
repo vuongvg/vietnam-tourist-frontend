@@ -61,6 +61,7 @@ function Navbar() {
                   <h2>VNTOUR</h2>
                </div>
                <div className="d-flex align-items-center justify-content-end gap-3">
+                  <NavLink className="menu-item rounded-circle p-2 bg-danger" to="/admin">Admin</NavLink>
                   <NavLink className="menu-item" to="/">Home</NavLink>
                   <NavLink className="menu-item" to="/about">About</NavLink>
                   <NavLink className="menu-item" to="/hotel">Hotel</NavLink>
