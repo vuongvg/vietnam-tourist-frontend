@@ -68,14 +68,15 @@ function LoginPage() {
                     setLoginWait(false);
                     setErrors({ ...errors, requestErr:'' });
                     localStorage.setItem('token', res.data.token);
+                    localStorage.setItem('userRole', res.data.data[0].role)
                     navigate(-1);
                 } else {
                     setErrors({ ...errors, requestErr:res.data.message });
                     setLoginWait(false);
                 }
             })
-            .catch(() => {
-                console.log("request failed");
+            .catch((err) => {
+                console.log(err);
             })
         }
     }
