@@ -126,12 +126,14 @@ textarea:focus-visible {
     transition: height 1s,padding-top 1.5s;
     height: 0;
 }
-
 .a-o {
     padding-top: 1rem;
     padding-bottom: 1rem;
     transition: height 1s ,padding-top 1.5s;
     height: 12rem;
+}
+.text-line-through {
+    text-decoration: line-through;
 }
 .img-skeleton {
     -webkit-transform: none !important;

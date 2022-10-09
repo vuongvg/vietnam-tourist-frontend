@@ -43,6 +43,8 @@ function App() {
             <Route path="/detail">
                <Route path="blog/:id" element={<DetailBlog />}/>
                <Route path="hotel/:id" element={<Detail />}/>
+               <Route path="restaurant/:id" element={<Detail />}/>
+               <Route path="tour/:id" element={<Detail />}/>
             </Route>
          </Routes>
          <Footer />
