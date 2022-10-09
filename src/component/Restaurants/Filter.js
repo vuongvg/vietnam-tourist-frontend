@@ -1,61 +1,64 @@
-import { useEffect, useState } from "react";
-import { InputLabel, MenuItem, FormControl, Select, Button, Checkbox} from '@mui/material';
+import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import Select from "react-select";
+import { Button, Checkbox} from '@mui/material';
 import { Star, StarBorder } from '@mui/icons-material';
-import { displayPrice } from "../../utils";
+import { citiesList } from "../../utils";
 
 function Filter () {
 
-  const [starRating, setStarRating] = useState(5);
-
-  const [checked, setChecked] = useState([true, false, false, false, false]);
-
-  const [valueSlider, setValueSlider] = useState([350000, 1000000]);
-
-  // const handleChangeSlider = (event, newValue) => {
-  //   setValueSlider(newValue);
-  // };
-
+  const [starRating, setStarRating] = useState(0);
+  const [checked, setChecked] = useState([false, false, false, false, false]);
   const [city, setCity] = useState('');
+  const [alertError, setAlertError] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleChangeSelect = (event) => {
-    setCity(event.target.value);
-  };
+  const handleSearch = () => {
+    let low = 0, 
+        high = 0;
 
-  // const handleSearch = () => {
+    if (starRating > 0) {
+      low = starRating - 0.5;
+      high = starRating === 5 ? starRating : starRating + 0.5;
+    }
 
-  // }
+    setSearchParams({ 
+      ...(low && high ? {range:`evaluate-${low}-${high}`} : {}),
+      ...(city ? {filter:`city-${city}`} : {}),
+    });
+  }
 
   const handleCheckBox = (value,position,e) => {
-    const a = e.currentTarget.checked;
-    console.log(a, position);
-    const updateChecked = checked.map((item, index) => 
-      index === position ? !item : false
-    );
+    let updateChecked;
+
+    if (e.target.checked) {
+      updateChecked = checked.map((item, index) => 
+        index === position ? !item : false
+      );
+      setStarRating(value);
+    } else {
+      updateChecked = checked.map((item, index) => 
+        index = false
+      );
+      setStarRating(0);
+    }
+    
     setChecked(updateChecked);
-    setStarRating(value);
+  }
+
+  const handleSelectChange = (selectedOption) => {
+    setCity(selectedOption.value);
   }
 
   return (
     <>
       <div className="border p-3 bg-light">
         <h5>FIND CITY</h5>
-        <FormControl fullWidth className="mt-2">
-          <InputLabel id="demo-simple-select-helper-label">City</InputLabel>
-          <Select
-            labelId="demo-simple-select-helper-label"
-            id="demo-simple-select-helper"
-            value={city}
-            label="City"
-            onChange={handleChangeSelect}
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={'HN'}>Ha Noi</MenuItem>
-            <MenuItem value={'HCM'}>TP.HCM</MenuItem>
-            <MenuItem value={"NTR"}>Nha Trang</MenuItem>
-          </Select>
-        </FormControl>
+        <Select
+          options={citiesList}
+          onChange={handleSelectChange}
+        />
+        <div>{alertError}</div>
         <h5 className="mt-4">STAR RATING</h5>
         <div className="d-flex g-2 align-items-center">
           <Checkbox checked={checked[0]} onChange={e => handleCheckBox(5,0,e)}/>
@@ -97,23 +100,8 @@ function Filter () {
           <StarBorder className="color-f85a59" sx={{fontSize:15}}/>
           <StarBorder className="color-f85a59" sx={{fontSize:15}}/>
         </div>
-        {/* <h5 className="mt-4">COST/NIGHT</h5>
-        <div className="px-2">
-          <Box sx={{ width:'100%' }}>
-            <Slider
-              getAriaLabel={() => 'Price range'}
-              value={valueSlider}
-              onChange={handleChangeSlider}
-              valueLabelDisplay="auto"
-              valueLabelFormat={val => displayPrice(val)}
-              // getAriaValueText={valuetext}
-              min={350000}
-              max={5000000}
-            />
-          </Box>
-        </div> */}
         <div>
-          <Button variant="contained" fontSize="large" className="w-100 text-white mt-4 py-2" sx={{backgroundColor:'#f85a59'}}>Search</Button>
+          <Button variant="contained" fontSize="large" className="w-100 text-white mt-4 py-2" sx={{backgroundColor:'#f85a59'}} onClick={handleSearch}>Search</Button>
         </div>
       </div>
     </>

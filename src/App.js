@@ -14,6 +14,7 @@ import Register from "./pages/Register";
 import Restaurant from "./pages/Restaurants";
 import DetailBlog from "./pages/DetailBlog";
 import Admin from "./pages/Admin";
+import Detail from "./pages/Detail";
 
 function App() {
 
@@ -41,7 +42,10 @@ function App() {
             <Route path="/tour" element={<Tour />} />
             <Route path="/admin/*" element={<Admin />} />
             <Route path="/restaurant" element={<Restaurant />}/>
-            <Route path="/detail/blog/:id" element={<DetailBlog />}/>
+            <Route path="/detail">
+               <Route path="blog/:id" element={<DetailBlog />}/>
+               <Route path="hotel/:id" element={<Detail />}/>
+            </Route>
          </Routes>
          <Footer />
       </div>

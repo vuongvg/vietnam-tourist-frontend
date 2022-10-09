@@ -9,16 +9,21 @@ function PostList () {
 
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
-    const [currentItems, setCurrentItems] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const [currentPage, setCurrentpage] = useState(1);
-    const page = searchParams.get('page');
+    const [pageCount, setPageCount] = useState(0);
+    let page = searchParams.get('page');
+    page = page ? page : 1;
 
     useEffect(() => {
+        setLoading(false);
+
         request.get(
           '/blog',
           {
             params: { 
+                limit: 12,
+                page: page ? page : 1
             }
           }
         )
@@ -26,6 +31,7 @@ function PostList () {
             if (res.status === 200) {
               setLoading(true);
               setData(res.data);
+              setPageCount(res.headers['x-total-page']);
             } else {
                 
             }
@@ -33,32 +39,28 @@ function PostList () {
         .catch(() => {
             console.log("request failed");
         })
-    }, []);
-
-    useEffect(() => {
-        setCurrentpage(page ? page : 1);
     }, [page]);
 
     return (
         <div className="my-5" >
-            <div className="row row-cols-1 row-cols-lg-4">
+            <div id="listData" className="row row-cols-1 row-cols-lg-4">
             {
                 !loading
                     ?
                         <Skeleton number={8}/>
                     :
-                        currentItems?.length > 0
+                        data?.length > 0
                             &&
-                            currentItems.map((item, index) => {
+                            data.map((item, index) => {
                                 return <BlogItem key={index} data={item}/>
                             })
                 }
             </div>
             <div className="text-center col-12 mt-4">
                 {
-                    data.length > 0
+                    data?.length > 0
                         &&
-                        <Pagination page={currentPage ? (currentPage*1-1) : 1} itemsPerPage={4} listItems={data} setCurrentItems={setCurrentItems}/>
+                            <Pagination pageCount={pageCount} page={page ? (page*1-1) : 1} itemsPerPage={12}/>
                 }
             </div>
         </div>

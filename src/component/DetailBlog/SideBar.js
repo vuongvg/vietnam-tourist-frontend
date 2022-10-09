@@ -21,7 +21,6 @@ function SideBar ({idExclude}) {
             }
         )
         .then((res) => {
-            console.log(res);
             if (res.status === 200) {
                 setLoading(true);
                 setData(res.data);

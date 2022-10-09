@@ -1,86 +1,63 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { InputLabel, MenuItem, FormControl, Select, TextField, Button, Checkbox, Box, Slider } from '@mui/material';
+import Select from "react-select";
+import { Button, Checkbox } from '@mui/material';
 import { Star, StarBorder } from '@mui/icons-material';
-import { displayPrice } from "../../utils";
-import request from "../../api";
+import { citiesList } from "../../utils";
 
 function Filter () {
 
-  const [starRating, setStarRating] = useState(5);
-  const [checked, setChecked] = useState([true, false, false, false, false]);
-  const [valueSlider, setValueSlider] = useState([350000, 1000000]);
+  const [starRating, setStarRating] = useState(0);
+  const [checked, setChecked] = useState([false, false, false, false, false]);
   const [city, setCity] = useState('');
-  const [,setSearchParams] = useSearchParams();
-
-  const handleChangeSlider = (event, newValue) => {
-    setValueSlider(newValue);
-  };
-
-  const handleChangeSelect = (event) => {
-    setCity(event.target.value);
-  };
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleSearch = () => {
-    setSearchParams({
-      city: city,
-      evaluate: starRating,
-      lowest: valueSlider[0],
-      highest: valueSlider[1]
+    let low = 0, 
+        high = 0;
+
+    if (starRating > 0) {
+      low = starRating - 0.5;
+      high = starRating === 5 ? starRating : starRating + 0.5;
+    }
+
+    setSearchParams({ 
+      ...(low && high ? {range:`evaluate-${low}-${high}`} : {}),
+      ...(city ? {filter:`city-${city}`} : {}),
     });
   }
 
   const handleCheckBox = (value,position,e) => {
-    const a = e.currentTarget.checked;
-    const updateChecked = checked.map((item, index) => 
-      index === position ? !item : false
-    );
+    let updateChecked;
+
+    if (e.target.checked) {
+      updateChecked = checked.map((item, index) => 
+        index === position ? !item : false
+      );
+      setStarRating(value);
+    } else {
+      updateChecked = checked.map((item, index) => 
+        index = false
+      );
+      setStarRating(0);
+    }
+    
     setChecked(updateChecked);
-    setStarRating(value);
   }
 
-  useEffect(() => {
-    // request.get(
-    //   '/hotel',
-    //   {
-    //     params: { 
-    //       range:["price",350000, 1000000],
-    //     }
-    //   }
-    // )
-    // .then((res) => {
-    //   if (res.status === 200) {
-    //   } else {
-          
-    //   }
-    // })
-    // .catch(() => {
-    //     console.log("request failed");
-    // })
-  }, []);
+  const handleSelectChange = (selectedOption) => {
+    setCity(selectedOption.value);
+  }
 
   return (
     <>
       <div className="border p-3 bg-light">
-        <h5>FIND CITY</h5>
-        <FormControl fullWidth className="mt-2">
-          <InputLabel id="demo-simple-select-helper-label">City</InputLabel>
-          <Select
-            labelId="demo-simple-select-helper-label"
-            id="demo-simple-select-helper"
-            value={city}
-            label="City"
-            onChange={handleChangeSelect}
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={'HN'}>Ha Noi</MenuItem>
-            <MenuItem value={'HCM'}>TP.HCM</MenuItem>
-            <MenuItem value={"NTR"}>Nha Trang</MenuItem>
-          </Select>
-        </FormControl>
-        <h5 className="mt-4">STAR RATING</h5>
+        <div className="fw-bold mb-3">Find City</div>
+        <Select
+          options={citiesList}
+          onChange={handleSelectChange}
+        />
+        <div className="mt-4 mb-3 fw-bold">Price Range</div>
         <div className="d-flex g-2 align-items-center">
           <Checkbox checked={checked[0]} onChange={e => handleCheckBox(5,0,e)}/>
           <Star className="color-f85a59" sx={{fontSize:15}}/>
@@ -120,21 +97,6 @@ function Filter () {
           <StarBorder className="color-f85a59" sx={{fontSize:15}}/>
           <StarBorder className="color-f85a59" sx={{fontSize:15}}/>
           <StarBorder className="color-f85a59" sx={{fontSize:15}}/>
-        </div>
-        <h5 className="mt-4">COST/NIGHT</h5>
-        <div className="px-2">
-          <Box sx={{ width:'100%' }}>
-            <Slider
-              getAriaLabel={() => 'Price range'}
-              value={valueSlider}
-              onChange={handleChangeSlider}
-              valueLabelDisplay="auto"
-              valueLabelFormat={val => displayPrice(val)}
-              // getAriaValueText={valuetext}
-              min={350000}
-              max={5000000}
-            />
-          </Box>
         </div>
         <div>
           <Button variant="contained" fontSize="large" className="w-100 text-white mt-4 py-2" sx={{backgroundColor:'#f85a59'}} onClick={handleSearch}>Search</Button>

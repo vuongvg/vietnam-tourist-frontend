@@ -38,7 +38,7 @@ function DetailContent ({idPost}) {
             content 
               &&
               <>
-                <div className="ratio  ratio-21x9 bg-center bg-cover bg-norepeat mb-4" style={{backgroundImage:`url(${content.avatar})`}}></div>
+                <div className="ratio  ratio-21x9 bg-center bg-cover bg-norepeat mb-4" style={{backgroundImage:`url(${content.avatar?.src})`}}></div>
                 <h2>{content.title}</h2>
                 <div className="d-flex align-items-center mb-3 mt-3 text-secondary">
                   <AccessTimeIcon fontSize="small"/>
@@ -46,11 +46,11 @@ function DetailContent ({idPost}) {
                 </div>
                 <div>{content.description}</div>
                 <div className="product-content mt-3" dangerouslySetInnerHTML={{__html: content.content}}></div>
+                <div className="mt-3">
+                  <CommentBox />
+                </div>
               </>
       }
-      <div className="mt-3">
-        <CommentBox />
-      </div>
     </div>
   )
 }

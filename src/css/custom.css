@@ -14,6 +14,9 @@ input, select {
 input:focus-visible, select:focus-visible {
     outline: none;
 }
+textarea:focus-visible {
+    outline: 1px solid #4e4f50 !important;
+}
 
 /* color */
 .color-f85a59 {
@@ -24,6 +27,9 @@ input:focus-visible, select:focus-visible {
 }
 .color-c4 {
     color: #c4c4c4;
+}
+.color-6a {
+    color: #6a6a6a;
 }
 .color-ffffffb3 {
     color: #ffffffb3;
@@ -42,6 +48,9 @@ input:focus-visible, select:focus-visible {
 /* font-size */
 .fs-0d8 {
     font-size:.8rem;
+}
+.fs-0d9 {
+    font-size:.9rem;
 }
 /* end font-size */
 
