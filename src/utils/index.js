@@ -59,7 +59,7 @@ export const getToken = () => {
 }
 
 export const compareTwoValues = (numberOne, numberTwo) => {
-    let pairNumber;
+    let pairNumber = [];
     if (numberOne > numberTwo) {
         return pairNumber = [numberTwo, numberOne];
     } else {

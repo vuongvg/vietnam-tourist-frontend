@@ -57,14 +57,15 @@ function DetailContent ({ detailType, idPost }) {
         .then((res) => {
             if (res.status === 200) {
                 setLoading(true);
-                res.data.album = [res.data.avatar, ...res.data.album];
+                if (res.data.album)
+                    res.data.album = [res.data.avatar, ...res.data.album];
                 setContent(res.data);
             } else {
                 
             }
         })
-        .catch(() => {
-            console.log("request failed");
+        .catch((err) => {
+            console.log(err);
         })
     }, [])
 
@@ -72,31 +73,39 @@ function DetailContent ({ detailType, idPost }) {
         <div>
             {
                 !loading
-                ?
-                    <Skeleton/>
-                :
-                    content 
-                    &&
-                    <>
-                        <h2>{content.hotelname}</h2>
-                        <div className="d-flex align-items-center mb-4 text-secondary">
-                            <AccessTimeIcon fontSize="small"/>
-                            <div className="ms-2">{convertDateForm(content.updatedAt)}</div>
-                        </div>
-                        <div className="mb-4 mt-2">
-                            <Slider {...settings}>
+                    ?
+                        <Skeleton/>
+                    :
+                        content 
+                        &&
+                        <>
+                            <h2>{content.title}</h2>
+                            <div className="d-flex align-items-center mb-4 text-secondary">
+                                <AccessTimeIcon fontSize="small"/>
+                                <div className="ms-2">{convertDateForm(content.updatedAt)}</div>
+                            </div>
+                            <div className="mb-4 mt-2">
                                 {
-                                    content.album.map((item, index) => {
-                                        return <div className="ratio ratio-16x9" key={index}>
-                                            <div className="bg-cover bg-center bg-norepeat" style={{backgroundImage:`url(${item})`}}></div>
-                                        </div>
-                                    })
+                                    content.album
+                                        ?
+                                            <Slider {...settings}>
+                                                {
+                                                    content.album.map((item, index) => {
+                                                        return <div className="ratio ratio-16x9" key={index}>
+                                                            <div className="bg-cover bg-center bg-norepeat" style={{backgroundImage:`url(${item})`}}></div>
+                                                        </div>
+                                                    })
+                                                }
+                                            </Slider>
+                                        :
+                                            <div className="ratio ratio-16x9">
+                                                <div className="bg-cover bg-center bg-norepeat" style={{backgroundImage:`url(${content.avatar})`}}></div>
+                                            </div>
                                 }
-                            </Slider>
-                        </div>
-                        <div className="mt-5">{content.description}</div>
-                        <div className="product-content mt-3" dangerouslySetInnerHTML={{__html: content.content}}></div>
-                    </>
+                            </div>
+                            <div className="mt-5">{content.description}</div>
+                            <div className="product-content mt-3" dangerouslySetInnerHTML={{__html: content.content}}></div>
+                        </>
             }
         </div>
     )
