@@ -1,27 +1,13 @@
 import ReactPaginate from 'react-paginate';
-import { useState, useEffect } from 'react';
 import { useSearchParams } from "react-router-dom";
   
-function Pagination({ page, itemsPerPage, listItems, setCurrentItems }) {
-    const [pageCount, setPageCount] = useState(0);
-    const [itemOffset, setItemOffset] = useState(0);
+function Pagination({ pageCount, page, itemPerPage }) {
     const [searchParams, setSearchParams] = useSearchParams();
   
-    useEffect(() => {
-      const endOffset = itemOffset + itemsPerPage;
-      setCurrentItems(listItems.slice(itemOffset, endOffset));
-      setPageCount(Math.ceil(listItems.length / itemsPerPage));
-    }, [itemOffset]);
-
-    useEffect(() => {
-      const newOffset = (page * itemsPerPage) % listItems.length;
-      setItemOffset(newOffset);
-    }, [page]);
-  
     const handlePageClick = (event) => {
-      const newOffset = (event.selected * itemsPerPage) % listItems.length;
+      var scrollDiv = document.getElementById("listData").offsetTop - 100;
+      window.scrollTo({top:scrollDiv, behavior:"smooth"});
       const queryParams = {};
-      setItemOffset(newOffset);
       for (const entry of searchParams.entries()) {
         queryParams[entry[0]] = entry[1];
       }
@@ -39,7 +25,7 @@ function Pagination({ page, itemsPerPage, listItems, setCurrentItems }) {
                 breakLabel="..."
                 nextLabel=">"
                 onPageChange={handlePageClick}
-                pageRangeDisplayed={8}
+                pageRangeDisplayed={itemPerPage}
                 pageCount={pageCount}
                 previousLabel="<"
                 renderOnZeroPageCount={null}

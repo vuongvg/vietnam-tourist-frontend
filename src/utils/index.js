@@ -13,7 +13,7 @@ export const displayStars = (evaluate) => {
     return arr;
 }
 
-export const transferDate = (str) => {
+export const convertDateForm = (str) => {
     const date = new Date(str);
     return date.getDate() + "/" + (date.getMonth()*1+1) + "/" + date.getFullYear() +" "+ date.getHours()+":"+date.getMinutes();
 }
@@ -46,4 +46,14 @@ export const displayPrice = (number) => {
     }
 
     return [...b].reverse().join("") + " VNĐ";
+}
+
+export const getToken = () => {
+    const token = localStorage.getItem('token');
+    
+    if (!token) {
+        return false;
+    } else {
+        return token;
+    }
 }

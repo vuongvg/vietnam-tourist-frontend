@@ -27,7 +27,7 @@ function Banner () {
                 <div className='position-absolute top-50 start-50 translate-middle w-auto h-auto text-white'>
                     <h1 className=''>Explore Amazing Vietnam</h1>
                     <div className='my-3' style={{opacity:.6}}>
-                        <h4>Find great places to stay, eat, or visit from local experts</h4>
+                        <h4>Find great places to stay, eat, or visit from local experts in vietnam</h4>
                     </div>
                     <div className='d-flex'>
                         <input style={{height:'4rem', width:'18rem'}} className="px-4" placeholder='Ex:food, location, hotel'/>

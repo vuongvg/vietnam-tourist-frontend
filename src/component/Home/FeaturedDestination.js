@@ -4,7 +4,7 @@ import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material/';
 import FeaturedDestinationItem from "./FeaturedDestinationItem";
-import FeaturedDestinationsSkeleton from "../Skeleton/FeaturedDestinationsSkeleton";
+import FeaturedDestinationsSkeleton from "../Skeleton/DestinationsSkeleton";
 import request from "../../api";
 import { useState, useEffect } from "react";
 

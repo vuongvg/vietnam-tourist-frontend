@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "./component/layout/Navbar";
 import Footer from "./component/layout/Footer";
 import About from "./pages/About";
@@ -9,12 +11,9 @@ import Hotel from "./pages/Hotel";
 import Tour from "./pages/Tour";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Admin from "./pages/Admin";
-import { UserList } from "./component/Admin/users";
-import StoreAdmin from "./pages/Admin";
 import Restaurant from "./pages/Restaurants";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import DetailBlog from "./pages/DetailBlog";
+import Admin from "./pages/Admin";
 
 function App() {
 
@@ -26,7 +25,11 @@ function App() {
 
    return (
       <div className="App">
-         <Navbar />
+         {
+            (pathname !== "/login" && pathname !== "/register")
+               &&
+                  <Navbar />
+         }
          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -36,8 +39,9 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/hotel" element={<Hotel />} />
             <Route path="/tour" element={<Tour />} />
-            <Route path="/admin/*" element={<StoreAdmin />} />
+            <Route path="/admin/*" element={<Admin />} />
             <Route path="/restaurant" element={<Restaurant />}/>
+            <Route path="/detail/blog/:id" element={<DetailBlog />}/>
          </Routes>
          <Footer />
       </div>
