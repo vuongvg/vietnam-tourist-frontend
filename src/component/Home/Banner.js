@@ -2,17 +2,8 @@ import BannerImg from '../../images/banner.png';
 import { useState } from 'react';
 import { Button } from '@mui/material';
 import { Restaurant, Apartment, Place, Search } from '@mui/icons-material';
-
-const currencies = [
-    {
-      value: 'HN',
-      label: 'Hà Nội',
-    },
-    {
-      value: 'TPHCM',
-      label: 'TP. HCM',
-    }
-];
+import { citiesList } from '../../utils';
+import Select from "react-select";
 
 function Banner () {
     const [currency, setCurrency] = useState('');
@@ -34,7 +25,7 @@ function Banner () {
                         <div className='bg-white pe-2 border-start'>
                             <select style={{height:'4rem', width:'18rem'}} className="px-4">
                                 {
-                                    currencies.map((item, index) => {
+                                    citiesList.map((item, index) => {
                                         return <option key={index} value={item.value}>{item.label}</option>
                                     })
                                 }
@@ -89,7 +80,7 @@ function Banner () {
                     <input style={{height:'4rem', width:'18rem'}} className="px-4 mb-3" placeholder='Ex:food, location, hotel'/>
                     <select style={{height:'4rem', width:'18rem'}} className="px-4 mb-3">
                         {
-                            currencies.map((item, index) => {
+                            citiesList.map((item, index) => {
                                 return <option key={index} value={item.value}>{item.label}</option>
                             })
                         }

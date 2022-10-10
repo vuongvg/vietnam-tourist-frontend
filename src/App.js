@@ -14,6 +14,7 @@ import Register from "./pages/Register";
 import Restaurant from "./pages/Restaurants";
 import DetailBlog from "./pages/DetailBlog";
 import Detail from "./pages/Detail";
+import NotFound from "./pages/NotFound";
 
 function App() {
 
@@ -45,7 +46,9 @@ function App() {
                <Route path="hotel/:id" element={<Detail />}/>
                <Route path="restaurant/:id" element={<Detail />}/>
                <Route path="tour/:id" element={<Detail />}/>
+               <Route path="location/:id" element={<Detail />}/>
             </Route>
+            <Route path="*" element={<NotFound />}/>
          </Routes>
          <Footer />
       </div>
