@@ -4,11 +4,12 @@ import { Button } from '@mui/material';
 import { Restaurant, Apartment, Place, Search } from '@mui/icons-material';
 import { citiesList } from '../../utils';
 import Select from "react-select";
+import { Link } from 'react-router-dom';
 
 function Banner () {
     const [currency, setCurrency] = useState('');
 
-    const handleChange = () => {
+    const handleSelectChange = () => {
 
     }
 
@@ -23,7 +24,11 @@ function Banner () {
                     <div className='d-flex'>
                         <input style={{height:'4rem', width:'18rem'}} className="px-4" placeholder='Ex:food, location, hotel'/>
                         <div className='bg-white pe-2 border-start'>
-                            <select style={{height:'4rem', width:'18rem'}} className="px-4">
+                            <select 
+                                style={{height:'4rem', width:'18rem'}} 
+                                className="px-4"
+                                onChange={handleSelectChange}
+                            >
                                 {
                                     citiesList.map((item, index) => {
                                         return <option key={index} value={item.value}>{item.label}</option>
@@ -44,30 +49,36 @@ function Banner () {
                         <h4>Or browse the highlights </h4>
                     </div>
                     <div className='d-flex gap-3 categories-buttons'>
-                        <Button 
-                            variant="contained" 
-                            startIcon={<Restaurant />}
-                            size="large"
-                            sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
-                        >
-                            Restaurants
-                        </Button>
-                        <Button 
-                            variant="contained" 
-                            startIcon={<Apartment />}
-                            size="large"
-                            sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
-                        >
-                            Hotels
-                        </Button>
-                        <Button 
-                            variant="contained" 
-                            startIcon={<Place />}
-                            size="large"
-                            sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
-                        >
-                            Locations
-                        </Button>
+                        <Link to="restaurant">
+                            <Button 
+                                variant="contained" 
+                                startIcon={<Restaurant />}
+                                size="large"
+                                sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                            >
+                                Restaurants
+                            </Button>
+                        </Link>
+                        <Link to="hotel">
+                            <Button 
+                                variant="contained" 
+                                startIcon={<Apartment />}
+                                size="large"
+                                sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                            >
+                                Hotels
+                            </Button>
+                        </Link>
+                        <Link to="tour">
+                            <Button 
+                                variant="contained" 
+                                startIcon={<Place />}
+                                size="large"
+                                sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                            >
+                                Locations
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -102,34 +113,41 @@ function Banner () {
                 </div>
                 <div className='categories-buttons'>
                     <div className='mb-3'>
-                        <Button 
-                            variant="contained" 
-                            startIcon={<Restaurant />}
-                            size="large"
-                            sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
-                        >
-                            Restaurants
-                        </Button>
+                        <Link to="restaurant">
+                            <Button 
+                                variant="contained" 
+                                startIcon={<Restaurant />}
+                                size="large"
+                                sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                            >
+                                Restaurants
+                            </Button>
+                        </Link>
                     </div>
                     <div className='mb-3'>
-                        <Button 
-                            variant="contained" 
-                            startIcon={<Apartment />}
-                            size="large"
-                            sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
-                        >
-                            Hotels
-                        </Button>
+                        <Link to="hotel">
+                            <Button 
+                                variant="contained" 
+                                startIcon={<Apartment />}
+                                size="large"
+                                sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                            >
+                                Hotels
+                            </Button>
+                        </Link>
                     </div>
                     <div className='mb-3'>
-                        <Button 
-                            variant="contained" 
-                            startIcon={<Place />}
-                            size="large"
-                            sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
-                        >
-                            Locations
-                        </Button>
+                        <Link to="tour">
+                            <Button 
+                                variant="contained" 
+                                startIcon={<Place />}
+                                size="large"
+                                sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                            >
+                                Locations
+                            </Button>
+                        </Link>
+                        
                     </div>
                 </div>
             </div>

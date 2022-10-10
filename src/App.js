@@ -15,6 +15,7 @@ import Restaurant from "./pages/Restaurants";
 import DetailBlog from "./pages/DetailBlog";
 import Detail from "./pages/Detail";
 import NotFound from "./pages/NotFound";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
+            <Route path="/search" element={<SearchPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />

@@ -13,7 +13,7 @@ function Navbar() {
    const [scrollY, setScrollY] = useState();
 
    function setBackground() {
-      if (urlPath[1] && urlPath[1] === "detail") {
+      if (urlPath[1] && (urlPath[1] === "detail" || urlPath[1] === "search") ) {
          setBackGroundColor('#222831');
       } else {
          setBackGroundColor('transparent');

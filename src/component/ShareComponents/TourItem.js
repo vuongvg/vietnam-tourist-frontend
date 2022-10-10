@@ -6,7 +6,7 @@ function TopTourItem ({data}) {
     return (
         <div className="col mb-4">
             <div className="border h-100">
-              <Link to={`detail/tour/loaction/${data._id}`}>
+              <Link to={`detail/tour/${data._id}`}>
                 <div className="ratio ratio-1x1">
                   <div 
                     className="bg-cover bg-norepeat bg-center" 
@@ -16,7 +16,7 @@ function TopTourItem ({data}) {
               </Link>
               <div className="p-3">
                 <div className="d-flex justify-content-between">
-                  <Link to={`detail/tour/loaction/${data._id}`}>
+                  <Link to={`detail/tour/${data._id}`}>
                     <h5 className="text-dark color-hover-f85a59">{data.title}</h5>
                   </Link>
                 </div>
