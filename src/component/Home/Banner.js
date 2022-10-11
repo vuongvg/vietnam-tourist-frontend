@@ -8,32 +8,17 @@ import { Link } from 'react-router-dom';
 
 function Banner () {
     const [inputValue, setInputValue] = useState('');
-    const [city, setCity] = useState('');
     const navigate = useNavigate();
 
-    const handleSelectChange = (e) => {
-        let inputValue = e.target.value;
-        setCity(inputValue);
-    }
-
     const handleInputChange = (e) => {
-        let selectValue = e.target.value;
-        setInputValue(selectValue);
+        let inputValue = e.target.value;
+        setInputValue(inputValue);
     }
 
     const handleSearch = () => {
-        let querryParam = {
-            0: inputValue ? ("place="+inputValue) : '',
-            1: city ? ("city="+city) : ''
-        }
+        let searchKeyword = inputValue ? ("keyword="+inputValue) : '';
 
-        if (querryParam[0] && !querryParam[1]) {
-            navigate(`/search?${querryParam[0]}`);
-        } else if (querryParam[1] && !querryParam[0]) {
-            navigate(`/search?${querryParam[1]}`);
-        } else if (querryParam[0] && querryParam[1]) {
-            navigate(`/search?${querryParam[0]}&${querryParam[1]}`);
-        }
+        navigate(`/search?${searchKeyword}`);
     }
 
     return (
@@ -46,29 +31,16 @@ function Banner () {
                     </div>
                     <div className='d-flex'>
                         <input 
-                            style={{height:'4rem', width:'18rem'}} 
+                            style={{height:'3rem', width:'25rem'}} 
                             className="px-4" 
-                            placeholder='Ex:location, hotel'
+                            placeholder='Ex: location, hotel, city...'
                             onChange={handleInputChange}
                         />
-                        <div className='bg-white pe-2 border-start'>
-                            <select 
-                                style={{height:'4rem', width:'18rem'}} 
-                                className="px-4"
-                                onChange={handleSelectChange}
-                            >
-                                {
-                                    citiesList.map((item, index) => {
-                                        return <option key={index} value={item.value}>{item.label}</option>
-                                    })
-                                }
-                            </select>
-                        </div>
                         <Button 
                             variant="contained" 
                             startIcon={<Search />}
                             className="px-4 search-box"
-                            sx={{backgroundColor:'#f85a59', borderRadius:0, height:'4rem'}}
+                            sx={{backgroundColor:'#f85a59', borderRadius:0, height:'3rem'}}
                             onClick={handleSearch}
                         >
                             Search
@@ -118,28 +90,17 @@ function Banner () {
                 </div>
                 <div>
                     <input 
-                        style={{height:'4rem', width:'18rem'}} 
+                        style={{height:'3rem', width:'100%'}} 
                         className="px-4 mb-3" 
-                        placeholder='Ex:food, location, hotel'
+                        placeholder='Ex: location, hotel, city,...'
                         onChange={handleInputChange}
                     />
-                    <select 
-                        style={{height:'4rem', width:'18rem'}} 
-                        className="px-4 mb-3"
-                        onChange={handleSelectChange}
-                    >
-                        {
-                            citiesList.map((item, index) => {
-                                return <option key={index} value={item.value}>{item.label}</option>
-                            })
-                        }
-                    </select>
                     <div>
                         <Button 
                             variant="contained" 
                             startIcon={<Search />}
                             className="px-4 search-box"
-                            sx={{backgroundColor:'#f85a59', borderRadius:0, height:'4rem'}}
+                            sx={{backgroundColor:'#f85a59', borderRadius:0, height:'3rem'}}
                             onClick={handleSearch}
                         >
                             Search
