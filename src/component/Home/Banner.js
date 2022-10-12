@@ -1,24 +1,24 @@
 import BannerImg from '../../images/banner.png';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { Restaurant, Apartment, Place, Search } from '@mui/icons-material';
-
-const currencies = [
-    {
-      value: 'HN',
-      label: 'Hà Nội',
-    },
-    {
-      value: 'TPHCM',
-      label: 'TP. HCM',
-    }
-];
+import { citiesList } from '../../utils';
+import { Link } from 'react-router-dom';
 
 function Banner () {
-    const [currency, setCurrency] = useState('');
+    const [inputValue, setInputValue] = useState('');
+    const navigate = useNavigate();
 
-    const handleChange = () => {
+    const handleInputChange = (e) => {
+        let inputValue = e.target.value;
+        setInputValue(inputValue);
+    }
 
+    const handleSearch = () => {
+        let searchKeyword = inputValue ? ("keyword="+inputValue) : '';
+
+        navigate(`/search?${searchKeyword}`);
     }
 
     return (
@@ -30,21 +30,18 @@ function Banner () {
                         <h4>Find great places to stay, eat, or visit from local experts in vietnam</h4>
                     </div>
                     <div className='d-flex'>
-                        <input style={{height:'4rem', width:'18rem'}} className="px-4" placeholder='Ex:food, location, hotel'/>
-                        <div className='bg-white pe-2 border-start'>
-                            <select style={{height:'4rem', width:'18rem'}} className="px-4">
-                                {
-                                    currencies.map((item, index) => {
-                                        return <option key={index} value={item.value}>{item.label}</option>
-                                    })
-                                }
-                            </select>
-                        </div>
+                        <input 
+                            style={{height:'3rem', width:'25rem'}} 
+                            className="px-4" 
+                            placeholder='Ex: location, hotel, city...'
+                            onChange={handleInputChange}
+                        />
                         <Button 
                             variant="contained" 
                             startIcon={<Search />}
                             className="px-4 search-box"
-                            sx={{backgroundColor:'#f85a59', borderRadius:0, height:'4rem'}}
+                            sx={{backgroundColor:'#f85a59', borderRadius:0, height:'3rem'}}
+                            onClick={handleSearch}
                         >
                             Search
                         </Button>
@@ -53,30 +50,36 @@ function Banner () {
                         <h4>Or browse the highlights </h4>
                     </div>
                     <div className='d-flex gap-3 categories-buttons'>
-                        <Button 
-                            variant="contained" 
-                            startIcon={<Restaurant />}
-                            size="large"
-                            sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
-                        >
-                            Restaurants
-                        </Button>
-                        <Button 
-                            variant="contained" 
-                            startIcon={<Apartment />}
-                            size="large"
-                            sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
-                        >
-                            Hotels
-                        </Button>
-                        <Button 
-                            variant="contained" 
-                            startIcon={<Place />}
-                            size="large"
-                            sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
-                        >
-                            Locations
-                        </Button>
+                        <Link to="restaurant">
+                            <Button 
+                                variant="contained" 
+                                startIcon={<Restaurant />}
+                                size="large"
+                                sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                            >
+                                Restaurants
+                            </Button>
+                        </Link>
+                        <Link to="hotel">
+                            <Button 
+                                variant="contained" 
+                                startIcon={<Apartment />}
+                                size="large"
+                                sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                            >
+                                Hotels
+                            </Button>
+                        </Link>
+                        <Link to="tour">
+                            <Button 
+                                variant="contained" 
+                                startIcon={<Place />}
+                                size="large"
+                                sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                            >
+                                Locations
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -86,20 +89,19 @@ function Banner () {
                     <h4>Find great places to stay, eat, or visit from local experts</h4>
                 </div>
                 <div>
-                    <input style={{height:'4rem', width:'18rem'}} className="px-4 mb-3" placeholder='Ex:food, location, hotel'/>
-                    <select style={{height:'4rem', width:'18rem'}} className="px-4 mb-3">
-                        {
-                            currencies.map((item, index) => {
-                                return <option key={index} value={item.value}>{item.label}</option>
-                            })
-                        }
-                    </select>
+                    <input 
+                        style={{height:'3rem', width:'100%'}} 
+                        className="px-4 mb-3" 
+                        placeholder='Ex: location, hotel, city,...'
+                        onChange={handleInputChange}
+                    />
                     <div>
                         <Button 
                             variant="contained" 
                             startIcon={<Search />}
                             className="px-4 search-box"
-                            sx={{backgroundColor:'#f85a59', borderRadius:0, height:'4rem'}}
+                            sx={{backgroundColor:'#f85a59', borderRadius:0, height:'3rem'}}
+                            onClick={handleSearch}
                         >
                             Search
                         </Button>
@@ -111,34 +113,41 @@ function Banner () {
                 </div>
                 <div className='categories-buttons'>
                     <div className='mb-3'>
-                        <Button 
-                            variant="contained" 
-                            startIcon={<Restaurant />}
-                            size="large"
-                            sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
-                        >
-                            Restaurants
-                        </Button>
+                        <Link to="restaurant">
+                            <Button 
+                                variant="contained" 
+                                startIcon={<Restaurant />}
+                                size="large"
+                                sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                            >
+                                Restaurants
+                            </Button>
+                        </Link>
                     </div>
                     <div className='mb-3'>
-                        <Button 
-                            variant="contained" 
-                            startIcon={<Apartment />}
-                            size="large"
-                            sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
-                        >
-                            Hotels
-                        </Button>
+                        <Link to="hotel">
+                            <Button 
+                                variant="contained" 
+                                startIcon={<Apartment />}
+                                size="large"
+                                sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                            >
+                                Hotels
+                            </Button>
+                        </Link>
                     </div>
                     <div className='mb-3'>
-                        <Button 
-                            variant="contained" 
-                            startIcon={<Place />}
-                            size="large"
-                            sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
-                        >
-                            Locations
-                        </Button>
+                        <Link to="tour">
+                            <Button 
+                                variant="contained" 
+                                startIcon={<Place />}
+                                size="large"
+                                sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                            >
+                                Locations
+                            </Button>
+                        </Link>
+                        
                     </div>
                 </div>
             </div>

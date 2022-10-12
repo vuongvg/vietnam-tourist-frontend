@@ -3,7 +3,7 @@ import { Skeleton } from "@mui/material";
 function SkeletonItem () {
     return (
         <div className="col mb-4">
-            <div className="border">
+            <div className="border rounded">
                 <Skeleton className="ratio ratio-4x3 img-skeleton"/>
                 <div className="p-3">
                     <div className="d-flex justify-content-between">

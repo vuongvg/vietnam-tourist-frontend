@@ -13,7 +13,7 @@ function Navbar() {
    const [scrollY, setScrollY] = useState();
 
    function setBackground() {
-      if (urlPath[1] && urlPath[1] === "detail") {
+      if (urlPath[1] && (urlPath[1] === "detail" || urlPath[1] === "search")) {
          setBackGroundColor("#222831");
       } else {
          setBackGroundColor("transparent");
@@ -57,10 +57,7 @@ function Navbar() {
 
    return (
       <>
-         {/* <div className="d-none d-sm-block " style={{ backgroundColor: `#acb`, transition: "1s",}}> */}
-         <div className="d-none d-sm-block position-fixed vw-100 z-1" style={{ backgroundColor: `${backGroundColor}`, transition: "1s",
-         // zIndex:"1000"
-       }}>
+         <div className="d-none d-sm-block position-fixed vw-100 z-1" style={{ backgroundColor: `${backGroundColor}`, transition: "1s" }}>
             <div className="container d-flex align-items-center justify-content-between py-4">
                <div className="text-white">
                   <h2>VNTOUR</h2>
@@ -68,10 +65,10 @@ function Navbar() {
                <div className="d-flex align-items-center justify-content-end gap-3">
                   {userRole && (
                      <NavLink className="menu-item border border-white p-1 bg-primary" to="/admin">
-                         Admin 
+                        Admin
                      </NavLink>
                   )}
-                  <NavLink className="menu-item" id='home' to="/">
+                  <NavLink className="menu-item" id="home" to="/">
                      Home
                   </NavLink>
                   <NavLink className="menu-item" to="/about">

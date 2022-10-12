@@ -22,6 +22,9 @@ textarea:focus-visible {
 .color-f85a59 {
     color: #f85a59;
 }
+.color-hover-f85a59:hover {
+    color: #f85a59 !important;
+}
 .color-black {
     color: black;
 }
