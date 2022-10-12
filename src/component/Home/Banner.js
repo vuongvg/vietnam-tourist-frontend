@@ -1,4 +1,4 @@
-import BannerImg from '../../images/banner.png';
+import BannerImg from '../../images/banner.jpg';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
