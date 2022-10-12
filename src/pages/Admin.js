@@ -12,7 +12,6 @@ function Admin() {
          elm.innerHTML = res.data;
          document.head.append(elm);
       });
-      // return document.getElementById("javascript").innerHTML=''
    }, []);
 
    return <div id="admin" className="mt-5"></div>;
