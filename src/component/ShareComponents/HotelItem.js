@@ -19,7 +19,7 @@ function HotelItem ({data}) {
               <div className="p-3">
                 <div className="d-flex justify-content-between">
                   <Link to={`detail/hotel/${data._id}`}>
-                    <div className="fw-bold text-dark color-hover-f85a59">{data.hotelname}</div>
+                    <div className="fw-bold text-dark color-hover-f85a59">{data.title}</div>
                   </Link>
                 </div>
                 <div className="d-flex justify-content-between my-3">

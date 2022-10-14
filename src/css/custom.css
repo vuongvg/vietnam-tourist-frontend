@@ -22,6 +22,9 @@ textarea:focus-visible {
 .color-f85a59 {
     color: #f85a59;
 }
+.color-ecb00a {
+    color: #ecb00a;
+}
 .color-hover-f85a59:hover {
     color: #f85a59 !important;
 }
@@ -56,6 +59,13 @@ textarea:focus-visible {
     font-size:.9rem;
 }
 /* end font-size */
+
+.hover-underline:hover {
+    text-decoration: underline;
+}
+.hover-color-ecb00a:hover {
+    color: #ecb00a !important;
+}
 
 .flaticon-guarantee:before {content: "\f100";}
 

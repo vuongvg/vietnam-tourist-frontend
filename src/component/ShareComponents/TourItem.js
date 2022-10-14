@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import { spliceString, displayPrice } from "../../utils";
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { Link } from "react-router-dom";
 
 function TopTourItem ({data}) {
@@ -10,17 +11,20 @@ function TopTourItem ({data}) {
                 <div className="ratio ratio-1x1">
                   <div 
                     className="bg-cover bg-norepeat bg-center" 
-                    style={{backgroundImage:`url(${data.avatar})`}}
+                    style={{backgroundImage:`url(${data.avatar.src})`}}
                   ></div>
                 </div>
               </Link>
               <div className="p-3">
                 <div className="d-flex justify-content-between">
                   <Link to={`detail/tour/${data._id}`}>
-                    <h5 className="text-dark color-hover-f85a59">{data.title}</h5>
+                    <h5 className="text-dark hover-underline">{spliceString(data.title, 45)}</h5>
                   </Link>
                 </div>
-                <div className="color-f85a59 fw-bold mb-3 mt-2">{displayPrice(data.price)}</div>
+                <div className="d-flex mb-3 mt-2 align-items-center">
+                  <AttachMoneyIcon />
+                  <div className="color-ecb00a fw-bold">{displayPrice(data.price)}</div>
+                </div>
                 <div>{spliceString(data.description,80)}</div>
               </div>
             </div>

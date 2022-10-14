@@ -44,7 +44,7 @@ function SearchPage () {
                 .then((res) => {
                     if (res.status === 200) {
                         setLoading(true);
-                        setData(res.data);
+                        setData(res.data.data);
                         setPageCount(res.headers['x-total-page']);
                     } else {
                         
@@ -63,10 +63,18 @@ function SearchPage () {
         setInputValue(iptValue);
     };
 
-    const handleSearch = () => {
+    const handleSearch = (e) => {
         setSearchParams({ 
             ...(inputValue ? {keyword:inputValue} : {})
         });
+    };
+    
+    const handleKeyDown = (e) => {
+        if (e.charCode === 13 || e.keyCode === 13) {
+            setSearchParams({ 
+                ...(inputValue ? {keyword:inputValue} : {})
+            });
+        }
     };
 
     return  (
@@ -80,6 +88,7 @@ function SearchPage () {
                             className="px-4" 
                             placeholder='Ex: location, hotel, city,...'
                             onChange={handleInputChange}
+                            onKeyDown={handleKeyDown}
                         />
                         <Button 
                             variant="contained" 
