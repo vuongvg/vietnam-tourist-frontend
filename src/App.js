@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Restaurant from "./pages/Restaurants";
 import DetailBlog from "./pages/DetailBlog";
+import Admin from "./pages/Admin";
 import Detail from "./pages/Detail";
 import NotFound from "./pages/NotFound";
 import SearchPage from "./pages/SearchPage";
@@ -42,6 +43,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/hotel" element={<Hotel />} />
             <Route path="/tour" element={<Tour />} />
+            <Route path="/admin/*" element={<Admin />} />
             <Route path="/restaurant" element={<Restaurant />}/>
             <Route path="/detail">
                <Route path="blog/:id" element={<DetailBlog />}/>

@@ -19,6 +19,6 @@ function Hotel() {
       </div>
     </div>
   )
-}
+} 
 
 export default Hotel;
