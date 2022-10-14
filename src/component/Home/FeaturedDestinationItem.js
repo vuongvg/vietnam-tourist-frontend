@@ -10,13 +10,13 @@ function FeaturedDestinationItem ({data}) {
             <div className="ratio ratio-1x1">
                 <div 
                   className="bg-cover bg-norepeat bg-center" 
-                  style={{backgroundImage:`url(${data.avatar})`}}
+                  style={{backgroundImage:`url(${data.avatar.src})`}}
                 ></div>
             </div>
           </Link>
           <div className="p-3">
             <Link to={`detail/loaction/${data._id}`}>
-              <h4 className="text-dark color-hover-f85a59">{data.title}</h4>
+              <h4 className="text-dark color-hover-f85a59">{spliceString(data.title,17)}</h4>
             </Link>
             <div className="mt-3">{spliceString(data.description,80)} <AddCommentIcon className="color-f85a59" sx={{ fontSize:'1rem', transform:'rotateY(180deg)' }}/></div>
           </div>

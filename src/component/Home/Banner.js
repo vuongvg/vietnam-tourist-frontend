@@ -56,6 +56,7 @@ function Banner () {
                                 startIcon={<Restaurant />}
                                 size="large"
                                 sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                                className="hover-color-ecb00a"
                             >
                                 Restaurants
                             </Button>
@@ -66,6 +67,7 @@ function Banner () {
                                 startIcon={<Apartment />}
                                 size="large"
                                 sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                                className="hover-color-ecb00a"
                             >
                                 Hotels
                             </Button>
@@ -76,6 +78,7 @@ function Banner () {
                                 startIcon={<Place />}
                                 size="large"
                                 sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                                className="hover-color-ecb00a"
                             >
                                 Locations
                             </Button>
@@ -119,6 +122,7 @@ function Banner () {
                                 startIcon={<Restaurant />}
                                 size="large"
                                 sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                                className="hover-color-ecb00a"
                             >
                                 Restaurants
                             </Button>
@@ -131,6 +135,7 @@ function Banner () {
                                 startIcon={<Apartment />}
                                 size="large"
                                 sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                                className="hover-color-ecb00a"
                             >
                                 Hotels
                             </Button>
@@ -143,6 +148,7 @@ function Banner () {
                                 startIcon={<Place />}
                                 size="large"
                                 sx={{backgroundColor:'white', color:'#888', borderRadius:0}}
+                                className="hover-color-ecb00a"
                             >
                                 Locations
                             </Button>
