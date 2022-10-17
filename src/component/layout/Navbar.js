@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import { AccountCircle, Logout, ManageAccounts } from "@mui/icons-material";
@@ -60,7 +60,9 @@ function Navbar() {
          <div className="d-none d-sm-block position-fixed vw-100 z-1" style={{ backgroundColor: `${backGroundColor}`, transition: "1s" }}>
             <div className="container d-flex align-items-center justify-content-between py-4">
                <div className="text-white">
-                  <h2>VNTOUR</h2>
+                  <Link to="/">
+                     <h2 className="text-white">VNTOUR</h2>
+                  </Link>
                </div>
                <div className="d-flex align-items-center justify-content-end gap-3">
                   {userRole && (

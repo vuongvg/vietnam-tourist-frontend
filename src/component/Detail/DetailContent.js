@@ -14,8 +14,6 @@ function DetailContent ({ detailType, idPost }) {
         slidesToShow: 1,
         slidesToScroll: 1,
         pauseOnHover: true,
-        // nextArrow: <KeyboardArrowRight fontSize="large"/>,
-        // prevArrow: <KeyboardArrowLeft fontSize="large"/>,
         responsive: [
           {
             breakpoint: 1024,
@@ -58,7 +56,7 @@ function DetailContent ({ detailType, idPost }) {
             if (res.status === 200) {
                 setLoading(true);
                 if (res.data.album)
-                    res.data.album = [res.data.avatar, ...res.data.album];
+                    res.data.album = [res.data.avatar.src, ...res.data.album];
                 setContent(res.data);
             } else {
                 
@@ -92,7 +90,7 @@ function DetailContent ({ detailType, idPost }) {
                                                 {
                                                     content.album.map((item, index) => {
                                                         return <div className="ratio ratio-16x9" key={index}>
-                                                            <div className="bg-cover bg-center bg-norepeat" style={{backgroundImage:`url(${item})`}}></div>
+                                                            <div className="bg-cover bg-center bg-norepeat" style={{backgroundImage:`url(${item.src})`}}></div>
                                                         </div>
                                                     })
                                                 }

@@ -6,16 +6,17 @@ import { convertDateForm } from "../../utils";
 import CommentBox from "../../component/DetailBlog/CommentBox";
 
 function DetailContent ({idPost}) {
+  console.log(idPost);
 
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(false);
       request.get(
         `/blog/${idPost}`
       )
       .then((res) => {
+        console.log(res);
           if (res.status === 200) {
             setLoading(true);
             setContent(res.data);
@@ -26,7 +27,7 @@ function DetailContent ({idPost}) {
       .catch(() => {
           console.log("request failed");
       })
-  }, [])
+  }, []);
 
   return (
     <div>

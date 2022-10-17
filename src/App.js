@@ -34,6 +34,7 @@ function App() {
                   <Navbar />
          }
          <Routes>
+            <Route path="*" element={<NotFound />}/>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
@@ -52,7 +53,6 @@ function App() {
                <Route path="tour/:id" element={<Detail />}/>
                <Route path="location/:id" element={<Detail />}/>
             </Route>
-            <Route path="*" element={<NotFound />}/>
          </Routes>
          <Footer />
       </div>
