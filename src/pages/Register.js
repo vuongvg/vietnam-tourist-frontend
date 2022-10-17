@@ -11,6 +11,7 @@ import {
     Alert
 } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
+import Background from '../images/registerbackground.jpg';
 import { Person, Visibility, VisibilityOff, Done, WarningAmber, Email} from '@mui/icons-material';
 
 function Register() {
@@ -67,12 +68,12 @@ function Register() {
             {
               username: values.username,
               password: values.password,
-              email: values.email,
-              phone: '1234567899'
+              email: values.email
             }
         )
         .then((res) => {
-          if (res.status === 200) {
+          console.log(res);
+          if (res.data.status === 200) {
             setRegisterWait(false);
             setErrors({ ...errors, requestErr:'' });
             navigate('/login');
@@ -92,10 +93,10 @@ function Register() {
   },[])
 
   return (
-    <div className='position-absolute top-0 bottom-0 end-0 start-0 bg-white'>
+    <div className='position-absolute top-0 bottom-0 end-0 start-0 bg-white bg-center bg-cover bg-norepeat' style={{backgroundImage:`url(${Background})`}}>
         <div className='position-relative h-100 '>
             <div className='position-absolute top-50 w-100 translate-middle-y'>
-                <div className='col-md-4 col-10 m-auto p-3 pb-4 rounded border'>
+                <div className='col-md-4 col-10 m-auto p-3 pb-4 rounded border' style={{backgroundColor:"rgba(255,255,255,.9)"}}>
                     <h3 className='color-secondary text-center'>Register Form</h3>
                     <div hidden={!errors.requestErr} className="mt-3">
                         <Alert severity="error">{errors.requestErr}</Alert>
@@ -109,7 +110,7 @@ function Register() {
                               onChange={handleChange('username')}
                               endAdornment={
                               <InputAdornment position="end">
-                                  <IconButton edge="end" className='bg-white'>
+                                  <IconButton edge="end">
                                     <Person />
                                   </IconButton>
                               </InputAdornment>
@@ -176,7 +177,7 @@ function Register() {
                                 onChange={handleChange('confirmPassword')}
                                 endAdornment={
                                 <InputAdornment position="end">
-                                    <IconButton className='bg-white' edge="end">
+                                    <IconButton edge="end">
                                       {
                                         !values.confirmPassword 
                                           ? <></>

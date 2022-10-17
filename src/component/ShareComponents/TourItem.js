@@ -22,7 +22,7 @@ function TopTourItem ({data}) {
                   </Link>
                 </div>
                 <div className="d-flex mb-3 mt-2 align-items-center">
-                  <AttachMoneyIcon />
+                  <AttachMoneyIcon fontSize="small"/>
                   <div className="color-ecb00a fw-bold">{displayPrice(data.price)}</div>
                 </div>
                 <div>{spliceString(data.description,80)}</div>

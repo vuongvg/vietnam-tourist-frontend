@@ -8,6 +8,7 @@ import Skeleton from "../component/Skeleton/HotelSkeleton";
 import Pagination from '../component/ShareComponents/Pagination';
 import NoDataMatchedImg from "../images/NoDataMatched.png";
 import HotelItem from "../component/ShareComponents/HotelItem";
+import SearchItem from "../component/ShareComponents/searchItem";
 import SideBar from "../component/DetailBlog/SideBar";
 
 function SearchPage () {
@@ -109,7 +110,7 @@ function SearchPage () {
                                     data?.length > 0
                                         ?
                                             data.map((item, index) => {
-                                                return <HotelItem key={index} data={item}/>
+                                                return <SearchItem key={index} data={item}/>
                                             })
                                         :
                                             <div className='text-center w-100'>
