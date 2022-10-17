@@ -98,7 +98,7 @@ function LoginPage() {
                     </div>
                     <div className='my-4'>
                         <FormControl fullWidth variant="outlined">
-                            <InputLabel htmlFor="outlined-adornment-password">Username</InputLabel>
+                            <InputLabel>Username</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-password"
                                 type='text'

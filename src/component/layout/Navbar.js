@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-import { AccountCircle, Logout } from "@mui/icons-material";
+import { AccountCircle, Logout, ManageAccounts } from "@mui/icons-material";
 import { getToken } from "../../utils";
 
 function Navbar() {
@@ -42,7 +42,7 @@ function Navbar() {
    }, [pathname]);
 
    useEffect(() => {
-      if (getToken) {
+      if (getToken()) {
          setCurrentUser(true);
       } else {
          setCurrentUser(null);
@@ -64,8 +64,10 @@ function Navbar() {
                </div>
                <div className="d-flex align-items-center justify-content-end gap-3">
                   {userRole && (
-                     <NavLink className="menu-item border border-white p-1 bg-primary" to="/admin">
-                        Admin
+                     <NavLink className="menu-item" to="/admin">
+                        <div className="d-flex -align-items-center">
+                           <ManageAccounts/><div className="ms-1">Admin</div>
+                        </div>
                      </NavLink>
                   )}
                   <NavLink className="menu-item" id="home" to="/">
