@@ -10,7 +10,7 @@ function TipsAndAtriclesItem ({data}) {
                     <div className="ratio ratio-1x1">
                         <div 
                             className="bg-cover bg-norepeat bg-center" 
-                            style={{backgroundImage:`url(${data.avatar})`}}
+                            style={{backgroundImage:`url(${data.avatar}) !important`}}
                         ></div>
                     </div>
                 </Link>

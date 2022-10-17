@@ -17,7 +17,7 @@ function HotelItem ({data}) {
           <div className="p-3">
             <div className="d-flex justify-content-between">
               <Link to={`detail/hotel/${data._id}`}>
-                <div className="fw-bold text-dark color-hover-f85a59">{data.title}</div>
+                <h5 className="text-dark hover-underline">{spliceString(data.title,30)}</h5>
               </Link>
             </div>
             <div className="d-flex justify-content-between my-3">
@@ -25,9 +25,9 @@ function HotelItem ({data}) {
                 {
                   displayStars(data.evaluate).map((item, index) => {
                     if (item === 1) {
-                      return <Star sx={{fontSize:15}} key={index}/>
+                      return <Star sx={{fontSize:15}} key={index} className="color-ecb00a"/>
                     } else {
-                      return <StarHalf sx={{fontSize:15}} key={index}/>
+                      return <StarHalf sx={{fontSize:15}} key={index} className="color-ecb00a"/>
                     }
                   })
                 }
