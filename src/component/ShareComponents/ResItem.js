@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import { spliceString } from "../../utils";
 import { Link } from "react-router-dom";
 
@@ -17,7 +16,7 @@ function RestaurantItem ({data}) {
               <div className="p-3">
                 <div className="d-flex justify-content-between mb-3">
                   <Link to={`detail/restaurant/${data._id}`}>
-                    <h5 className="text-dark hover-underline">{spliceString(data.title,17)}</h5>
+                    <h5 className="text-dark hover-underline fw-bold">{spliceString(data.title,17)}</h5>
                   </Link>
                 </div>
                 <div className="fs-0d9">{spliceString(data.description,80)}</div>

@@ -49,7 +49,7 @@ export const displayPrice = (number) => {
         }
     }
 
-    return [...b].reverse().join("") + " VNĐ";
+    return [...b].reverse().join("");
 }
 
 export const getToken = () => {

@@ -4,9 +4,9 @@ import Skeleton from "../Skeleton/DetailBlogSkeleton";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { convertDateForm } from "../../utils";
 import Slider from "react-slick";
-import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material/';
 
 function DetailContent ({ detailType, idPost }) {
+
     const settings = {
         dots: true,
         infinite: true,
@@ -14,6 +14,8 @@ function DetailContent ({ detailType, idPost }) {
         slidesToShow: 1,
         slidesToScroll: 1,
         pauseOnHover: true,
+        nextArrow: () => (<span>...</span>),
+        prevArrow: () => (<span>...</span>),
         responsive: [
           {
             breakpoint: 1024,
@@ -44,7 +46,6 @@ function DetailContent ({ detailType, idPost }) {
 
     const [content, setContent] = useState(null);
     const [loading, setLoading] = useState(true);
-    let slidesArray = [];
 
     useEffect(() => {
         setLoading(false);
@@ -65,7 +66,7 @@ function DetailContent ({ detailType, idPost }) {
         .catch((err) => {
             console.log(err);
         })
-    }, [])
+    }, [detailType,idPost])
 
     return (
         <div>
