@@ -65,7 +65,7 @@ function Navbar() {
                   </Link>
                </div>
                <div className="d-flex align-items-center justify-content-end gap-3">
-                  {userRole && (
+                  {userRole === "admin" && (
                      <NavLink className="menu-item" to="/admin">
                         <div className="d-flex -align-items-center">
                            <ManageAccounts />
