@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 function Detail () {
 
   const { pathname } = useLocation();
-  const urlPath = pathname.split("/");
+   const urlPath = pathname.split("/");
 
   return (
     <div className="container mb-5" style={{paddingTop:'10rem'}}>

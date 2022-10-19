@@ -16,7 +16,7 @@ function FeaturedDestinationItem ({data}) {
           </Link>
           <div className="p-3">
             <Link to={`detail/loaction/${data._id}`}>
-              <h5 className="text-dark hover-underline">{spliceString(data.title,17)}</h5>
+              <h5 className="text-dark hover-underline fw-bold">{spliceString(data.title,17)}</h5>
             </Link>
             <div className="mt-3">{spliceString(data.description,80)} <AddCommentIcon className="color-f85a59" sx={{ fontSize:'1rem', transform:'rotateY(180deg)' }}/></div>
           </div>

@@ -16,9 +16,10 @@ function TipsAndAtriclesItem ({data}) {
                 </Link>
                 <div className="p-3">
                 <Link to={`detail/blog/${data._id}`}>
-                    <h5  className="text-dark hover-underline">{spliceString(data.title,80)}</h5>
+                    <h5  className="text-dark hover-underline fw-bold">{spliceString(data.title,50)}</h5>
                 </Link>
-                <div className="mt-3 mb-2 align-items-center d-flex fs-0d8"><AccessTime className="me-2" sx={{fontSize:20}}/> {convertDateForm(data.updatedAt)}</div>
+                <div className="mt-4 align-items-center d-flex fs-0d8"><AccessTime className="me-2" sx={{fontSize:20}}/> {convertDateForm(data.updatedAt)}</div>
+                <div className="mt-3">{spliceString(data.description,50)}</div>
                 <div>
                     {
                         data.comment

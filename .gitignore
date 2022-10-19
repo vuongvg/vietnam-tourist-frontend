@@ -27,3 +27,6 @@ docker-compose.yml
 .dockerignore
 
 package-lock.json
+.vscode/settings.json
+package-lock.json
+yarn.lock

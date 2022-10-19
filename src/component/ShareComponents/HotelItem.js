@@ -16,8 +16,8 @@ function HotelItem ({data}) {
           </Link>
           <div className="p-3">
             <div className="d-flex justify-content-between">
-              <Link to={`/detail/hotel/${data._id}`}>
-                <h5 className="text-dark hover-underline">{spliceString(data.title,30)}</h5>
+              <Link to={`detail/hotel/${data._id}`}>
+                <h5 className="text-dark hover-underline fw-bold">{spliceString(data.title,30)}</h5>
               </Link>
             </div>
             <div className="d-flex justify-content-between my-3">

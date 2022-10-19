@@ -9,6 +9,37 @@ import request from "../../api";
 import { useState, useEffect } from "react";
 
 function FeaturedDestination () {
+
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    <button
+      {...props}
+      className={
+        "slick-prev slick-arrow" +
+        (currentSlide === 0 ? " slick-disabled" : "")
+      }
+      aria-hidden="true"
+      aria-disabled={currentSlide === 0 ? true : false}
+      type="button"
+    >
+      <KeyboardArrowLeft fontSize="large"/>
+    </button>
+  );
+
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    <button
+      {...props}
+      className={
+        "slick-next slick-arrow" +
+        (currentSlide === slideCount - 1 ? " slick-disabled" : "")
+      }
+      aria-hidden="true"
+      aria-disabled={currentSlide === slideCount - 1 ? true : false}
+      type="button"
+    >
+      <KeyboardArrowRight fontSize="large"/>
+    </button>
+  );
+
   const settings = {
     dots: true,
     infinite: true,
@@ -16,8 +47,8 @@ function FeaturedDestination () {
     slidesToShow: 4,
     slidesToScroll: 1,
     pauseOnHover: true,
-    nextArrow: <KeyboardArrowRight fontSize="large"/>,
-    prevArrow: <KeyboardArrowLeft fontSize="large"/>,
+    nextArrow: <SlickArrowLeft/>,
+    prevArrow: <SlickArrowRight/>,
     responsive: [
       {
         breakpoint: 1024,
