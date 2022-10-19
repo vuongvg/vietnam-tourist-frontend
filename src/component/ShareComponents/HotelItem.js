@@ -6,7 +6,7 @@ function HotelItem ({data}) {
   return (
     <div className="col mb-4 text-start">
         <div className="border rounded overflow-hidden h-100">
-          <Link to={`detail/hotel/${data._id}`}>
+          <Link to={`/detail/hotel/${data._id}`}>
             <div className="ratio ratio-1x1">
               <div 
                 className="bg-cover bg-norepeat bg-center" 
