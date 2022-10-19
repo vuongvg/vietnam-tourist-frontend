@@ -17,7 +17,7 @@ function Admin() {
 
    return (
       <div id="admin" className="mt-5">
-         <div className="d-flex container mt-5">
+         <div className="d-flex container pt-5">
             <div className="col col-2 me-4">
                <Skeleton height={50} />
                <Skeleton height={50} />
