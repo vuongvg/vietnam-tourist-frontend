@@ -3,7 +3,7 @@ import DetailContent from "../component/DetailBlog/DetailContent";
 import { useLocation } from "react-router-dom";
 
 function DetailBlog () {
-
+    console.log('render');
     const { pathname } = useLocation();
     const urlPath = pathname.split("/");
 
@@ -19,4 +19,4 @@ function DetailBlog () {
     )
 }
 
-export default DetailBlog;
+export default DetailBlog; 

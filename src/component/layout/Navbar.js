@@ -68,15 +68,13 @@ function Navbar() {
                   {userRole && (
                      <NavLink className="menu-item" to="/admin">
                         <div className="d-flex -align-items-center">
-                           <ManageAccounts/><div className="ms-1">Admin</div>
+                           <ManageAccounts />
+                           <div className="ms-1">Admin</div>
                         </div>
                      </NavLink>
                   )}
                   <NavLink className="menu-item" id="home" to="/">
                      Home
-                  </NavLink>
-                  <NavLink className="menu-item" to="/about">
-                     About
                   </NavLink>
                   <NavLink className="menu-item" to="/hotel">
                      Hotel
@@ -89,6 +87,9 @@ function Navbar() {
                   </NavLink>
                   <NavLink className="menu-item" to="/blog">
                      Blog
+                  </NavLink>
+                  <NavLink className="menu-item" to="/about">
+                     About
                   </NavLink>
                   <NavLink className="menu-item" to="/contact">
                      Contact
