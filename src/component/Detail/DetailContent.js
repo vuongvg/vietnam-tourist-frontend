@@ -4,7 +4,6 @@ import Skeleton from "../Skeleton/DetailBlogSkeleton";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { convertDateForm } from "../../utils";
 import Slider from "react-slick";
-import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material/';
 
 function DetailContent ({ detailType, idPost }) {
     const settings = {
@@ -55,8 +54,8 @@ function DetailContent ({ detailType, idPost }) {
         .then((res) => {
             if (res.status === 200) {
                 setLoading(true);
-                if (res.data.album)
-                    res.data.album = [res.data.avatar.src, ...res.data.album];
+                res.data.album = [res.data.avatar, ...res.data.album];
+                console.log(res.data.album);
                 setContent(res.data);
             } else {
                 
