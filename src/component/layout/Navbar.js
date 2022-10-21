@@ -112,7 +112,7 @@ function Navbar() {
                      <h3 className="text-white mb-0">VNTOUR</h3>
                   </Link>
                </div>
-               <MenuIcon/>
+               <MenuIcon onClick={handleShowHideMobileMenu}/>
             </div>
             <div hidden={!showHideMenuMobile} className="text-center">
                <div className="py-2">
