@@ -11,7 +11,6 @@ function Navbar() {
    const [backGroundColor, setBackGroundColor] = useState("");
    const [currentUser, setCurrentUser] = useState(null);
    const [scrollY, setScrollY] = useState();
-   const [showHideMenuMobile, setShowHideMenuMobile] = useState(false);
 
    function setBackground() {
       if (urlPath[1] && (urlPath[1] === "detail" || urlPath[1] === "search")) {
@@ -55,10 +54,6 @@ function Navbar() {
       localStorage.removeItem("userRole");
    };
    const userRole = localStorage.getItem("userRole");
-
-   const handleShowHideMobileMenu = () => {
-      setShowHideMenuMobile(!showHideMenuMobile);
-   }
 
    return (
       <>
