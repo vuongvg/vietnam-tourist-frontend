@@ -102,8 +102,64 @@ function Navbar() {
          </div>
          <div className="d-block d-sm-none position-fixed vw-100 z-1" style={{ backgroundColor: "#222831", transition: "1s" }}>
             <div className="text-white d-flex justify-content-between py-3 px-4">
-               <div>dirEngine</div>
-               <MenuIcon />
+               <div>
+                  <Link to="/">
+                     <h3 className="text-white mb-0">VNTOUR</h3>
+                  </Link>
+               </div>
+               <MenuIcon/>
+            </div>
+            <div hidden={!showHideMenuMobile} className="text-center">
+               <div className="py-2">
+                  {userRole === "admin" && (
+                     <NavLink className="menu-item" to="/admin">
+                        <div className="d-inline-flex align-items-center">
+                           <ManageAccounts />
+                           <div className="ms-1">Admin</div>
+                        </div>
+                     </NavLink>
+                  )}
+               </div>
+               <div className="py-2">
+                  <NavLink className="menu-item" id="home" to="/">
+                     Home
+                  </NavLink>
+               </div>
+               <div className="py-2">
+                  <NavLink className="menu-item" to="/hotel">
+                     Hotel
+                  </NavLink>
+               </div>
+               <div className="py-2">
+                  <NavLink className="menu-item" to="/restaurant">
+                     Restaurant
+                  </NavLink>
+               </div>
+               <div className="py-2">
+                  <NavLink className="menu-item" to="/tour">
+                     Tour
+                  </NavLink>
+               </div>
+               <div className="py-2">
+                  <NavLink className="menu-item" to="/blog">
+                     Blog
+                  </NavLink>
+               </div>
+               <div className="py-2">
+                  <NavLink className="menu-item" to="/about">
+                     About
+                  </NavLink>
+               </div>
+               <div className="py-2">
+                  <NavLink className="menu-item" to="/contact">
+                     Contact
+                  </NavLink>
+               </div>
+               <div className="py-2">
+                  <NavLink className="menu-item" to="/login">
+                     {currentUser ? <Logout onClick={handleLogout} /> : <AccountCircle />}
+                  </NavLink>
+               </div>
             </div>
          </div>
       </>
