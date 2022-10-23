@@ -12,9 +12,10 @@ function Navbar() {
    const [currentUser, setCurrentUser] = useState(null);
    const [scrollY, setScrollY] = useState();
    const [showHideMenuMobile, setShowHideMenuMobile] = useState(false);
+   const listPagesWhiteNav = ["about","hotel","restaurant","blog","contact"];
 
    function setBackground() {
-      if (urlPath[1] && (urlPath[1] === "detail" || urlPath[1] === "search")) {
+      if (urlPath[1] && listPagesWhiteNav.indexOf(urlPath[1]) < 0) {
          setBackGroundColor("#222831");
       } else {
          setBackGroundColor("transparent");
