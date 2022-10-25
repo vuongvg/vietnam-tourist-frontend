@@ -2,13 +2,11 @@ import DetailContent from "../component/Detail/DetailContent";
 import SideBar from "../component/Detail/SideBar";
 import SideBarBlog from "../component/DetailBlog/SideBar";
 import { useLocation } from "react-router-dom";
-import { Tour } from "@mui/icons-material";
 
 function Detail () {
 
   const { pathname } = useLocation();
   const urlPath = pathname.split("/");
-  console.log(urlPath[2]);
 
   return (
     <div className="container mb-5" style={{paddingTop:'10rem'}}>
