@@ -7,7 +7,7 @@ import { citiesList, compareTwoValues } from "../../utils";
 
 function Filter () {
 
-  const [valueSlider, setValueSlider] = useState([0, 1000000]);
+  const [valueSlider, setValueSlider] = useState([0, 1000]);
   const [city, setCity] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -44,16 +44,17 @@ function Filter () {
               value={valueSlider}
               onChange={handleChangeSlider}
               valueLabelDisplay="auto"
-              valueLabelFormat={val => displayPrice(val)}
+              // valueLabelFormat={val}
+              // => displayPrice(val)
               // getAriaValueText={valuetext}
               min={0}
-              max={5000000}
+              max={5000}
             />
           </Box>
         </div>
         <div className="d-flex justify-content-between fs-0d8">
-          <div>0 VNĐ</div>
-          <div>5.000.000 VNĐ</div>
+          <div>$ 0</div>
+          <div>$ 5000</div>
         </div>
         <div>
           <Button variant="contained" fontSize="large" className="w-100 text-white mt-4 py-2" sx={{backgroundColor:'#f85a59'}} onClick={handleSearch}>Search</Button>
