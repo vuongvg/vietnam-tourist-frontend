@@ -43,9 +43,10 @@ function SearchPage () {
                     }
                 })
                 .then((res) => {
+                    console.log(res);
                     if (res.status === 200) {
                         setLoading(true);
-                        setData(res.data.data);
+                        setData(res.data);
                         setPageCount(res.headers['x-total-page']);
                     } else {
                         
