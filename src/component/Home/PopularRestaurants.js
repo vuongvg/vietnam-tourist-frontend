@@ -14,7 +14,7 @@ function PopularRestaurants() {
       request
          .get("/restaurant", {
             params: {
-               famous: true,
+               filter: JSON.stringify({ famous: true }),
                limit: 4,
             },
          })

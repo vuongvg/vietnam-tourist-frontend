@@ -14,7 +14,7 @@ function PopularHotels() {
       request
          .get("/hotel", {
             params: {
-               famous: true,
+              filter:JSON.stringify({famous: true}),
                limit: 5,
             },
          })
