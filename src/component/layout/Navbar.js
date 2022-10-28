@@ -11,6 +11,7 @@ function Navbar() {
    const [backGroundColor, setBackGroundColor] = useState("");
    const [currentUser, setCurrentUser] = useState(null);
    const [scrollY, setScrollY] = useState();
+   const [showHideMenuMobile, setShowHideMenuMobile] = useState(false);
 
    function setBackground() {
       if (urlPath[1] && (urlPath[1] === "detail" || urlPath[1] === "search")) {
@@ -54,6 +55,10 @@ function Navbar() {
       localStorage.removeItem("userRole");
    };
    const userRole = localStorage.getItem("userRole");
+
+   const handleShowHideMobileMenu = () => {
+      setShowHideMenuMobile(!showHideMenuMobile);
+   }
 
    return (
       <>
@@ -107,9 +112,9 @@ function Navbar() {
                      <h3 className="text-white mb-0">VNTOUR</h3>
                   </Link>
                </div>
-               <MenuIcon/>
+               <MenuIcon onClick={()=>handleShowHideMobileMenu()}/>
             </div>
-            <div hidden={!showHideMenuMobile} className="text-center">
+            <div hidden={!showHideMenuMobile} className="text-center" >
                <div className="py-2">
                   {userRole === "admin" && (
                      <NavLink className="menu-item" to="/admin">
@@ -121,42 +126,42 @@ function Navbar() {
                   )}
                </div>
                <div className="py-2">
-                  <NavLink className="menu-item" id="home" to="/">
+                  <NavLink className="menu-item" id="home" to="/" onClick={()=>handleShowHideMobileMenu()}>
                      Home
                   </NavLink>
                </div>
                <div className="py-2">
-                  <NavLink className="menu-item" to="/hotel">
+                  <NavLink className="menu-item" to="/hotel" onClick={()=>handleShowHideMobileMenu()}>
                      Hotel
                   </NavLink>
                </div>
                <div className="py-2">
-                  <NavLink className="menu-item" to="/restaurant">
+                  <NavLink className="menu-item" to="/restaurant" onClick={()=>handleShowHideMobileMenu()}>
                      Restaurant
                   </NavLink>
                </div>
                <div className="py-2">
-                  <NavLink className="menu-item" to="/tour">
+                  <NavLink className="menu-item" to="/tour" onClick={()=>handleShowHideMobileMenu()}>
                      Tour
                   </NavLink>
                </div>
                <div className="py-2">
-                  <NavLink className="menu-item" to="/blog">
+                  <NavLink className="menu-item" to="/blog" onClick={()=>handleShowHideMobileMenu()}>
                      Blog
                   </NavLink>
                </div>
                <div className="py-2">
-                  <NavLink className="menu-item" to="/about">
+                  <NavLink className="menu-item" to="/about" onClick={()=>handleShowHideMobileMenu()}>
                      About
                   </NavLink>
                </div>
                <div className="py-2">
-                  <NavLink className="menu-item" to="/contact">
+                  <NavLink className="menu-item" to="/contact" onClick={()=>handleShowHideMobileMenu()}>
                      Contact
                   </NavLink>
                </div>
                <div className="py-2">
-                  <NavLink className="menu-item" to="/login">
+                  <NavLink className="menu-item" to="/login" onClick={()=>handleShowHideMobileMenu()}>
                      {currentUser ? <Logout onClick={handleLogout} /> : <AccountCircle />}
                   </NavLink>
                </div>
