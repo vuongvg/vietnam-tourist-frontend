@@ -21,11 +21,11 @@ function PopularRestaurantsSkeletonItem () {
     )
 }
 
-function PopularRestaurantsSkeleton () {
+function PopularRestaurantsSkeleton ({number}) {
     return (
         <>
             {
-                Array(5).fill(0).map((item, index) => {
+                Array(number ? number : 5).fill(0).map((item, index) => {
                     return <PopularRestaurantsSkeletonItem key={index}/>
                 })
             }

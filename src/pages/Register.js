@@ -96,7 +96,7 @@ function Register() {
     <div className='position-absolute top-0 bottom-0 end-0 start-0 bg-white bg-center bg-cover bg-norepeat' style={{backgroundImage:`url(${Background})`}}>
         <div className='position-relative h-100 '>
             <div className='position-absolute top-50 w-100 translate-middle-y'>
-                <div className='col-md-4 col-10 m-auto p-3 pb-4 rounded border' style={{backgroundColor:"rgba(255,255,255,.9)"}}>
+                <div className='col-md-4 col-lg-3 col-10 m-auto p-3 pb-4 rounded border' style={{backgroundColor:"rgba(255,255,255,.9)"}}>
                     <h3 className='color-secondary text-center'>Register Form</h3>
                     <div hidden={!errors.requestErr} className="mt-3">
                         <Alert severity="error">{errors.requestErr}</Alert>
@@ -210,6 +210,9 @@ function Register() {
                     </div>
                     <div className='text-center mt-4'>
                         <span>Already have an account?</span> <Link to="/login" className='fw-bold color-d80f65'>Sign in</Link>
+                    </div>
+                    <div className='text-center mt-4'>
+                        <Link to="/" className='fw-bold color-6a fs-0d8'>See pages without an account</Link>
                     </div>
                 </div>
             </div>

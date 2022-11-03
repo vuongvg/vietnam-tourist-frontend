@@ -8,7 +8,7 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 function PopularRestaurants () {
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
   useEffect(() => { 
@@ -47,7 +47,7 @@ function PopularRestaurants () {
           {
             !loading
               ?
-                <Skeleton />
+                <Skeleton number={4}/>
               :
                 data.length > 0
                   && 
