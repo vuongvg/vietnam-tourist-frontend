@@ -37,7 +37,7 @@ function SideBar ({idExclude}) {
         <div className="col-12 col-md-3 text-start">
             <div className="mb-4">
                 <div className="ps-2" style={{borderLeft:'5px solid #f85a59'}}>
-                    <h4>Bài viết nổi bật</h4>
+                    <h4>Most View Posts</h4>
                 </div>
             </div>
             {

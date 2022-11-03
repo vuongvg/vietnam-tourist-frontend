@@ -14,8 +14,6 @@ function DetailContent ({ detailType, idPost }) {
         slidesToShow: 1,
         slidesToScroll: 1,
         pauseOnHover: true,
-        nextArrow: () => (<span>...</span>),
-        prevArrow: () => (<span>...</span>),
         responsive: [
           {
             breakpoint: 1024,
@@ -55,9 +53,10 @@ function DetailContent ({ detailType, idPost }) {
         )
         .then((res) => {
             if (res.status === 200) {
+                console.log(res.data);
                 setLoading(true);
-                if (res.data.album)
-                    res.data.album = [res.data.avatar.src, ...res.data.album];
+                if (!res.data.album) res.data.album = [];
+                res.data.album = [res.data.avatar, ...res.data.album];
                 setContent(res.data);
             } else {
                 

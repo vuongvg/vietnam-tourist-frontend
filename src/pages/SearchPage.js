@@ -43,9 +43,10 @@ function SearchPage () {
                     }
                 })
                 .then((res) => {
+                    console.log(res);
                     if (res.status === 200) {
                         setLoading(true);
-                        setData(res.data.data);
+                        setData(res.data);
                         setPageCount(res.headers['x-total-page']);
                     } else {
                         
@@ -115,7 +116,7 @@ function SearchPage () {
                                         :
                                             <div className='text-center w-100'>
                                                 <img className='w-50 m-auto mb-4' src={NoDataMatchedImg} />
-                                                <h3 className='color-6a'>Không tìm thấy kết quả phù hợp</h3>
+                                                <h3 className='color-6a'>No matching results were found</h3>
                                             </div>
                         }
                     </div>

@@ -3,7 +3,7 @@ import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material/';
-import FeaturedDestinationItem from "./FeaturedDestinationItem";
+import FeaturedDestinationItem from "../ShareComponents/FeaturedDestinationItem";
 import FeaturedDestinationsSkeleton from "../Skeleton/DestinationsSkeleton";
 import request from "../../api";
 import { useState, useEffect } from "react";
@@ -47,8 +47,8 @@ function FeaturedDestination () {
     slidesToShow: 4,
     slidesToScroll: 1,
     pauseOnHover: true,
-    nextArrow: <SlickArrowLeft/>,
-    prevArrow: <SlickArrowRight/>,
+    nextArrow: <SlickArrowRight/>,
+    prevArrow: <SlickArrowLeft/>,
     responsive: [
       {
         breakpoint: 1024,

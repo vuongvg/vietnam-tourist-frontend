@@ -76,8 +76,7 @@ function HotelList () {
                 :
                   <div className='text-center w-100'>
                     <img className='w-50 m-auto mb-4' src={NoDataMatchedImg} />
-                    <h3 className='color-6a'>Không tìm thấy địa điểm</h3>
-                    <h3 className='color-6a'>phù hợp với yêu cầu</h3>
+                    <h3 className='color-6a'>No matching location were found</h3>
                   </div>
         }
       </div>

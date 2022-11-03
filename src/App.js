@@ -54,7 +54,11 @@ function App() {
                <Route path="location/:id" element={<Detail />}/>
             </Route>
          </Routes>
-         <Footer />
+         {
+            (pathname !== "/login" && pathname !== "/register")
+               &&
+                  <Footer />
+         }
       </div>
    );
 }
