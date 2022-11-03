@@ -155,7 +155,7 @@ function LoginPage() {
                      </Link>
                   </div>
                   <div className="text-center mt-4">
-                     <Link to="/register" className="fw-bold color-6a fs-0d8">
+                     <Link to="/" className="fw-bold color-6a fs-0d8">
                         See pages without an account
                      </Link>
                   </div>
