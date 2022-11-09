@@ -15,7 +15,7 @@ function Detail () {
           <DetailContent detailType={urlPath[2]} idPost={urlPath[3]}/>
         </div>
         {
-          urlPath[2] !== "hotel" && urlPath[2] !== "hotel"
+          urlPath[2] !== "hotel" && urlPath[2] !== "restaurant"
             ?
               <SideBarBlog/>
             :

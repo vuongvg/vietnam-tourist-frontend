@@ -6,8 +6,6 @@ import { convertDateForm } from "../../utils";
 import CommentBox from "../../component/DetailBlog/CommentBox";
 
 function DetailContent ({idPost}) {
-  console.log(idPost);
-
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
 
