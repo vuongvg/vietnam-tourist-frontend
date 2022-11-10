@@ -5,25 +5,26 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { convertDateForm } from "../../utils";
 import CommentBox from "../../component/DetailBlog/CommentBox";
 
-function DetailContent ({idPost}) {
+function DetailContent({ idPost }) {
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-      request.get(
-        `/blog/${idPost}`
-      )
+    request.get(
+      `/blog/${idPost}`
+    )
       .then((res) => {
-        console.log(res);
-          if (res.status === 200) {
-            setLoading(true);
-            setContent(res.data);
-        } else {
-            
+        if (res.status === 200)
+        {
+          setLoading(true);
+          setContent(res.data);
+        } else
+        {
+
         }
       })
       .catch(() => {
-          console.log("request failed");
+        console.log("request failed");
       })
   }, []);
 
@@ -32,23 +33,23 @@ function DetailContent ({idPost}) {
       {
         !loading
           ?
-            <Skeleton/>
+          <Skeleton />
           :
-            content 
-              &&
-              <>
-                <div className="ratio  ratio-21x9 bg-center bg-cover bg-norepeat mb-4" style={{backgroundImage:`url(${content.avatar?.src})`}}></div>
-                <h2>{content.title}</h2>
-                <div className="d-flex align-items-center mb-3 mt-3 text-secondary">
-                  <AccessTimeIcon fontSize="small"/>
-                  <div className="ms-2">{convertDateForm(content.updatedAt)}</div>
-                </div>
-                <div>{content.description}</div>
-                <div className="product-content mt-3" dangerouslySetInnerHTML={{__html: content.content}}></div>
-                <div className="mt-3">
-                  <CommentBox />
-                </div>
-              </>
+          content
+          &&
+          <>
+            <div className="ratio  ratio-21x9 bg-center bg-cover bg-norepeat mb-4" style={{ backgroundImage: `url(${content.avatar?.src})` }}></div>
+            <h2>{content.title}</h2>
+            <div className="d-flex align-items-center mb-3 mt-3 text-secondary">
+              <AccessTimeIcon fontSize="small" />
+              <div className="ms-2">{convertDateForm(content.updatedAt)}</div>
+            </div>
+            <div>{content.description}</div>
+            <div className="product-content mt-3" dangerouslySetInnerHTML={{ __html: content.content }}></div>
+            <div className="mt-3">
+              <CommentBox idPost={idPost}/>
+            </div>
+          </>
       }
     </div>
   )
