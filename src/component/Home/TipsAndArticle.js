@@ -8,7 +8,7 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 function TipsAndArticle () {
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
   useEffect(() => { 

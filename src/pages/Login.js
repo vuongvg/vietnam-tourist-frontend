@@ -9,6 +9,7 @@ import Background from "../images/loginbackground.jpg";
 import { getToken } from "../utils";
 
 function LoginPage() {
+   // return <div style={{height:"1000px",background:''}}>s</div>
    const navigate = useNavigate();
 
    const [values, setValues] = useState({
@@ -79,7 +80,7 @@ function LoginPage() {
       >
          <div className="position-relative h-100 ">
             <div className="position-absolute top-50 w-100 translate-middle-y">
-               <div className="col-md-4 col-10 m-auto p-3 pb-4 rounded border" style={{ backgroundColor: "rgba(255,255,255,.8)" }}>
+               <div className="col-md-4 col-lg-3 col-10 m-auto p-3 pb-4 rounded border" style={{ backgroundColor: "rgba(255,255,255,.8)" }}>
                   <h3 className="color-secondary text-center">Login Form</h3>
                   <div hidden={!errors.requestErr} className="mt-3">
                      <Alert severity="error">{errors.requestErr}</Alert>
@@ -151,6 +152,11 @@ function LoginPage() {
                      <span>Don't have an account?</span>{" "}
                      <Link to="/register" className="fw-bold color-d80f65">
                         Sign up
+                     </Link>
+                  </div>
+                  <div className="text-center mt-4">
+                     <Link to="/" className="fw-bold color-6a fs-0d8">
+                        See pages without an account
                      </Link>
                   </div>
                </div>

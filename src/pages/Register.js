@@ -192,6 +192,11 @@ function Register() {
                         Sign in
                      </Link>
                   </div>
+                  <div className="text-center mt-4">
+                     <Link to="/" className="fw-bold color-6a fs-0d8">
+                        See pages without an account
+                     </Link>
+                  </div>
                </div>
             </div>
          </div>
